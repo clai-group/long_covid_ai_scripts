@@ -26,10 +26,10 @@ pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,
 
 
 ##request parameters:
-mode <- "interactive"
-inputParameterSet = FALSE
-if(!inputParameterSet) {
-  
+mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
+cores_buffer <- 5 # choose the number of cores to free up make sure not to overload your computer!
+
+
   ##utils::choose.dir is a windows functionality use tk on other systems
   choose_directory = function(caption = 'Select directory') {
     if (exists('utils::choose.dir')) {
@@ -39,47 +39,48 @@ if(!inputParameterSet) {
     }
   }
   
-  if(mode == "interactive"){
+
+  
     # cov_pat incident level data
-    cov_pat_incident_FileName <- file.choose()
-    dbmartCases_FileName <-   file.choose()
-    outputDirectory <- choose_directory(caption = "select output data directory")
-    dbmartControlls_FileName <-   file.choose()
-  }else{
-    ###### NON-INTERACTIVE MODE ### CHANGE THIS VARIABLES TO THE CORRECT PATH
-    cov_pat_incident_FileName <- "set Path"
-    dbmartCases_FileName <-   "setPath"
-    dbmartControlls_FileName <-   "setPath"
-    outputDirectory <- "select output data directory"
-  }
-  numOfChunksFileName <- paste0(outputDirectory,"num_of_case_chunks.RData")
+    cov_pat_incident_FileName <- file.choose() ##the cov_pats.RData file
+    dbmartCases_FileName <-   file.choose() ##CCSR-mapped cases
+    outputDirectory <- choose_directory(caption = "select output data directory") ## where outputs are saved
+    # dbmartControlls_FileName <-   file.choose()
+
+    #   ###### NON-INTERACTIVE MODE ### CHANGE THIS VARIABLES TO THE CORRECT PATH
+    # cov_pat_incident_FileName <- "set Path"
+    # dbmartCases_FileName <-   "setPath"
+    # dbmartControlls_FileName <-   "setPath"
+    # outputDirectory <- "select output data directory"
+
+  numOfChunksFileName <- paste0(outputDirectory,"/num_of_case_chunks.RData")
   phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
   apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
-  jBaseFileName <- paste0(outputDirectory,"/J_chunks/J_chunk_") # file name will be completed in loop with
-  corrsBaseFileName <-  paste0(outputDirectory, "corrs_chunk_")
-  dbBaseFileName <- paste0(outputDirectory, "db_longhauler_chunk_")
+  jBaseFileName <- paste0(outputDirectory,"/J_chunk_") # file name will be completed in loop with
+  corrsBaseFileName <-  paste0(outputDirectory, "/corrs_chunk_")
+  dbBaseFileName <- paste0(outputDirectory, "/db_longhauler_chunk_")
   resultsFileName <- paste0(outputDirectory, "/point5_ccsr_mod_longCOVID.csv")
-  inputParameterSet <- TRUE
-}
 
 
 
 ####load the cases data
-dbmart_cases_map_ccsr <- read_csv(dbmartCases_FileName)
+dbmart_cases_map_ccsr <- data.table::fread(dbmartCases_FileName)
 ##load the cov_pat incident level data
 load(cov_pat_incident_FileName)
-colnames(dbmart_cases_map_ccsr)[13] <- "phenx"
-dbmart_cases_map_ccsr <- subset(dbmart_cases_map_ccsr,!(dbmart_cases_map_ccsr$type %in% c("unrelated") | is.na(dbmart_cases_map_ccsr$type)))
+dbmart_cases_map_ccsr <- subset(dbmart_cases_map_ccsr,is.na(dbmart_cases_map_ccsr$relevance))
 
 length(unique(dbmart_cases_map_ccsr$phenx))
 
-dbmart <- dplyr::select(dbmart_cases_map_ccsr,PATIENT_NUM,START_DATE,phenx)
+colnames(dbmart_cases_map_ccsr) <- tolower(colnames(dbmart_cases_map_ccsr))
+colnames(cov_pats) <- tolower(colnames(cov_pats))
+
+
+dbmart <- dplyr::select(dbmart_cases_map_ccsr,patient_num,start_date,phenx)
 rm(dbmart_cases_map_ccsr);gc()
 
-
+cov_pats <- subset(cov_pats,cov_pats$infection_seq <= 7)
 cov_pats$phenx <- paste0("COVID",cov_pats$infection_seq)
-dbmart <- rbind(dbmart,dplyr::select(cov_pats,PATIENT_NUM,START_DATE,phenx))
-colnames(dbmart) <- c("patient_num","start_date","phenx")
+dbmart <- rbind(dbmart,dplyr::select(cov_pats,patient_num,start_date,phenx))
 
 dbmart <- dplyr::distinct(dbmart, .keep_all = TRUE)
 
@@ -88,14 +89,9 @@ db <- tSPMPlus::transformDbMartToNumeric(dbmart)
 phenxlookup <- db$phenxLookUp
 save(phenxlookup,file=phenxlookup_FileName)
 
-# db$phenxLookUp <- phenxlookup
-###here we overwrite db$phenxLookUp
-
-
 ### define sequencing parameters
-#dbmart_num <- db$dbMart
-sparsity = 0.005
-numOfThreads = detectCores()
+sparsity = 0.001
+numOfThreads = detectCores()-cores_buffer
 
 phenxOfInterest = c(as.numeric(db$phenxLookUp[(db$phenxLookUp$phenx %like% "COVID"),"num_Phenx"]$num_Phenx)) #TODO look up id for covid phenx in db$phenxLookUp
 temporalBucket =  c(0,1,3)
@@ -106,12 +102,13 @@ storeSequencesDuringCreation = FALSE #if true, old way -> writing out "plain" sp
 
 
 ### adaptive chunk sizes
-buffer<- 100000000 #extra buffer in bytes find good value *a higher value here decrease the chunk size, but left more memory to work with after the sequencing, the chunk size is calculated on the memory consumption of the non-sparse sequences, reduce buffer 
+buffer<- 100000000*mem_buffer #extra buffer in bytes find good value *a higher value here decrease the chunk size, but left more memory to work with after the sequencing, the chunk size is calculated on the memory consumption of the non-sparse sequences, reduce buffer 
 dbmart_adapt <- tSPMPlus::splitdbMartInChunks(db$dbMart, includeCorSeq = TRUE, buffer = buffer)
-numOfChunks_J = length(dbmart_adapt$chunks)
+numOfChunks = length(dbmart_adapt$chunks)
 
 save(numOfChunks,file=numOfChunksFileName)
-save(dbmart_adapt, apdativeDbFilenName )
+save(dbmart_adapt, file=apdativeDbFilenName )
+J_loop <- list()
 for (i in seq(1:numOfChunks_J)) {
   tryCatch({
   dbmart_num <- dbmart_adapt$chunks[[i]]
@@ -263,9 +260,8 @@ for (i in seq(1:numOfChunks_J)) {
   
   J <- data.table::rbindlist(J_low)
   J <- dplyr::distinct(dplyr::select(J,endPhenx,phenx), .keep_all = TRUE)
-  
-  # J <- dplyr::distinct(dplyr::select(J,endPhenx), .keep_all = TRUE)
-  
+  J_loop[[i]] <- J
+
   jFileName <- paste0(jBaseFileName, i, ".RData")
   save(J,file=jFileName)
   rm(j,jFileName, infections, corseq_sub)
@@ -275,4 +271,6 @@ for (i in seq(1:numOfChunks_J)) {
   error = function(foll) {cat("ERROR in chunk ",i, ": ", conditionMessage(foll), "\n")})
 }
   
-
+J <- data.table::rbindlist(J_loop)
+J <- dplyr::distinct(J, .keep_all = TRUE)
+save(J,file=paste0(outputDirectory,"/J.RData"))
