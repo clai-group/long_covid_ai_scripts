@@ -26,20 +26,61 @@ require(DT)
 pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,scales,readr,RcppParallel,
                httr, DT, lubridate, tidyverse,reshape2,foreach,doParallel,caret,gbm,lubridate,praznik,epitools)
 
+
+
+##request parameters:
+mode <- "interactive"
+inputParameterSet = FALSE
+if(!inputParameterSet) {
+  
+  ##utils::choose.dir is a windows functionality use tk on other systems
+  choose_directory = function(caption = 'Select directory') {
+    if (exists('utils::choose.dir')) {
+      choose.dir(caption = caption) 
+    } else {
+      tcltk::tk_choose.dir(caption = caption)
+    }
+  }
+  
+  if(mode == "interactive"){
+    # cov_pat incident level data
+    cov_pat_incident_FileName <- file.choose()
+    dbmartCases_FileName <-   file.choose()
+    outputDirectory <- choose_directory(caption = "select output data directory")
+    dbmartControlls_FileName <-   file.choose()
+  }else{
+    ###### NON-INTERACTIVE MODE ### CHANGE THIS VARIABLES TO THE CORRECT PATH
+    cov_pat_incident_FileName <- "set Path"
+    dbmartCases_FileName <-   "setPath"
+    dbmartControlls_FileName <-   "setPath"
+    outputDirectory <- "select output data directory"
+  }
+  numOfChunksFileName <- paste0(outputDirectory,"num_of_case_chunks.RData")
+  phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
+  apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
+  jBaseFileName <- paste0(outputDirectory,"/J_chunks/J_chunk_") # file name will be completed in loop with
+  corrsBaseFileName <-  paste0(outputDirectory, "corrs_chunk_")
+  dbBaseFileName <- paste0(outputDirectory, "db_longhauler_chunk_")
+  resultsFileName <- paste0(outputDirectory, "/point5_ccsr_mod_longCOVID.csv")
+  inputParameterSet <- TRUE
+}
+
+
+
 #setup parallel backend to use many processors
 cores<-detectCores()
 cl <- parallel::makeCluster(3) #not to overload your computer
 doParallel::registerDoParallel(cl)
 
 ####load the cases data
-dbmart_cases_map_ccsr <- read_csv("P:/PASC/data/dbmart_cases_map_ccsr_modified.csv")
-dbmart_control_map_ccsr <- read_csv("P:/PASC/data/dbmart_control_map_ccsr_modified.csv")
+dbmart_cases_map_ccsr <- read_csv(dbmartCases_FileName)
+dbmart_control_map_ccsr <- read_csv(dbmartControlls_FileName)
 dbmart_cases_map_ccsr <- rbind(dbmart_cases_map_ccsr,dbmart_control_map_ccsr)
 rm(dbmart_control_map_ccsr)
 dbmart_cases_map_ccsr <- subset(dbmart_cases_map_ccsr,!(dbmart_cases_map_ccsr$type %in% c("unrelated") | is.na(dbmart_cases_map_ccsr$type)))
 
 ##load the cov_pat incident level data
-load("P:/PASC/data/cov_pats.RData")
+load(cov_pat_incident_FileName)
 
 colnames(dbmart_cases_map_ccsr)[13] <- "phenx"
 
@@ -53,7 +94,7 @@ cov_pats$phenx <- paste0("COVID",cov_pats$infection_seq)
 dbmart <- rbind(dbmart,dplyr::select(cov_pats,PATIENT_NUM,START_DATE,phenx))
 colnames(dbmart) <- c("patient_num","start_date","phenx")
 
-load("P:/PASC/data/phenxlookup.RData")
+load(phenxlookup_FileName)
 
 ### we need to make sure that the data elements
 
@@ -62,14 +103,8 @@ db <- tSPMPlus::transformDbMartToNumeric(dbmart)
 
 ##moved loading Js
 #load number of chunks 
-load(file="P:/PASC/data/numOfChunks_J.RData")
-load(file="P:/PASC/data/numOfChunks_1.RData")
-
-
-
-
-# phenxlookup <- db$phenxLookUp
-# save(phenxlookup,file="P:/PASC/data/phenxlookup.RData")
+load(file=numOfChunksFileName)
+load(file=paste0(jBaseFileName,"1.RData"))
 
 
 ######################################
@@ -93,6 +128,18 @@ bitShift = 0 #techical parameter, ignore for now
 lengthOfPhenx = 7 #techical parameter
 storeSequencesDuringCreation = FALSE #if true, old way -> writing out "plain" sparse sequences in patient based files, FALSE-> do in memory sparsity
 
+##currently buggy, use old version!
+# corseq <- tSPMPlus::getSequencesWithEndPhenx(dbmart_num,
+#                                              bitShift,
+#                                              lengthOfPhenx,
+#                                              temporalBucket,
+#                                              endPhenx,
+#                                              includeCorBuckets = TRUE,
+#                                              minDuration,
+#                                              storeSequencesDuringCreation,
+#                                              numOfThreads = numOfThreads,
+#                                              sparsityValue = sparsity,
+#                                              returnSummary = TRUE)
 
 ##old version!
 ###get all the sequences that end with
@@ -115,19 +162,7 @@ gc()
 corseq <- corseq %>%
   dplyr::group_by(patient_num,sequence,endPhenx,durationBucket) %>%
   dplyr::summarise(count=length((patient_num)))
-
-##currently buggy, use old version!
-# corseq <- tSPMPlus::getSequencesWithEndPhenx(dbmart_num,
-#                                              bitShift,
-#                                              lengthOfPhenx,
-#                                              temporalBucket,
-#                                              endPhenx,
-#                                              includeCorBuckets = TRUE,
-#                                              minDuration,
-#                                              storeSequencesDuringCreation,
-#                                              numOfThreads = numOfThreads,
-#                                              sparsityValue = sparsity,
-#                                              returnSummary = TRUE)
+##end old version
 
 corseq$value.var <- 1
 
@@ -144,7 +179,7 @@ for (i in seq(1:numOfChunks_J)) {
   gc()
   tryCatch({
     ##load Js
-    jFileName = paste0("P:/PASC/data/J_chunk_", i, ".RData")
+    jFileName <- paste0(jBaseFileName, i, ".RData")
     load(file=jFileName)
     end <- c(unique(J$endPhenx))
 
@@ -200,8 +235,7 @@ for (i in seq(1:numOfChunks_J)) {
     corrs$sequence <- ifelse(corrs$endPhenx <1000 & corrs$endPhenx >99 ,paste0(corrs$startPhen,"0000",corrs$endPhenx),corrs$sequence)
     
     corrs$sequence <- as.numeric(corrs$sequence)
-    
-    corrsFileName <- paste0("P:/PASC/data/corrs_chunk_", i, ".RData")
+    corrsFileName <- paste0(corrsBaseFileName, i, ".RData")
     save(corrs,file=corrsFileName)
     rm(corrs, end)
     gc()

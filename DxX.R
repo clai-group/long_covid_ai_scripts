@@ -21,43 +21,82 @@ require(DT)
 pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,scales,readr,RcppParallel,
                httr, DT, lubridate, tidyverse,reshape2,foreach,doParallel,caret,gbm,lubridate,praznik,epitools)
 
+##request parameters:
+mode <- "interactive"
+inputParameterSet = FALSE
+if(!inputParameterSet) {
+  
+  ##utils::choose.dir is a windows functionality use tk on other systems
+  choose_directory = function(caption = 'Select directory') {
+    if (exists('utils::choose.dir')) {
+      choose.dir(caption = caption) 
+    } else {
+      tcltk::tk_choose.dir(caption = caption)
+    }
+  }
+  
+  if(mode == "interactive"){
+    # cov_pat incident level data
+    cov_pat_incident_FileName <- file.choose()
+    dbmartCases_FileName <-   file.choose()
+    outputDirectory <- choose_directory(caption = "select output data directory")
+    dbmartControlls_FileName <-   file.choose()
+  }else{
+    ###### NON-INTERACTIVE MODE ### CHANGE THIS VARIABLES TO THE CORRECT PATH
+    cov_pat_incident_FileName <- "set Path"
+    dbmartCases_FileName <-   "setPath"
+    dbmartControlls_FileName <-   "setPath"
+    outputDirectory <- "select output data directory"
+  }
+  numOfChunksFileName <- paste0(outputDirectory,"num_of_case_chunks.RData")
+  phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
+  apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
+  jBaseFileName <- paste0(outputDirectory,"/J_chunks/J_chunk_") # file name will be completed in loop with
+  corrsBaseFileName <-  paste0(outputDirectory, "corrs_chunk_")
+  dbBaseFileName <- paste0(outputDirectory, "db_longhauler_chunk_")
+  resultsFileName <- paste0(outputDirectory, "/point5_ccsr_mod_longCOVID.csv")
+  inputParameterSet <- TRUE
+}
+
+
 ####load the cases data
-dbmart_cases_map_ccsr <- read_csv("P:/PASC/data/dbmart_cases_map_ccsr_modified.csv")
-##load the cov_pat incident level data
-load("P:/PASC/data/cov_pats.RData")
-colnames(dbmart_cases_map_ccsr)[13] <- "phenx"
-dbmart_cases_map_ccsr <- subset(dbmart_cases_map_ccsr,!(dbmart_cases_map_ccsr$type %in% c("unrelated") | is.na(dbmart_cases_map_ccsr$type)))
+# dbmart_cases_map_ccsr <- read_csv(dbmartCases_FileName)
+# ##load the cov_pat incident level data
+# load("P:/PASC/data/cov_pats.RData")
+# colnames(dbmart_cases_map_ccsr)[13] <- "phenx"
+# dbmart_cases_map_ccsr <- subset(dbmart_cases_map_ccsr,!(dbmart_cases_map_ccsr$type %in% c("unrelated") | is.na(dbmart_cases_map_ccsr$type)))
+# 
+# length(unique(dbmart_cases_map_ccsr$phenx))
+# 
+# dbmart <- dplyr::select(dbmart_cases_map_ccsr,PATIENT_NUM,START_DATE,phenx)
+# rm(dbmart_cases_map_ccsr);gc()
+# 
+# cov_pats$phenx <- paste0("COVID",cov_pats$infection_seq)
+# dbmart <- rbind(dbmart,dplyr::select(cov_pats,PATIENT_NUM,START_DATE,phenx))
+# colnames(dbmart) <- c("patient_num","start_date","phenx")
+# 
+# dbmart <- dplyr::distinct(dbmart, .keep_all = TRUE)
+# 
+# db <- tSPMPlus::transformDbMartToNumeric(dbmart)
+# dbmart_num <- db$dbMart
 
-length(unique(dbmart_cases_map_ccsr$phenx))
 
-dbmart <- dplyr::select(dbmart_cases_map_ccsr,PATIENT_NUM,START_DATE,phenx)
-rm(dbmart_cases_map_ccsr);gc()
-
-cov_pats$phenx <- paste0("COVID",cov_pats$infection_seq)
-dbmart <- rbind(dbmart,dplyr::select(cov_pats,PATIENT_NUM,START_DATE,phenx))
-colnames(dbmart) <- c("patient_num","start_date","phenx")
-
-dbmart <- dplyr::distinct(dbmart, .keep_all = TRUE)
-
-db <- tSPMPlus::transformDbMartToNumeric(dbmart)
-dbmart_num <- db$dbMart
-outDir <- "PATH/TO/OUT/DIR"
-patientFilePrefix = "Dx2"
 sparsity = 0.005
 numOfThreads = detectCores()
 
 ##load Js and correlations
-# load("P:/PASC/data/J.RData")
-# load("P:/PASC/data/corrs.RData")
-load("P:/PASC/data/phenxlookup.RData")
-load("P:/PASC/data/chunks.RData")
+load(phenxlookup_FileName)
+load(numOfChunksFileName)
+load(apdativeDbFilenName)
 
 for(i in seq(1:numOfChunks_J)){
-  #TODO load Js and corrs
-  jFileName = paste0("P:/PASC/data/J_chunk_", i, ".RData")
+  
+  jFileName = paste0(jBaseFileName, i, ".RData")
   load(file=jFileName)
-  corrsFileName <- paste0("P:/PASC/data/corrs_chunk_", i, ".RData")
+  corrsFileName <- paste0(corrsBaseFileName, i, ".RData")
   load(file=corrsFileName)
+  dbmart_num <- dbmart_adapt$chunks[[i]]
+  
   gc()
   ###covid codes
   cov_cods <- c(subset(phenxlookup$num_Phenx,phenxlookup$phenx %like% "COVID")) 
@@ -298,8 +337,8 @@ for(i in seq(1:numOfChunks_J)){
   J$update <- ifelse(J$endPhenx %in% J_updated,1,0)
   
   #TODO: save Js from chunks
-  dbFileName = paste0("P:/PASC/data/db_longhauler_chunk_", i, ".RData")
-  save(db_longhaulers,dbFileName)
+  dbFileName = paste0(dbBaseFileName, i, ".RData")
+  save(db_longhaulers,file = dbFileName)
   #jFileName = paste0("P:/PASC/data/J_notExcluded_chunk_", i, ".RData")
   #save(J, file=jFileName)
   rm(J,J_updated, db_longhaulers,Js, corseq,exlusion_corrs,XJ,JJ3)
@@ -310,7 +349,7 @@ for(i in seq(1:numOfChunks_J)){
 #load chunks and merge
 
 for(i in seq(1:numOfChunks_J)){
-  dbFileName = paste0("P:/PASC/data/db_longhauler_chunk_", i, ".RData")
+  dbFileName = paste0(dbBaseFileName, i, ".RData")
   #jFileName = paste0("P:/PASC/data/J_notExcluded_chunk_", i, ".RData")
   
   if(i == 1){
@@ -326,4 +365,4 @@ for(i in seq(1:numOfChunks_J)){
 ###get descriptive statistics
 length(unique(db_longhaulers$patient_num))
 long_COVID <- data.frame(table(db_longhaulers$phenx))
-write.csv(long_COVID_poin5,file="P:/PASC/outputs/point5_ccsr_mod_longCOVID.csv")
+write.csv(long_COVID_poin5,file=resultsFileName)
