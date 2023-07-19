@@ -56,7 +56,8 @@ cores_buffer <- 5 # choose the number of cores to free up make sure not to overl
   numOfChunksFileName <- paste0(outputDirectory,"/num_of_case_chunks.RData")
   phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
   apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
-  jBaseFileName <- paste0(outputDirectory,"/J_chunk_") # file name will be completed in loop with
+  #base file names will be completed in the loop
+  jBaseFileName <- paste0(outputDirectory,"/J_chunk_")
   corrsBaseFileName <-  paste0(outputDirectory, "/corrs_chunk_")
   dbBaseFileName <- paste0(outputDirectory, "/db_longhauler_chunk_")
   resultsFileName <- paste0(outputDirectory, "/point5_ccsr_mod_longCOVID.csv")

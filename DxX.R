@@ -19,7 +19,7 @@ require(tidyr)
 require(mlho)
 require(DT)
 pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,scales,readr,RcppParallel,
-               httr, DT, lubridate, tidyverse,reshape2,foreach,doParallel,caret,gbm,lubridate,praznik,epitools)
+               httr, DT, lubridate, tidyverse,reshape2,foreach,doParallel,caret,gbm,lubridate,praznik,epitools,tcltk)
 
 ##request parameters:
 mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
@@ -52,7 +52,8 @@ outputDirectory
 numOfChunksFileName <- paste0(outputDirectory,"/num_of_case_chunks.RData")
 phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
 apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
-jBaseFileName <- paste0(outputDirectory,"/J_chunk_") # file name will be completed in loop with
+#base file names will be completed in the loop
+jBaseFileName <- paste0(outputDirectory,"/J_chunk_")
 corrsBaseFileName <-  paste0(outputDirectory, "/corrs_chunk_")
 dbBaseFileName <- paste0(outputDirectory, "/db_longhauler_chunk_")
 resultsFileName <- paste0(outputDirectory, "/point5_ccsr_mod_longCOVID.csv")
@@ -92,7 +93,7 @@ for(i in seq(1:numOfChunks)){
   
   endPhenx = c(J$endPhenx,cov_cods) #TODO look up id for covid phenx in db$phenxLookUp
   temporalBucket =  c(0,1,3)
-  minDuration = 1 #techical parameter, ignore for now
+  minDuration = 0 #techical parameter, ignore for now
   bitShift = 0 #techical parameter, ignore for now
   lengthOfPhenx = 7 #techical parameter
   storeSequencesDuringCreation = FALSE #if true, old way -> writing out "plain" sparse sequences in patient based files, FALSE-> do in memory sparsity
@@ -107,9 +108,7 @@ for(i in seq(1:numOfChunks)){
                                                minDuration,
                                                storeSequencesDuringCreation,
                                                numOfThreads = numOfThreads,
-                                               sparsityValue=sparsity)
-
-
+                                               sparsityValue = sparsity)
   corseq <- dplyr::distinct(corseq, .keep_all = TRUE)
   gc()
   

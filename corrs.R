@@ -24,7 +24,7 @@ require(tidyr)
 require(mlho)
 require(DT)
 pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,scales,readr,RcppParallel,
-               httr, DT, lubridate, tidyverse,reshape2,foreach,doParallel,caret,gbm,lubridate,praznik,epitools)
+               httr, DT, lubridate, tidyverse,reshape2,foreach,doParallel,caret,gbm,lubridate,praznik,epitools,tcltk)
 
 
 
@@ -61,7 +61,8 @@ outputDirectory
 numOfChunksFileName <- paste0(outputDirectory,"/num_of_case_chunks.RData")
 phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
 apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
-jBaseFileName <- paste0(outputDirectory,"/J_chunk_") # file name will be completed in loop with
+ #base file names will be completed in the loop
+jBaseFileName <- paste0(outputDirectory,"/J_chunk_")
 corrsBaseFileName <-  paste0(outputDirectory, "/corrs_chunk_")
 dbBaseFileName <- paste0(outputDirectory, "/db_longhauler_chunk_")
 resultsFileName <- paste0(outputDirectory, "/point5_ccsr_mod_longCOVID.csv")
