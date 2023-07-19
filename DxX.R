@@ -106,9 +106,10 @@ for(i in seq(1:numOfChunks)){
                                                includeCorBuckets=TRUE,
                                                minDuration,
                                                storeSequencesDuringCreation,
-                                               patientFilePrefix,
-                                               numOfThreads,
+                                               numOfThreads = numOfThreads,
                                                sparsityValue=sparsity)
+
+
   corseq <- dplyr::distinct(corseq, .keep_all = TRUE)
   gc()
   
