@@ -29,70 +29,76 @@ pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,
 
 
 ##request parameters:
-mode <- "interactive"
-inputParameterSet = FALSE
-if(!inputParameterSet) {
-  
-  ##utils::choose.dir is a windows functionality use tk on other systems
-  choose_directory = function(caption = 'Select directory') {
-    if (exists('utils::choose.dir')) {
-      choose.dir(caption = caption) 
-    } else {
-      tcltk::tk_choose.dir(caption = caption)
-    }
+mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
+cores_buffer <- 90 # choose the number of cores to free up make sure not to overload your computer!
+#### be extra cautious here to only select 4-5 cores
+
+##utils::choose.dir is a windows functionality use tk on other systems
+choose_directory = function(caption = 'Select directory') {
+  if (exists('utils::choose.dir')) {
+    choose.dir(caption = caption)
+  } else {
+    tcltk::tk_choose.dir(caption = caption)
   }
-  
-  if(mode == "interactive"){
-    # cov_pat incident level data
-    cov_pat_incident_FileName <- file.choose()
-    dbmartCases_FileName <-   file.choose()
-    outputDirectory <- choose_directory(caption = "select output data directory")
-    dbmartControlls_FileName <-   file.choose()
-  }else{
-    ###### NON-INTERACTIVE MODE ### CHANGE THIS VARIABLES TO THE CORRECT PATH
-    cov_pat_incident_FileName <- "set Path"
-    dbmartCases_FileName <-   "setPath"
-    dbmartControlls_FileName <-   "setPath"
-    outputDirectory <- "select output data directory"
-  }
-  numOfChunksFileName <- paste0(outputDirectory,"num_of_case_chunks.RData")
-  phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
-  apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
-  jBaseFileName <- paste0(outputDirectory,"/J_chunks/J_chunk_") # file name will be completed in loop with
-  corrsBaseFileName <-  paste0(outputDirectory, "corrs_chunk_")
-  dbBaseFileName <- paste0(outputDirectory, "db_longhauler_chunk_")
-  resultsFileName <- paste0(outputDirectory, "/point5_ccsr_mod_longCOVID.csv")
-  inputParameterSet <- TRUE
 }
+
+
+
+# cov_pat incident level data
+cov_pat_incident_FileName <- file.choose() ##the cov_pats.RData file
+dbmartCases_FileName <-   file.choose() ##CCSR-mapped cases
+dbmartControlls_pre_FileName <- file.choose() ##CCSR-mapped controls from pre_covid
+dbmartControlls_FileName <- file.choose() ##CCSR-mapped controls
+outputDirectory <- choose_directory(caption = "select output data directory") ## where outputs are saved
+outputDirectory
+
+#   ###### NON-INTERACTIVE MODE ### CHANGE THIS VARIABLES TO THE CORRECT PATH
+# cov_pat_incident_FileName <- "set Path"
+# dbmartCases_FileName <-   "setPath"
+# dbmartControlls_FileName <-   "setPath"
+# outputDirectory <- "select output data directory"
+
+numOfChunksFileName <- paste0(outputDirectory,"/num_of_case_chunks.RData")
+phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
+apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
+jBaseFileName <- paste0(outputDirectory,"/J_chunk_") # file name will be completed in loop with
+corrsBaseFileName <-  paste0(outputDirectory, "/corrs_chunk_")
+dbBaseFileName <- paste0(outputDirectory, "/db_longhauler_chunk_")
+resultsFileName <- paste0(outputDirectory, "/point5_ccsr_mod_longCOVID.csv")
+
 
 
 
 #setup parallel backend to use many processors
 cores<-detectCores()
-cl <- parallel::makeCluster(3) #not to overload your computer
+cl <- parallel::makeCluster(cores-cores_buffer)
 doParallel::registerDoParallel(cl)
 
 ####load the cases data
-dbmart_cases_map_ccsr <- read_csv(dbmartCases_FileName)
-dbmart_control_map_ccsr <- read_csv(dbmartControlls_FileName)
-dbmart_cases_map_ccsr <- rbind(dbmart_cases_map_ccsr,dbmart_control_map_ccsr)
-rm(dbmart_control_map_ccsr)
-dbmart_cases_map_ccsr <- subset(dbmart_cases_map_ccsr,!(dbmart_cases_map_ccsr$type %in% c("unrelated") | is.na(dbmart_cases_map_ccsr$type)))
+dbmart_cases_map_ccsr <- data.table::fread(dbmartCases_FileName)
+dbmart_controls_map_ccsr <- data.table::fread(dbmartControlls_FileName)
+dbmart_controls_pre_map_ccsr <- data.table::fread(dbmartControlls_pre_FileName)
 
-##load the cov_pat incident level data
+dbmart_cases_map_ccsr <- rbind(dbmart_cases_map_ccsr,dbmart_controls_map_ccsr,dbmart_controls_pre_map_ccsr)
+
+rm(dbmart_controls_map_ccsr,dbmart_controls_pre_map_ccsr);gc()
+
 load(cov_pat_incident_FileName)
-
-colnames(dbmart_cases_map_ccsr)[13] <- "phenx"
+dbmart_cases_map_ccsr <- subset(dbmart_cases_map_ccsr,is.na(dbmart_cases_map_ccsr$relevance))
 
 length(unique(dbmart_cases_map_ccsr$phenx))
 
-dbmart <- dplyr::select(dbmart_cases_map_ccsr,PATIENT_NUM,START_DATE,phenx)
+colnames(dbmart_cases_map_ccsr) <- tolower(colnames(dbmart_cases_map_ccsr))
+colnames(cov_pats) <- tolower(colnames(cov_pats))
+
+
+dbmart <- dplyr::select(dbmart_cases_map_ccsr,patient_num,start_date,phenx)
 rm(dbmart_cases_map_ccsr);gc()
 
-# cov_pats$phenx <- "COVID1"
+cov_pats <- subset(cov_pats,cov_pats$infection_seq <= 7)
 cov_pats$phenx <- paste0("COVID",cov_pats$infection_seq)
-dbmart <- rbind(dbmart,dplyr::select(cov_pats,PATIENT_NUM,START_DATE,phenx))
-colnames(dbmart) <- c("patient_num","start_date","phenx")
+dbmart <- rbind(dbmart,dplyr::select(cov_pats,patient_num,start_date,phenx))
+
 
 load(phenxlookup_FileName)
 
@@ -102,7 +108,7 @@ dbmart <- subset(dbmart,dbmart$phenx %in% phenxlookup$phenx)
 db <- tSPMPlus::transformDbMartToNumeric(dbmart)
 
 ##moved loading Js
-#load number of chunks 
+#load number of chunks
 load(file=numOfChunksFileName)
 load(file=paste0(jBaseFileName,"1.RData"))
 
@@ -112,13 +118,13 @@ load(file=paste0(jBaseFileName,"1.RData"))
 ## create adaptive chunks
 ######################################
 
-buffer<- 100000000 #extra buffer in bytes find good value *a higher value here decrease the chunk size, but left more memory to work with after the sequencing, the chunk size is calculated on the memory consumption of the non-sparse sequences, reduce buffer 
+buffer<- 100000000*mem_buffer #extra buffer in bytes find good value *a higher value here decrease the chunk size, but left more memory to work with after the sequencing, the chunk size is calculated on the memory consumption of the non-sparse sequences, reduce buffer
 dbmart_adapt <- tSPMPlus::splitdbMartInChunks(db$dbMart, includeCorSeq = TRUE, buffer = buffer)
 dbmart_num <- dbmart_adapt$chunks[[1]]
 
 #dbmart_num <- db$dbMart
-sparsity = 0.005
-numOfThreads = detectCores()
+sparsity = 0.001
+numOfThreads = detectCores()-cores_buffer
 
 
 endPhenx = c(J$endPhenx) #TODO look up id for covid phenx in db$phenxLookUp
@@ -175,7 +181,7 @@ wide.dat.start <- dcast.data.table(dat, patient_num ~ startPhen_dur, value.var="
 
 
 
-for (i in seq(1:numOfChunks_J)) {
+for (i in seq(1:numOfChunks)) {
   gc()
   tryCatch({
     ##load Js
@@ -186,7 +192,7 @@ for (i in seq(1:numOfChunks_J)) {
     #setup parallel backend to use many processors
     # PARALELIZING THE CORRELATION CALCULATIONS
     corrs <- foreach(j = 1:length(end),#
-                     .combine='rbind', 
+                     .combine='rbind',
                      .multicombine=TRUE,
                      .packages = c("data.table")) %dopar% {
                        tryCatch({
@@ -196,15 +202,15 @@ for (i in seq(1:numOfChunks_J)) {
                          wide.j <- merge(wide.dat.start,lab.j,by="patient_num",all.x = T)
                          wide.j[is.na(wide.j)] <- 0
                          wide.j$patient_num <- NULL
-                         
-                         
+
+
                          out <- apply(wide.j[, -("label")], 2, cor.test, wide.j$label, method="spearman")
                          p <- data.frame(sapply(out, "[[", "p.value"))
                          p$startPhen_dur <- rownames(p)
                          rownames(p) <- NULL
                          colnames(p)[1] <- "p.value"
-                         p$p.adjust <- p.adjust(p$p.value, method = "bonferroni", n = nrow(p))# consider "holm" or "hochberg"
-                         
+                         p$p.adjust <- p.adjust(p$p.value, method = "holm", n = nrow(p))# consider "holm" or "hochberg" or "bonferroni"
+
                          rho <- data.frame(sapply(out, "[[", "estimate"))
                          rho$startPhen_dur <- rownames(rho)
                          rownames(rho) <- NULL
@@ -213,27 +219,27 @@ for (i in seq(1:numOfChunks_J)) {
                          cor.j <- merge(rho,p,by="startPhen_dur")
                          cor.j$rho.abs <- abs(cor.j$rho)
                          cor.j$endPhenx <- end[j]
-                         
-                         
+
+
                          rm(rho,p);gc()
-                         
+
                          # write.csv(cor.j,file = paste0("P:/PASC/data/cors/",j,".csv"))
-                         
-                         
+
+
                          cor.j
-                         
+
                        },
                        error = function(foll) {cat("ERROR :",conditionMessage(foll), "\n")})
                      }
-    
-    
+
+
     corrs <- merge(corrs,db$phenxLookUp,by.x = "endPhenx",by.y ="num_Phenx" )
-    
+
     corrs$startPhen <- sub("\\-.*", "", corrs$startPhen_dur)
     corrs$sequence <- ifelse (corrs$endPhenx <10,paste0(corrs$startPhen,"000000",corrs$endPhenx),NA)
     corrs$sequence <- ifelse(corrs$endPhenx <100 & corrs$endPhenx >9 ,paste0(corrs$startPhen,"00000",corrs$endPhenx),corrs$sequence)
     corrs$sequence <- ifelse(corrs$endPhenx <1000 & corrs$endPhenx >99 ,paste0(corrs$startPhen,"0000",corrs$endPhenx),corrs$sequence)
-    
+
     corrs$sequence <- as.numeric(corrs$sequence)
     corrsFileName <- paste0(corrsBaseFileName, i, ".RData")
     save(corrs,file=corrsFileName)
@@ -241,7 +247,7 @@ for (i in seq(1:numOfChunks_J)) {
     gc()
   },
   error = function(foll) {cat("ERROR in chunk ",i, ": ", conditionMessage(foll), "\n")})
-  
+
 }
 
 

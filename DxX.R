@@ -22,74 +22,53 @@ pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,
                httr, DT, lubridate, tidyverse,reshape2,foreach,doParallel,caret,gbm,lubridate,praznik,epitools)
 
 ##request parameters:
-mode <- "interactive"
-inputParameterSet = FALSE
-if(!inputParameterSet) {
-  
-  ##utils::choose.dir is a windows functionality use tk on other systems
-  choose_directory = function(caption = 'Select directory') {
-    if (exists('utils::choose.dir')) {
-      choose.dir(caption = caption) 
-    } else {
-      tcltk::tk_choose.dir(caption = caption)
-    }
+mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
+cores_buffer <- 5 # choose the number of cores to free up make sure not to overload your computer!
+
+
+##utils::choose.dir is a windows functionality use tk on other systems
+choose_directory = function(caption = 'Select directory') {
+  if (exists('utils::choose.dir')) {
+    choose.dir(caption = caption) 
+  } else {
+    tcltk::tk_choose.dir(caption = caption)
   }
-  
-  if(mode == "interactive"){
-    # cov_pat incident level data
-    cov_pat_incident_FileName <- file.choose()
-    dbmartCases_FileName <-   file.choose()
-    outputDirectory <- choose_directory(caption = "select output data directory")
-    dbmartControlls_FileName <-   file.choose()
-  }else{
-    ###### NON-INTERACTIVE MODE ### CHANGE THIS VARIABLES TO THE CORRECT PATH
-    cov_pat_incident_FileName <- "set Path"
-    dbmartCases_FileName <-   "setPath"
-    dbmartControlls_FileName <-   "setPath"
-    outputDirectory <- "select output data directory"
-  }
-  numOfChunksFileName <- paste0(outputDirectory,"num_of_case_chunks.RData")
-  phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
-  apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
-  jBaseFileName <- paste0(outputDirectory,"/J_chunks/J_chunk_") # file name will be completed in loop with
-  corrsBaseFileName <-  paste0(outputDirectory, "corrs_chunk_")
-  dbBaseFileName <- paste0(outputDirectory, "db_longhauler_chunk_")
-  resultsFileName <- paste0(outputDirectory, "/point5_ccsr_mod_longCOVID.csv")
-  inputParameterSet <- TRUE
 }
 
 
-####load the cases data
-# dbmart_cases_map_ccsr <- read_csv(dbmartCases_FileName)
-# ##load the cov_pat incident level data
-# load("P:/PASC/data/cov_pats.RData")
-# colnames(dbmart_cases_map_ccsr)[13] <- "phenx"
-# dbmart_cases_map_ccsr <- subset(dbmart_cases_map_ccsr,!(dbmart_cases_map_ccsr$type %in% c("unrelated") | is.na(dbmart_cases_map_ccsr$type)))
-# 
-# length(unique(dbmart_cases_map_ccsr$phenx))
-# 
-# dbmart <- dplyr::select(dbmart_cases_map_ccsr,PATIENT_NUM,START_DATE,phenx)
-# rm(dbmart_cases_map_ccsr);gc()
-# 
-# cov_pats$phenx <- paste0("COVID",cov_pats$infection_seq)
-# dbmart <- rbind(dbmart,dplyr::select(cov_pats,PATIENT_NUM,START_DATE,phenx))
-# colnames(dbmart) <- c("patient_num","start_date","phenx")
-# 
-# dbmart <- dplyr::distinct(dbmart, .keep_all = TRUE)
-# 
-# db <- tSPMPlus::transformDbMartToNumeric(dbmart)
-# dbmart_num <- db$dbMart
+
+# cov_pat incident level data
+cov_pat_incident_FileName <- file.choose() ##the cov_pats.RData file
+dbmartCases_FileName <-   file.choose() ##CCSR-mapped cases
+outputDirectory <- choose_directory(caption = "select output data directory") ## where outputs are saved
+outputDirectory
+
+#   ###### NON-INTERACTIVE MODE ### CHANGE THIS VARIABLES TO THE CORRECT PATH
+# cov_pat_incident_FileName <- "set Path"
+# dbmartCases_FileName <-   "setPath"
+# dbmartControlls_FileName <-   "setPath"
+# outputDirectory <- "select output data directory"
+
+numOfChunksFileName <- paste0(outputDirectory,"/num_of_case_chunks.RData")
+phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
+apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
+jBaseFileName <- paste0(outputDirectory,"/J_chunk_") # file name will be completed in loop with
+corrsBaseFileName <-  paste0(outputDirectory, "/corrs_chunk_")
+dbBaseFileName <- paste0(outputDirectory, "/db_longhauler_chunk_")
+resultsFileName <- paste0(outputDirectory, "/point5_ccsr_mod_longCOVID.csv")
 
 
-sparsity = 0.005
-numOfThreads = detectCores()
+
+
+sparsity = 0.001
+numOfThreads = detectCores()-cores_buffer
 
 ##load Js and correlations
 load(phenxlookup_FileName)
 load(numOfChunksFileName)
 load(apdativeDbFilenName)
 
-for(i in seq(1:numOfChunks_J)){
+for(i in seq(1:numOfChunks)){
   
   jFileName = paste0(jBaseFileName, i, ".RData")
   load(file=jFileName)
@@ -109,13 +88,7 @@ for(i in seq(1:numOfChunks_J)){
   unique(corrs_cov_J_sig$endPhenx)
   J <- subset(J,J$endPhenx %in% corrs_cov_J_sig$endPhenx)
   
-  ############################## FOR ALALEH TO CONSIDER USING THIS FILTER OR NOT
-  ###we also want Js that do NOT have significant correlations with a Viral infection
-  corrs_VI_J_sig <- subset(corrs,corrs$sequence >0 & corrs$p.adjust <=0.05 & corrs$rho >=0.3 & 
-                             corrs$startPhen %in% virals_cod & !(corrs$endPhenx %in% virals_cod))
-  unique(corrs_VI_J_sig$endPhenx)
-  
-  J <- subset(J,!(J$endPhenx %in% corrs_VI_J_sig$endPhenx))
+
   
   endPhenx = c(J$endPhenx,cov_cods) #TODO look up id for covid phenx in db$phenxLookUp
   temporalBucket =  c(0,1,3)
@@ -133,7 +106,6 @@ for(i in seq(1:numOfChunks_J)){
                                                includeCorBuckets=TRUE,
                                                minDuration,
                                                storeSequencesDuringCreation,
-                                               outDir,
                                                patientFilePrefix,
                                                numOfThreads,
                                                sparsityValue=sparsity)
@@ -176,7 +148,7 @@ for(i in seq(1:numOfChunks_J)){
   ########################################################################
   
   ######## HYPERPARAMETER ALERT!
-  exlusion_corrs <- subset(corrs,corrs$p.adjust <= 0.005 & corrs$rho >= 0.5) # Alalaeh, p value and rho are hyperparameters that need tuning
+  exlusion_corrs <- subset(corrs,corrs$p.adjust <= 0.005 & corrs$rho >= 0.5) 
   
   ###J->J sequences
   # we will only remove Js when J->J with longer than 3 months is significant and also the patient has a J-->COVID sequence
@@ -194,7 +166,7 @@ for(i in seq(1:numOfChunks_J)){
 
   #setup parallel backend to use many processors
   cores<-detectCores()
-  cl <- parallel::makeCluster(1) #not to overload your computer
+  cl <- parallel::makeCluster(cores_buffer) 
   doParallel::registerDoParallel(cl)
   
   # PARALELIZING THE longhauler db creation
