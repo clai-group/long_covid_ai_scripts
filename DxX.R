@@ -40,6 +40,7 @@ choose_directory = function(caption = 'Select directory') {
 # cov_pat incident level data
 cov_pat_incident_FileName <- file.choose() ##the cov_pats.RData file
 dbmartCases_FileName <-   file.choose() ##CCSR-mapped cases
+corrsFileName <= file.choose() ## EITHER the file computed in the previous step or the precomputed delivered with the docker container
 outputDirectory <- choose_directory(caption = "select output data directory") ## where outputs are saved
 outputDirectory
 
@@ -48,13 +49,13 @@ outputDirectory
 # dbmartCases_FileName <-   "setPath"
 # dbmartControlls_FileName <-   "setPath"
 # outputDirectory <- "select output data directory"
+# corrsFileName <-  paste0(outputDirectory, "/corrs.RData")
 
 numOfChunksFileName <- paste0(outputDirectory,"/num_of_case_chunks.RData")
 phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
 apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
 #base file names will be completed in the loop
 jBaseFileName <- paste0(outputDirectory,"/J_chunk_")
-corrsBaseFileName <-  paste0(outputDirectory, "/corrs_chunk_")
 dbBaseFileName <- paste0(outputDirectory, "/db_longhauler_chunk_")
 resultsFileName <- paste0(outputDirectory, "/point5_ccsr_mod_longCOVID.csv")
 
@@ -68,13 +69,13 @@ numOfThreads = detectCores()-cores_buffer
 load(phenxlookup_FileName)
 load(numOfChunksFileName)
 load(apdativeDbFilenName)
+load(corrsFileName)
 
 for(i in seq(1:numOfChunks)){
   
   jFileName = paste0(jBaseFileName, i, ".RData")
   load(file=jFileName)
-  corrsFileName <- paste0(corrsBaseFileName, i, ".RData")
-  load(file=corrsFileName)
+
   dbmart_num <- dbmart_adapt$chunks[[i]]
   
   gc()
