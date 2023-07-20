@@ -1,4 +1,3 @@
-
 ###this script implements WHO definition of long COVID
 ###this is step 2 to calculate temporal correlations for candidates Js
 ### we will use both  cases and controls
@@ -251,5 +250,24 @@ for (i in seq(1:numOfChunks)) {
 
 }
 
+for (i in seq(1:numOfChunks)) {
+  tryCatch({
+    corrsFileName <- paste0(corrsBaseFileName, i, ".RData")
+    load(file=corrsFileName)
+    if(i == 1){
+      mergedCorrs <- corrs
+    }else{
+      mergedCorrs <- rbind(mergedCorrs, corrs)
+    }
+    rm(corrs)
+    gc()
+  },
+  error = function(foll) {cat("ERROR  during loading corrs file for chunk ",i, ": ", conditionMessage(foll), "\n")})
+}
+corrs <- mergedCorrs %>%
+  dplyr::select(-phenx) %>%
+  dplyr::group_by(endPhenx,startPhen_dur) %>%
+  dplyr::summarise_all(mean, na.rm=TRUE)
 
-
+corrsFileName = paste0(outputDirectory,"corrs_final.RData")
+save(corrs, corrsFileName)
