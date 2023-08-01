@@ -9,12 +9,12 @@ pacman::p_load(data.table, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,scales,rea
 
 
 #### load the encounters data
-### we will need 3 columns patient_num, start_date, ENCOUNTER_NUM
+### we will need 2 columns patient_num, start_date
 ## better not have duplicated rows!
 
-load("~/clai_share/shared_workspace/ACT/outputs/cases/encounters_cases.RData")
+load(file.choose()) ### open cov_pats.RData -- the output from the mapping script
 
-
+colnames(cases_encs) <- tolower(colnames(cases_encs))
 ##remove potential duplicates within a month
 #break down dates by quarter
 cases_encs$date_ym <- format(cases_encs$start_date,format="%y%m")
@@ -106,6 +106,6 @@ cov_pats <- rbind(cases_encs,cases_encs_mi,cases_encs_mi_no)
 
 rm(cases_encs_mi,cases_encs_mi_no,cases_encs)
 
-stopCluster(cl)
+# stopCluster(cl)
 rm(list=setdiff(ls(), "cov_pats"))
-save.image("~/clai_share/shared_workspace/ACT/outputs/cases/cov_pats.RData")
+save.image("~/clai_share/shared_workspace/ACT/data/cases/cov_pats.RData")

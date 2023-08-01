@@ -18,7 +18,6 @@ if(!require(pacman)) install.packages("pacman")
 
 require(dplyr)
 require(tidyr)
-#devtools::install_github("hestiri/mlho")
 require(mlho)
 require(DT)
 pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,scales,readr,RcppParallel,
@@ -27,7 +26,7 @@ pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,
 
 ##request parameters:
 mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
-cores_buffer <- 5 # choose the number of cores to free up make sure not to overload your computer!
+cores_buffer <- 5 # choose the number of cores to free up - make sure not to overload your computer!
 
 
   ##utils::choose.dir is a windows functionality use tk on other systems
@@ -110,7 +109,7 @@ numOfChunks = length(dbmart_adapt$chunks)
 save(numOfChunks,file=numOfChunksFileName)
 save(dbmart_adapt, file=apdativeDbFilenName )
 J_loop <- list()
-for (i in seq(1:numOfChunks_J)) {
+for (i in seq(1:numOfChunks)) {
   tryCatch({
   dbmart_num <- dbmart_adapt$chunks[[i]]
   corseq <- tSPMPlus::getCandidateSequencesForPOI(dbmart_num,
@@ -273,5 +272,12 @@ for (i in seq(1:numOfChunks_J)) {
 }
   
 J <- data.table::rbindlist(J_loop)
-J <- dplyr::distinct(J, .keep_all = TRUE)
+
+###we will limit candidate Js to those that came up in half of the chunks
+J <- J %>%
+  dplyr::group_by(endPhenx,phenx) %>%
+  dplyr::summarise(count_perc=length((endPhenx))/numOfChunks)%>%
+  filter(count_perc > 0.5) %>%
+  dplyr::select(endPhenx,phenx)
+
 save(J,file=paste0(outputDirectory,"/J.RData"))
