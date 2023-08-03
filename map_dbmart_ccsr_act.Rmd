@@ -8,15 +8,27 @@ output: html_document
 ```{r load packages}
 library(dplyr)
 library(stringr)
+library(data.table)
 ```
 
 # User input
-The user needs to manually enter the input file path, data frame name, output directory and site name.
-```{r}
+The user needs to manually enter the group, group data directory, the output directory and site name.
+```{r user input}
 ###### Modify the following lines
-group <- "cases"
-output_dict <- paste0("~/clai_share/shared_workspace/ACT/data/",group) ##where the output file is saved
-df <- data.table::fread(file.choose()) ###input data
+##utils::choose.dir is a windows functionality use tk on other systems
+choose_directory = function(caption = 'Select directory') {
+    if (exists('utils::choose.dir')) {
+      choose.dir(caption = caption) 
+    } else {
+      tcltk::tk_choose.dir(caption = caption)
+    }
+}
+
+###### Modify the following lines
+group <- "controls" #cases, controls, controls_pre
+
+groupDirectory <- choose_directory(caption = "select group data directory")  ## where the inputs come from 
+outputDirectory <- choose_directory(caption = "select output data directory") ## where the outputs are saved
 site <- "MGH" 
 ######
 ```
@@ -24,18 +36,13 @@ site <- "MGH"
 
 # Load data
 ```{r load data}
-ccsr <- data.table::fread(file.choose()) ###CCSR mapping file
+input_file <- paste0(groupDirectory, "/",group, ".csv")
+df <-  data.table::fread(input_file) 
+ccsr <- data.table::fread("P:/PASC/data/CCSR_PASC_ACT_Mapping_part.csv")
 ```
 
 
 # Preprocess the data
-
-## Clean CCSR mapping
-This step is to remove the data without ccsr key and to extract the target columns, "CONCEPT_PATH", "CCSR_Key","phenx","phenx1","phenx2","map", "relevance" for further analysis.
-```{r clean CCSR}
-ccsr_m <- subset(ccsr, CCSR_Key!= "", select = c("CONCEPT_PATH", "CCSR_Key","phenx","phenx1","phenx2","map", "relevance"))
-rm(ccsr)
-```
 
 ## Extract columns from the input file
 This step is to extract the target four columns, 'PATIENT_NUM', 'START_DATE', 'CONCEPT_CD' and 'C_FULLNAME', from the input file for the mapping process. If your input file doesn't contain these four columns then it won't work and you need to check your data.
@@ -53,21 +60,43 @@ if (all(target_cols %in% colnames(df))) {
 
 
 ## Remove the duplicates
-This step is to remove the duplicates, and create a domain column based on the paths. Then, if there are duplicates in the first three columns, we keep the one having the domain starting with "ACT".
+This step is to remove the duplicates, and create a domain column based on the paths.
 ```{r remove duplicates}
 # remove duplicates, create domain column
-df_rmdup <- unique(df) %>%
-  mutate(domain = sapply(strsplit(C_FULLNAME, "\\\\"), function(x) paste(x[2:4], collapse = "\\"))) %>%
-  group_by(PATIENT_NUM, START_DATE, CONCEPT_CD) %>%
-  filter(startsWith(domain, "ACT"))
-rm(df);gc()
+df_rmdup <- unique(df)
+df_rmdup$domain <- str_extract(df_rmdup$C_FULLNAME, "^\\\\[^\\\\]+\\\\[^\\\\]+\\\\[^\\\\]+")
+rm(df)
 ```
 
-## Extract Diagnosis_ICD10 and Procedures_ICD10
-This step is to obtain data for the Diagnosis_ICD10 and Procedures_ICD10 groups and take a quick look at the number of unique codes and the total number of records.
+## Cases check
+If the input data is cases,  COVID positive indications are extracted from the data and saved as cov_pats.RData. Otherwise, continue to the next step. 
+```{r}
+if(group == 'cases'){
+  rdx <-  df_rmdup[(df_rmdup$CONCEPT_CD=="ICD10:U07.1"), ]
+  rp1 <-  df_rmdup[startsWith(df_rmdup$C_FULLNAME, "\\ACT\\UMLS_C0031437\\SNOMED_3947185011\\UMLS_C0037088\\SNOMED_3947183016\\"), ]
+  rp2 <-  df_rmdup[startsWith(df_rmdup$C_FULLNAME, "\\ACT\\UMLS_C0031437\\SNOMED_3947185011\\UMLS_C0022885\\UMLS_C1335447\\"), ]
+  rp3 <- df_rmdup[startsWith(df_rmdup$C_FULLNAME, "\\ACT\\UMLS_C0031437\\SNOMED_3947185011\\UMLS_C0022885\\ACT_LOCAL_LAB_ANY_POSITIVE\\"), ] 
+  cases_encs <- rbind(rdx, rp1, rp2, rp3)
+  save(cases_encs, file= paste0(groupDirectory, "/cov_pats.RData")) 
+  
+  df_rmdup <- anti_join(df_rmdup, cases_encs)
+ 
+  rm(rdx, rp1, rp2, rp3, cases_encs)
+}else{
+  print("Continue to the next step.")
+}
+```
+
+
+
+## Extract Diagnosis_ICD10, Procedures_ICD10 and UMLS ICD10
+This step is to obtain data for the Diagnosis_ICD10, Procedures_ICD10 groups and UMLS ICD10, and take a quick look at the number of unique codes and the total number of records.
 ```{r extract ICD10}
-df_ICD10 <- subset(df_rmdup, domain %in% c("ACT\\Diagnosis\\ICD10", "ACT\\Procedures\\ICD10"))
-smr_df_ICD10 <- df_ICD10 %>% group_by(domain) %>% dplyr::summarise(nunique=n_distinct(C_FULLNAME), total =n())
+df_ICD10 <- subset(df_rmdup, domain %in% c("\\ACT\\Diagnosis\\ICD10", "\\ACT\\Procedures\\ICD10"))
+df_umls_cd <- subset(df_rmdup, domain == "\\ACT\\UMLS_C0031437\\SNOMED_3947185011" & startsWith(CONCEPT_CD, "ICD10"))
+df_cd <- rbind(df_umls_cd, df_ICD10)
+rm(df_ICD10, df_umls_cd)
+smr_df_ICD10 <- df_cd %>% group_by(domain) %>% summarise(nunique=n_distinct(CONCEPT_CD), total = n())
 smr_df_ICD10
 ```
 
@@ -76,10 +105,10 @@ smr_df_ICD10
 ## Step 1: Direct merge based on the paths
 We directly use the path as a key to map CCSR to input data and obtain the mapping success rate. If the mapping success rate is less than 0.9, go to step 2 to modify the path. Otherwise, go to the final step to summarize the results and then output the results.
 ```{r}
-df_ICD10$CONCEPT_PATH <- df_ICD10$C_FULLNAME
-map_path <- merge(df_ICD10, ccsr_m, by = "CONCEPT_PATH", all.x = TRUE)
+df_cd$CONCEPT_PATH <- df_cd$C_FULLNAME
+map_path <- merge(df_cd, ccsr, by = "CONCEPT_PATH", all.x = TRUE)
 
-ms_rate <- n_distinct(map_path$C_FULLNAME[!is.na(map_path$CCSR_Key)])/n_distinct(map_path$C_FULLNAME)
+ms_rate <- n_distinct(map_path$CONCEPT_CD[!is.na(map_path$CCSR_Key)])/n_distinct(map_path$CONCEPT_CD)
 ms_rate
 ```
 
@@ -91,11 +120,11 @@ if (ms_rate < 0.9){
   df_1_mapped <- map_path[!is.na(map_path$CCSR_Key),]
   df_2 <- subset(map_path, is.na(CCSR_Key), select= c("PATIENT_NUM", "START_DATE", "CONCEPT_CD","C_FULLNAME", "domain"))
   print("Go to step 2.")
-  #rm(map_path)
+  rm(map_path)
 } else {
   df_1_mapped <- map_path[!is.na(map_path$CCSR_Key),]
   print("Go to summarize the results.")
-  #rm(map_path)
+  rm(map_path)
 }
 ```
 
@@ -110,8 +139,8 @@ df_2$CONCEPT_PATH <- gsub(pattern, "\\\\", df_2$C_FULLNAME)
 ### Merge based on the paths
 After modifying the paths, we use the new paths again to map CCSR to input data and obtain the new mapping success rate. Then we check the mapping success rate again, if it is still less than 0.9,the user needs to manually compare the path with the ACT standard path.
 ```{r}
-map_path_2 <- merge(df_2, ccsr_m, by = "CONCEPT_PATH", all.x = TRUE)
-ms_rate_2 <- n_distinct(map_path_2$C_FULLNAME[!is.na(map_path_2$CCSR_Key)])/n_distinct(map_path_2$C_FULLNAME)
+map_path_2 <- merge(df_2, ccsr, by = "CONCEPT_PATH", all.x = TRUE)
+ms_rate_2 <- n_distinct(map_path_2$CONCEPT_CD[!is.na(map_path_2$CCSR_Key)])/n_distinct(map_path_2$CONCEPT_CD)
 ms_rate_2
 ```
 
@@ -123,11 +152,14 @@ if ((ms_rate_2) < 0.9){
 } else {
   df_2_mapped <- map_path_2[!is.na(map_path_2$CCSR_Key),]
   print("Go to summarize the results.")
+  rm(map_path_2)
 }
 ```
 
 
 # Summarize the results
+
+## Statistics on successful mappings
 Here we report statistics on successful mappings, including the number of successfully mapped unique codes, the number of successfully mapped records, the percentage of successfully mapped codes, and the percentage of successfully mapped records.
 ```{r}
 if (exists("df_2_mapped")){
@@ -138,21 +170,63 @@ if (exists("df_2_mapped")){
 }
 rm(df_1_mapped)
 
-smr_mapped <- mapped %>% group_by(domain) %>% dplyr::summarise(nunique=n_distinct(C_FULLNAME), total =n())
+smr_mapped <- mapped %>% group_by(domain) %>% summarise(nunique=n_distinct(CONCEPT_CD), total=n())
 
 result <-  cbind(smr_mapped, round(smr_mapped[-1]/smr_df_ICD10[-1]*100, digits = 3))
 names(result)[-1] <- c("mapped_unique_codes", "mapped_total_records", "mapped_unique_codes_percentage", "mapped_total_records_percentage")
 result
 ```
 
-# Output the results
-Two files, the statistics on successful mappings and the mapped result file, are generated in the output directory.
+## Demographics and race summary
 ```{r}
-output_stats <- paste0(output_dict, df_name,"_stats_", site, ".csv")
-output_file <- paste0(output_dict, df_name, "_CCSR_",site, ".csv")
+dems_all <-  data.table::fread(paste0(groupDirectory, "/dems_",group, ".csv"))
+dems <- dems_all[dems_all$patient_num %in% mapped$PATIENT_NUM, c("patient_num", "age", "sex_cd", "CHARLSON_INDEX", "race_cd")]
+# When the patient has more than 1 ages, select the oldest.
+dems <- unique(dems) %>% group_by(patient_num) %>% 
+  filter(age == max(age)) %>% 
+  ungroup()
+# When the patient has more than CHARLSON INDEX, select the largest.
+dems <- unique(dems) %>% group_by(patient_num) %>% 
+  filter(CHARLSON_INDEX == max(CHARLSON_INDEX)) %>% 
+  ungroup()
 
-write.csv(result, output_stats, row.names = FALSE)
-write.csv(mapped, output_file, row.names = FALSE)
+dat.sum <- subset(mapped,mapped$PATIENT_NUM %in% dems$patient_num)
+colnames(dat.sum) <- tolower(colnames(dat.sum))
+
+dems_temp1 <- data.frame(rbind(c("patients",nrow(dems))))
+dems_temp2 <- data.frame(rbind(c("mean age",mean(dems$age))))
+dems_temp3 <- data.frame(rbind(c("percent female",(nrow(subset(dems,dems$sex_cd == "F"))/nrow(dems))*100)))
+
+dems_temp4 <- data.frame(rbind(c("mean charlson",mean(dems$CHARLSON_INDEX))))
+
+tb1 <- rbind(dems_temp1,dems_temp2,dems_temp3,dems_temp4) 
+tb2 <- data.frame(rbind(c("unique CCSR concepts",length(unique(dat.sum$phenx)))))
+length.all <- dat.sum %>% group_by(patient_num) %>% summarise(max=max(start_date),min=min(start_date))
+
+length.all$durate=as.numeric(difftime(length.all$max, length.all$min,unit="weeks"))/52.25
+
+tb3 <- data.frame(rbind(c("mean data depth",mean(length.all$durate))))
+tb4 <- data.frame(rbind(c("data to",max(length.all$max))))
+tb5 <- data.frame(rbind(c("data from",min(length.all$min))))
+
+table1 <- rbind(tb1,tb2,tb3,tb4,tb5)
+table1$site <- site
+table1$group <- group
+
+race <- data.frame(table(dems$race_cd))
+race <- subset(race,race$Freq > 30)
+race$site <- site
+race$group <- group
+```
+
+
+# Output the results
+Four files, the demographics, race and the statistics on successful mappings are saved in the outputs directory, and the mapped result file are saved in the group data directory.
+```{r}
+fwrite(table1, paste0(outputDirectory,"/", group,"_dems_", site, ".csv" ))
+fwrite(race, paste0(outputDirectory, "/",group,"_race_", site, ".csv" ))
+fwrite(result, paste0(outputDirectory, "/",group,"_map_stats_", site, ".csv" ))
+fwrite(mapped, paste0(groupDirectory,"/", group, "_map_CCSR_",site, ".csv"))
 ```
 
 

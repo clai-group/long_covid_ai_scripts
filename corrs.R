@@ -1,6 +1,6 @@
 ###this script implements WHO definition of long COVID
 ###this is step 2 to calculate temporal correlations for candidates Js
-### we will use both  cases and controls
+### we will use cases, controls_pre, and controls
 
 
 
@@ -79,7 +79,11 @@ dbmart_cases_map_ccsr <- data.table::fread(dbmartCases_FileName)
 dbmart_controls_map_ccsr <- data.table::fread(dbmartControlls_FileName)
 dbmart_controls_pre_map_ccsr <- data.table::fread(dbmartControlls_pre_FileName)
 
+
+###### if you don't have the same column name in the 3 files to be merged, you'll have to fix it manually before running the next line!
 dbmart_cases_map_ccsr <- rbind(dbmart_cases_map_ccsr,dbmart_controls_map_ccsr,dbmart_controls_pre_map_ccsr)
+
+
 
 rm(dbmart_controls_map_ccsr,dbmart_controls_pre_map_ccsr);gc()
 
@@ -269,5 +273,5 @@ corrs <- mergedCorrs %>%
   dplyr::group_by(endPhenx,startPhen_dur) %>%
   dplyr::summarise_all(mean, na.rm=TRUE)
 
-corrsFileName = paste0(outputDirectory,"corrs_final.RData")
+corrsFileName = paste0(outputDirectory,"/corrs_final.RData")
 save(corrs, corrsFileName)

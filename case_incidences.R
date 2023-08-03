@@ -14,6 +14,19 @@ pacman::p_load(data.table, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,scales,rea
 
 load(file.choose()) ### open cov_pats.RData -- the output from the mapping script
 
+##utils::choose.dir is a windows functionality use tk on other systems
+choose_directory = function(caption = 'Select directory') {
+  if (exists('utils::choose.dir')) {
+    choose.dir(caption = caption)
+  } else {
+    tcltk::tk_choose.dir(caption = caption)
+  }
+}
+
+outputDirectory <- choose_directory(caption = "select output data directory") ## where outputs are saved
+outputDirectory
+
+
 colnames(cases_encs) <- tolower(colnames(cases_encs))
 ##remove potential duplicates within a month
 #break down dates by quarter
@@ -104,8 +117,29 @@ cases_encs_mi <- subset(cases_encs_mi,(cases_encs_mi$patient_num %in% reps$Var1)
 
 cov_pats <- rbind(cases_encs,cases_encs_mi,cases_encs_mi_no)
 
-rm(cases_encs_mi,cases_encs_mi_no,cases_encs)
-
 # stopCluster(cl)
 rm(list=setdiff(ls(), "cov_pats"))
-save.image("~/clai_share/shared_workspace/ACT/data/cases/cov_pats.RData")
+
+cov_patsFileName = paste0(outputDirectory,"/cov_pats.RData")
+save(cov_pats, file=cov_patsFileName)
+
+
+##summary statistics
+by_count <- cov_pats %>%
+  dplyr::group_by(patient_num) %>%
+  dplyr::summarise(infections=max(infection_seq))
+
+
+by_count <- data.frame(table(by_count$infections))
+colnames(by_count) <- c("group","count")
+
+cov_pats$date_ym <- format(cov_pats$start_date,format="%y%m")
+by_month <- cov_pats %>%
+  dplyr::group_by(date_ym) %>%
+  dplyr::summarise(count=length(patient_num))
+colnames(by_month) <- c("group","count")
+
+cov_pats_summary <- rbind(by_count,by_month)
+
+sumFileName = paste0(outputDirectory,"/cov_pats_summary.RData")
+save(cov_pats_summary, file=sumFileName)
