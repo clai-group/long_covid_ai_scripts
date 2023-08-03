@@ -1,6 +1,8 @@
 ###this script implements WHO definition of long COVID
-###this is step 3 for diagnosis of exclusion 
-### we will use cases
+###this is step 3 implements diagnosis of exclusion
+### we will use cases only to perform exclusion by correlation
+
+### you can run this script after candidate J, if you cannot compute correlations due to computing limitations
 
 ## initial settings
 Sys.setenv(R_MAX_NUM_DLLS = 999)
@@ -40,7 +42,7 @@ choose_directory = function(caption = 'Select directory') {
 # cov_pat incident level data
 cov_pat_incident_FileName <- file.choose() ##the cov_pats.RData file
 dbmartCases_FileName <-   file.choose() ##CCSR-mapped cases
-corrsFileName <= file.choose() ## EITHER the file computed in the previous step or the precomputed delivered with the docker container
+corrsFileName <- file.choose() ## corrs.RData, EITHER the file computed in the previous step or the pre-computed delivered with the docker container
 outputDirectory <- choose_directory(caption = "select output data directory") ## where outputs are saved
 outputDirectory
 
@@ -57,7 +59,7 @@ apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
 #base file names will be completed in the loop
 jBaseFileName <- paste0(outputDirectory,"/J_chunk_")
 dbBaseFileName <- paste0(outputDirectory, "/db_longhauler_chunk_")
-resultsFileName <- paste0(outputDirectory, "/point5_ccsr_mod_longCOVID.csv")
+resultsFileName <- paste0(outputDirectory, "/longCOVID_patients.csv")
 
 
 

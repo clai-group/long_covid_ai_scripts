@@ -270,8 +270,8 @@ for (i in seq(1:numOfChunks)) {
 }
 corrs <- mergedCorrs %>%
   dplyr::select(-phenx) %>%
-  dplyr::group_by(endPhenx,startPhen_dur) %>%
+  dplyr::group_by(endPhenx,startPhen_dur,sequence,startPhen) %>%
   dplyr::summarise_all(mean, na.rm=TRUE)
 
-corrsFileName = paste0(outputDirectory,"/corrs_final.RData")
-save(corrs, corrsFileName)
+corrsFileName = paste0(outputDirectory,"/corrs.RData")
+save(corrs, file=corrsFileName)
