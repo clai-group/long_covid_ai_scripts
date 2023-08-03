@@ -96,9 +96,9 @@ for(i in seq(1:numOfChunks)){
   
   endPhenx = c(J$endPhenx,cov_cods) #TODO look up id for covid phenx in db$phenxLookUp
   temporalBucket =  c(0,1,3)
-  minDuration = 0 #techical parameter, ignore for now
-  bitShift = 0 #techical parameter, ignore for now
-  lengthOfPhenx = 7 #techical parameter
+  minDuration = 0 #technical parameter, ignore for now
+  bitShift = 0 #technical parameter, ignore for now
+  lengthOfPhenx = 7 #technical parameter
   storeSequencesDuringCreation = FALSE #if true, old way -> writing out "plain" sparse sequences in patient based files, FALSE-> do in memory sparsity
   
   ###get all the sequences that end with
