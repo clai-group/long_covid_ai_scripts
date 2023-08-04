@@ -90,7 +90,7 @@ db <- tSPMPlus::transformDbMartToNumeric(dbmart)
 phenxlookup <- db$phenxLookUp
 save(phenxlookup,file=phenxlookup_FileName)
 patlookup <- db$patientLookUp
-save(patlookup, file = patlookupFileName)
+save(patlookup, file = patlookup_FileName)
 
 ### define sequencing parameters
 sparsity = 0.001
