@@ -25,7 +25,8 @@ pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,
 
 ##request parameters:
 mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
-cores_buffer <- 5 # choose the number of cores to free up make sure not to overload your computer!
+cores_buffer <- 1 # choose the number of cores to free up make sure not to overload your computer!
+### again, this number will be taken from available cores. Set a number that get's you  3-5 cores max 
 
 
 ##utils::choose.dir is a windows functionality use tk on other systems
@@ -170,8 +171,8 @@ for(i in seq(1:numOfChunks)){
   ##### ########## ########## ########## ########## ########## #####
 
   #setup parallel backend to use many processors
-  cores<-detectCores()
-  cl <- parallel::makeCluster(cores_buffer) 
+  # cores<-detectCores()
+  cl <- parallel::makeCluster(numOfThreads) 
   doParallel::registerDoParallel(cl)
   
   # PARALELIZING THE longhauler db creation
@@ -319,6 +320,7 @@ for(i in seq(1:numOfChunks)){
   #jFileName = paste0("P:/PASC/data/J_notExcluded_chunk_", i, ".RData")
   #save(J, file=jFileName)
   rm(J,J_updated, db_longhaulers,Js, corseq,exlusion_corrs,XJ,JJ3)
+  stopCluster(cl)
   gc()
 }
 
