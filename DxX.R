@@ -331,7 +331,7 @@ for(i in seq(1:numOfChunks_J)){
   
   nextChunk <- load(dbFileName)
   colnames(nextChunk)[colnames(nextChunk)== "patient_num"] = "chunk_pat_num"
-  nextChunk <-  dplyr::left_join(nextChunk, adaptivedb$lookUps[[1]], by="chunk_pat_num") %>% 
+  nextChunk <-  dplyr::left_join(nextChunk, adaptivedb$lookUps[[i]], by="chunk_pat_num") %>% 
     dplyr::left_join(patlookup, by="num_pat_num") %>% 
     dplyr::select(-"num_pat_num", -"chunk_pat_num")
   	  
