@@ -55,7 +55,7 @@ outputDirectory
 
 numOfChunksFileName <- paste0(outputDirectory,"/num_of_case_chunks.RData")
 phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
-patlookupFileName <- paste0(outputDirectory, "/patlookup.RData")
+patlookup_FileName <- paste0(outputDirectory, "/patlookup.RData")
 apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
 #base file names will be completed in the loop
 jBaseFileName <- paste0(outputDirectory,"/J_chunk_")
@@ -70,7 +70,7 @@ numOfThreads = detectCores()-cores_buffer
 
 ##load Js and correlations
 load(phenxlookup_FileName)
-load(patlookupFileName)
+load(patlookup_FileName)
 load(numOfChunksFileName)
 load(apdativeDbFilenName)
 load(corrsFileName)
