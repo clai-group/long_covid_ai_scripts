@@ -55,6 +55,7 @@ outputDirectory
 
 numOfChunksFileName <- paste0(outputDirectory,"/num_of_case_chunks.RData")
 phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
+patlookupFileName <- paste0(outputDirectory, "/patlookup.RData")
 apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
 #base file names will be completed in the loop
 jBaseFileName <- paste0(outputDirectory,"/J_chunk_")
@@ -69,6 +70,7 @@ numOfThreads = detectCores()-cores_buffer
 
 ##load Js and correlations
 load(phenxlookup_FileName)
+load(patlookupFileName)
 load(numOfChunksFileName)
 load(apdativeDbFilenName)
 load(corrsFileName)
@@ -327,11 +329,17 @@ for(i in seq(1:numOfChunks_J)){
   dbFileName = paste0(dbBaseFileName, i, ".RData")
   #jFileName = paste0("P:/PASC/data/J_notExcluded_chunk_", i, ".RData")
   
+  nextChunk <- load(dbFileName)
+  colnames(nextChunk)[colnames(nextChunk)== "patient_num"] = "chunk_pat_num"
+  nextChunk <-  dplyr::left_join(nextChunk, adaptivedb$lookUps[[1]], by="chunk_pat_num") %>% 
+    dplyr::left_join(patlookup, by="num_pat_num") %>% 
+    dplyr::select(-"num_pat_num", -"chunk_pat_num")
+  	  
   if(i == 1){
-    db_longhaulers <- load(dbFileName)
+    db_longhaulers <- nextChunk
     #J <- load(jFileName)
   }else{
-    db_longhaulers <- rbind(db_longhaulers, load(dbFileName))
+    db_longhaulers <- rbind(db_longhaulers, nextChunk)
     #J <- rbind(J, load(jFileName))
   }
 }

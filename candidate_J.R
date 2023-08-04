@@ -54,6 +54,7 @@ cores_buffer <- 1 # choose the number of cores to free up - make sure not to ove
 
   numOfChunksFileName <- paste0(outputDirectory,"/num_of_case_chunks.RData")
   phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
+  patlookup_FileName <- paste0(outputDirectory, "/patlookup.RData")
   apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
   #base file names will be completed in the loop
   jBaseFileName <- paste0(outputDirectory,"/J_chunk_")
@@ -88,6 +89,8 @@ db <- tSPMPlus::transformDbMartToNumeric(dbmart)
 
 phenxlookup <- db$phenxLookUp
 save(phenxlookup,file=phenxlookup_FileName)
+patlookup <- db$patientLookUp
+save(patlookup, file = patlookupFileName)
 
 ### define sequencing parameters
 sparsity = 0.001
