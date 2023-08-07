@@ -59,10 +59,10 @@ phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
 patlookup_FileName <- paste0(outputDirectory, "/patlookup.RData")
 apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
 #base file names will be completed in the loop
-jBaseFileName <- paste0(outputDirectory,"/J_chunk_")
+jBaseFileName <- paste0(outputDirectory,"/J.RData")
 dbBaseFileName <- paste0(outputDirectory, "/db_longhauler_chunk_")
 resultsFileName <- paste0(outputDirectory, "/longCOVID_patients.csv")
-
+resultsFileName <- paste0(outputDirectory, "/longCOVID_patients.csv")
 
 
 
@@ -75,11 +75,13 @@ load(patlookup_FileName)
 load(numOfChunksFileName)
 load(apdativeDbFilenName)
 load(corrsFileName)
+load(jBaseFileName)
+
 
 for(i in seq(1:numOfChunks)){
   
-  jFileName = paste0(jBaseFileName, i, ".RData")
-  load(file=jFileName)
+  # jFileName = paste0(jBaseFileName, i, ".RData")
+  # load(file=jFileName)
 
   dbmart_num <- dbmart_adapt$chunks[[i]]
   
@@ -89,13 +91,18 @@ for(i in seq(1:numOfChunks)){
   virals_cod <- c(subset(phenxlookup$num_Phenx,phenxlookup$phenx %in% c("Viral infection")))
   
   ################ identify correlated Js
-  ###we want Js thathave significant correlations and also correlated to covid
-  corrs_cov_J_sig <- subset(corrs,corrs$sequence >0 & corrs$p.adjust <=0.05 & corrs$rho >=0.3 & 
+  ###we want Js that have significant correlations and also correlated to covid
+  corrs_cov_J_sig <- subset(corrs,corrs$sequence >0 & corrs$p.adjust <=0.01 & corrs$rho >=0.25 & 
                               corrs$startPhen %in% cov_cods & !(corrs$endPhenx %in% cov_cods))
   unique(corrs_cov_J_sig$endPhenx)
   J <- subset(J,J$endPhenx %in% corrs_cov_J_sig$endPhenx)
   
-
+  ###we also want Js that do NOT have significant correlations with a Viral infection
+  corrs_VI_J_sig <- subset(corrs,corrs$sequence >0 & corrs$p.adjust <=0.01 & corrs$rho >=0.35 & 
+                             corrs$startPhen %in% virals_cod & !(corrs$endPhenx %in% virals_cod))
+  unique(corrs_VI_J_sig$endPhenx)
+  
+  J <- subset(J,!(J$endPhenx %in% corrs_VI_J_sig$endPhenx))
   
   endPhenx = c(J$endPhenx,cov_cods) #TODO look up id for covid phenx in db$phenxLookUp
   temporalBucket =  c(0,1,3)
@@ -319,35 +326,36 @@ for(i in seq(1:numOfChunks)){
   save(db_longhaulers,file = dbFileName)
   #jFileName = paste0("P:/PASC/data/J_notExcluded_chunk_", i, ".RData")
   #save(J, file=jFileName)
-  rm(J,J_updated, db_longhaulers,Js, corseq,exlusion_corrs,XJ,JJ3)
+  rm(J_updated, db_longhaulers,Js, corseq,exlusion_corrs,XJ,JJ3)
   stopCluster(cl)
   gc()
 }
 
 
 #load chunks and merge
+load(apdativeDbFilenName)
 
-for(i in seq(1:numOfChunks_J)){
+for(i in seq(1:numOfChunks)){
   dbFileName = paste0(dbBaseFileName, i, ".RData")
   #jFileName = paste0("P:/PASC/data/J_notExcluded_chunk_", i, ".RData")
-  
-  nextChunk <- load(dbFileName)
+  load(dbFileName)
+  nextChunk <- db_longhaulers;rm(db_longhaulers)
   colnames(nextChunk)[colnames(nextChunk)== "patient_num"] = "chunk_pat_num"
-  nextChunk <-  dplyr::left_join(nextChunk, adaptivedb$lookUps[[i]], by="chunk_pat_num") %>% 
+  nextChunk <-  dplyr::left_join(nextChunk, dbmart_adapt$lookUps[[i]], by="chunk_pat_num") %>% 
     dplyr::left_join(patlookup, by="num_pat_num") %>% 
     dplyr::select(-"num_pat_num", -"chunk_pat_num")
   	  
   if(i == 1){
-    db_longhaulers <- nextChunk
+    db_longhaulers1 <- nextChunk
     #J <- load(jFileName)
   }else{
-    db_longhaulers <- rbind(db_longhaulers, nextChunk)
+    longhaulers <- rbind(db_longhaulers1, nextChunk)
     #J <- rbind(J, load(jFileName))
   }
 }
 
 
 ###get descriptive statistics
-length(unique(db_longhaulers$patient_num))
-long_COVID <- data.frame(table(db_longhaulers$phenx))
-write.csv(long_COVID_poin5,file=resultsFileName)
+length(unique(longhaulers$patient_num))
+long_COVID_list <- data.frame(table(longhaulers$phenx))
+write.csv(longhaulers,file=resultsFileName)

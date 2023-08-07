@@ -61,7 +61,7 @@ numOfChunksFileName <- paste0(outputDirectory,"/num_of_case_chunks.RData")
 phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
 apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
  #base file names will be completed in the loop
-jBaseFileName <- paste0(outputDirectory,"/J_chunk_")
+jBaseFileName <- paste0(outputDirectory,"/J.RData")
 corrsBaseFileName <-  paste0(outputDirectory, "/corrs_chunk_")
 dbBaseFileName <- paste0(outputDirectory, "/db_longhauler_chunk_")
 resultsFileName <- paste0(outputDirectory, "/point5_ccsr_mod_longCOVID.csv")
@@ -114,7 +114,7 @@ db <- tSPMPlus::transformDbMartToNumeric(dbmart)
 ##moved loading Js
 #load number of chunks
 load(file=numOfChunksFileName)
-load(file=paste0(jBaseFileName,"1.RData"))
+# load(file=paste0(jBaseFileName,"1.RData"))
 
 
 ######################################
@@ -183,15 +183,19 @@ corseq$startPhen_dur <- paste0(corseq$startPhen,"-",corseq$durationBucket)
 dat <- data.table(corseq[c("patient_num","endPhenx","value.var","startPhen_dur")])
 wide.dat.start <- dcast.data.table(dat, patient_num ~ startPhen_dur, value.var="value.var", fun=length)
 
+stopCluster(cl)
 
-
+end <- c(unique(J$endPhenx))
 for (i in seq(1:numOfChunks)) {
   gc()
+  cores<-detectCores()
+  cl <- parallel::makeCluster(cores-cores_buffer)
+  doParallel::registerDoParallel(cl)
   tryCatch({
-    ##load Js
-    jFileName <- paste0(jBaseFileName, i, ".RData")
-    load(file=jFileName)
-    end <- c(unique(J$endPhenx))
+    # ##load Js
+    # jFileName <- paste0(jBaseFileName, i, ".RData")
+    # load(file=jFileName)
+    # end <- c(unique(J$endPhenx))
 
     #setup parallel backend to use many processors
     # PARALELIZING THE CORRELATION CALCULATIONS
@@ -251,7 +255,8 @@ for (i in seq(1:numOfChunks)) {
     gc()
   },
   error = function(foll) {cat("ERROR in chunk ",i, ": ", conditionMessage(foll), "\n")})
-
+  stopCluster(cl)
+  
 }
 
 for (i in seq(1:numOfChunks)) {
