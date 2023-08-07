@@ -4,6 +4,11 @@
 
 ### you can run this script after candidate J, if you cannot compute correlations due to computing limitations
 
+###hyperparameters
+param1 <- 0.25 ###rho value for cov->J 
+param2 <- 0.4 ### rho value for viral infection ->J
+
+
 ## initial settings
 Sys.setenv(R_MAX_NUM_DLLS = 999)
 options("scipen"=100, "digits"=4)
@@ -92,17 +97,18 @@ for(i in seq(1:numOfChunks)){
   
   ################ identify correlated Js
   ###we want Js that have significant correlations and also correlated to covid
-  corrs_cov_J_sig <- subset(corrs,corrs$sequence >0 & corrs$p.adjust <=0.01 & corrs$rho >=0.25 & 
+  corrs_cov_J_sig <- subset(corrs,corrs$sequence >0 & corrs$p.adjust <=0.01 & corrs$rho >=param1 & 
                               corrs$startPhen %in% cov_cods & !(corrs$endPhenx %in% cov_cods))
   unique(corrs_cov_J_sig$endPhenx)
   J <- subset(J,J$endPhenx %in% corrs_cov_J_sig$endPhenx)
   
   ###we also want Js that do NOT have significant correlations with a Viral infection
-  corrs_VI_J_sig <- subset(corrs,corrs$sequence >0 & corrs$p.adjust <=0.01 & corrs$rho >=0.35 & 
+  corrs_VI_J_sig <- subset(corrs,corrs$sequence >0 & corrs$p.adjust <=0.01 & corrs$rho >= param2 & 
                              corrs$startPhen %in% virals_cod & !(corrs$endPhenx %in% virals_cod))
   unique(corrs_VI_J_sig$endPhenx)
   
-  J <- subset(J,!(J$endPhenx %in% corrs_VI_J_sig$endPhenx))
+  if (length(unique(corrs_VI_J_sig$endPhenx)) > 0){
+  J <- subset(J,!(J$endPhenx %in% corrs_VI_J_sig$endPhenx))}
   
   endPhenx = c(J$endPhenx,cov_cods) #TODO look up id for covid phenx in db$phenxLookUp
   temporalBucket =  c(0,1,3)

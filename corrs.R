@@ -115,6 +115,7 @@ db <- tSPMPlus::transformDbMartToNumeric(dbmart)
 #load number of chunks
 load(file=numOfChunksFileName)
 # load(file=paste0(jBaseFileName,"1.RData"))
+load(file=jBaseFileName)
 
 
 ######################################
