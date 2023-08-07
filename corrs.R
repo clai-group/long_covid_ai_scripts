@@ -252,7 +252,7 @@ for (i in seq(1:numOfChunks)) {
     corrs$sequence <- as.numeric(corrs$sequence)
     corrsFileName <- paste0(corrsBaseFileName, i, ".RData")
     save(corrs,file=corrsFileName)
-    rm(corrs, end)
+    rm(corrs)
     gc()
   },
   error = function(foll) {cat("ERROR in chunk ",i, ": ", conditionMessage(foll), "\n")})
