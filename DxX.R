@@ -7,6 +7,12 @@
 ###hyperparameters
 param1 <- 0.25 ###rho value for cov->J 
 param2 <- 0.4 ### rho value for viral infection ->J
+viral <- TRUE ##exclude Js with significant correlation to another viral infection?
+sparsity <- 0.001 ##sparsity screening 
+mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
+cores_buffer <- 1 # choose the number of cores to free up make sure not to overload your computer!
+### again, this number will be taken from available cores. Set a number that get's you  3-5 cores max 
+
 
 
 ## initial settings
@@ -28,10 +34,7 @@ require(DT)
 pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,scales,readr,RcppParallel,
                httr, DT, lubridate, tidyverse,reshape2,foreach,doParallel,caret,gbm,lubridate,praznik,epitools,tcltk)
 
-##request parameters:
-mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
-cores_buffer <- 1 # choose the number of cores to free up make sure not to overload your computer!
-### again, this number will be taken from available cores. Set a number that get's you  3-5 cores max 
+
 
 
 ##utils::choose.dir is a windows functionality use tk on other systems
@@ -66,12 +69,12 @@ apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
 #base file names will be completed in the loop
 jBaseFileName <- paste0(outputDirectory,"/J.RData")
 dbBaseFileName <- paste0(outputDirectory, "/db_longhauler_chunk_")
-resultsFileName <- paste0(outputDirectory, "/longCOVID_patients.csv")
-resultsFileName <- paste0(outputDirectory, "/longCOVID_patients.csv")
+resultsFileName_sum <- paste0(outputDirectory, "/longCOVID_summary_",param1,param2,viral,".csv")
+resultsFileName_longCOVID_patients <- paste0(outputDirectory, "/longCOVID_patients_",param1,param2,viral,".csv")
 
 
 
-sparsity = 0.001
+
 numOfThreads = detectCores()-cores_buffer
 
 ##load Js and correlations
@@ -102,6 +105,7 @@ for(i in seq(1:numOfChunks)){
   unique(corrs_cov_J_sig$endPhenx)
   J <- subset(J,J$endPhenx %in% corrs_cov_J_sig$endPhenx)
   
+  if(viral== TRUE){
   ###we also want Js that do NOT have significant correlations with a Viral infection
   corrs_VI_J_sig <- subset(corrs,corrs$sequence >0 & corrs$p.adjust <=0.01 & corrs$rho >= param2 & 
                              corrs$startPhen %in% virals_cod & !(corrs$endPhenx %in% virals_cod))
@@ -109,6 +113,7 @@ for(i in seq(1:numOfChunks)){
   
   if (length(unique(corrs_VI_J_sig$endPhenx)) > 0){
   J <- subset(J,!(J$endPhenx %in% corrs_VI_J_sig$endPhenx))}
+  }
   
   endPhenx = c(J$endPhenx,cov_cods) #TODO look up id for covid phenx in db$phenxLookUp
   temporalBucket =  c(0,1,3)
@@ -352,10 +357,11 @@ for(i in seq(1:numOfChunks)){
     dplyr::select(-"num_pat_num", -"chunk_pat_num")
   	  
   if(i == 1){
-    db_longhaulers1 <- nextChunk
+    longhaulers <- nextChunk
     #J <- load(jFileName)
   }else{
-    longhaulers <- rbind(db_longhaulers1, nextChunk)
+    nextChunk <-  nextChunk[,c(colnames(longhaulers))]
+    longhaulers <- rbind(longhaulers, nextChunk)
     #J <- rbind(J, load(jFileName))
   }
 }
@@ -364,4 +370,7 @@ for(i in seq(1:numOfChunks)){
 ###get descriptive statistics
 length(unique(longhaulers$patient_num))
 long_COVID_list <- data.frame(table(longhaulers$phenx))
-write.csv(longhaulers,file=resultsFileName)
+write.csv(long_COVID_list,file=resultsFileName_sum)
+write.csv(longhaulers,file=resultsFileName_longCOVID_patients)
+
+
