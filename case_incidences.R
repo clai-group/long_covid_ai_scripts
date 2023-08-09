@@ -1,18 +1,20 @@
 ###this script creates incident-level data from patient encounters for COVID infections
 ### rule is to cluster infections dates and recognize an infection if a cluster is 90 days or longer apart from another
-if(!require(pacman)) install.packages("pacman")
-
-pacman::p_load(data.table, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,scales,readr,Rmisc,
-               httr, DT, lubridate, tidyverse,reshape2,foreach,doParallel,caret,gbm,lubridate,praznik,
-               ggridges, forcats, stats)
-
-
 
 #### load the encounters data
 ### we will need 2 columns patient_num, start_date
 ## better not have duplicated rows!
 
 load(file.choose()) ### open cov_pats.RData -- the output from the mapping script
+outputDirectory <- choose_directory(caption = "select output data directory") ## where outputs are saved
+outputDirectory
+#### libraries and stuff!
+{
+if(!require(pacman)) install.packages("pacman")
+
+pacman::p_load(data.table, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,scales,readr,Rmisc,
+               httr, DT, lubridate, tidyverse,reshape2,foreach,doParallel,caret,gbm,lubridate,praznik,
+               ggridges, forcats, stats)
 
 ##utils::choose.dir is a windows functionality use tk on other systems
 choose_directory = function(caption = 'Select directory') {
@@ -22,11 +24,11 @@ choose_directory = function(caption = 'Select directory') {
     tcltk::tk_choose.dir(caption = caption)
   }
 }
+}
 
-outputDirectory <- choose_directory(caption = "select output data directory") ## where outputs are saved
-outputDirectory
+##run the chunk below
 
-
+{
 colnames(cases_encs) <- tolower(colnames(cases_encs))
 ##remove potential duplicates within a month
 #break down dates by quarter
@@ -143,3 +145,4 @@ cov_pats_summary <- rbind(by_count,by_month)
 
 sumFileName = paste0(outputDirectory,"/cov_pats_summary.RData")
 save(cov_pats_summary, file=sumFileName)
+}

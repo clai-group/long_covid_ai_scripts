@@ -14,7 +14,8 @@ cores_buffer <- 1 # choose the number of cores to free up make sure not to overl
 ### again, this number will be taken from available cores. Set a number that get's you  3-5 cores max 
 
 
-
+###libraries and stuff!
+{
 ## initial settings
 Sys.setenv(R_MAX_NUM_DLLS = 999)
 options("scipen"=100, "digits"=4)
@@ -46,7 +47,7 @@ choose_directory = function(caption = 'Select directory') {
   }
 }
 
-
+}
 
 # cov_pat incident level data
 cov_pat_incident_FileName <- file.choose() ##the cov_pats.RData file

@@ -1,8 +1,13 @@
 ###this script implements WHO definition of long COVID
 ###this is step 1 to identify potential candidates or Js
 
+##request parameters:
+mem_buffer <- 1 #in GB. just a buffer to make sure the computer wont crash
+cores_buffer <- 1 # choose the number of cores to free up - make sure not to overload your computer!
 
 
+###libraries and stuff!
+{
 ## initial settings
 Sys.setenv(R_MAX_NUM_DLLS = 999)
 options("scipen"=100, "digits"=4)
@@ -24,9 +29,7 @@ pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,
                httr, DT, lubridate, tidyverse,reshape2,foreach,doParallel,caret,gbm,lubridate,praznik,epitools, tcltk)
 
 
-##request parameters:
-mem_buffer <- 1 #in GB. just a buffer to make sure the computer wont crash
-cores_buffer <- 1 # choose the number of cores to free up - make sure not to overload your computer!
+
 
 
   ##utils::choose.dir is a windows functionality use tk on other systems
@@ -38,7 +41,7 @@ cores_buffer <- 1 # choose the number of cores to free up - make sure not to ove
     }
   }
   
-
+}
   
     # cov_pat incident level data
     cov_pat_incident_FileName <- file.choose() ##the cov_pats.RData file

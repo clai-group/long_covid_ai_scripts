@@ -2,8 +2,13 @@
 ###this is step 2 to calculate temporal correlations for candidates Js
 ### we will use cases, controls_pre, and controls
 
+##request parameters:
+mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
+cores_buffer <- 90 # choose the number of cores to free up make sure not to overload your computer!
+#### be extra cautious here to only select 4-5 cores
 
-
+###libraries and stuff!
+{
 ## initial settings
 Sys.setenv(R_MAX_NUM_DLLS = 999)
 options("scipen"=100, "digits"=4)
@@ -27,11 +32,6 @@ pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,
 
 
 
-##request parameters:
-mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
-cores_buffer <- 90 # choose the number of cores to free up make sure not to overload your computer!
-#### be extra cautious here to only select 4-5 cores
-
 ##utils::choose.dir is a windows functionality use tk on other systems
 choose_directory = function(caption = 'Select directory') {
   if (exists('utils::choose.dir')) {
@@ -41,7 +41,7 @@ choose_directory = function(caption = 'Select directory') {
   }
 }
 
-
+}
 
 # cov_pat incident level data
 cov_pat_incident_FileName <- file.choose() ##the cov_pats.RData file
