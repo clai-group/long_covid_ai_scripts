@@ -7,7 +7,7 @@
 ###hyperparameters
 param1 <- 0.25 ###rho value for cov->J 
 param2 <- 0.4 ### rho value for viral infection ->J
-viral <- TRUE ##exclude Js with significant correlation to another viral infection?
+viral <- FALSE ##exclude Js with significant correlation to another viral infection?
 sparsity <- 0.001 ##sparsity screening 
 mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
 cores_buffer <- 1 # choose the number of cores to free up make sure not to overload your computer!
@@ -54,6 +54,10 @@ dbmartCases_FileName <-   file.choose() ##CCSR-mapped cases
 corrsFileName <- file.choose() ## corrs.RData, EITHER the file computed in the previous step or the pre-computed delivered with the docker container
 outputDirectory <- choose_directory(caption = "select output data directory") ## where outputs are saved
 outputDirectory
+
+
+##### now just run the following line
+{
 
 #   ###### NON-INTERACTIVE MODE ### CHANGE THIS VARIABLES TO THE CORRECT PATH
 # cov_pat_incident_FileName <- "set Path"
@@ -368,9 +372,9 @@ for(i in seq(1:numOfChunks)){
 
 
 ###get descriptive statistics
-length(unique(longhaulers$patient_num))
+data.frame(length(unique(longhaulers$patient_num)))
 long_COVID_list <- data.frame(table(longhaulers$phenx))
 write.csv(long_COVID_list,file=resultsFileName_sum)
 write.csv(longhaulers,file=resultsFileName_longCOVID_patients)
 
-
+}

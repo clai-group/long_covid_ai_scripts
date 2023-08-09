@@ -46,6 +46,11 @@ cores_buffer <- 1 # choose the number of cores to free up - make sure not to ove
     outputDirectory <- choose_directory(caption = "select output data directory") ## where outputs are saved
     # dbmartControlls_FileName <-   file.choose()
 
+    
+    
+    
+### run the following chunk
+{
     #   ###### NON-INTERACTIVE MODE ### CHANGE THIS VARIABLES TO THE CORRECT PATH
     # cov_pat_incident_FileName <- "set Path"
     # dbmartCases_FileName <-   "setPath"
@@ -284,3 +289,4 @@ J <- J %>%
   dplyr::select(endPhenx,phenx)
 
 save(J,file=paste0(outputDirectory,"/J.RData"))
+}

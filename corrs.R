@@ -51,6 +51,11 @@ dbmartControlls_FileName <- file.choose() ##CCSR-mapped controls
 outputDirectory <- choose_directory(caption = "select output data directory") ## where outputs are saved
 outputDirectory
 
+
+
+
+### run the following chunk
+{
 #   ###### NON-INTERACTIVE MODE ### CHANGE THIS VARIABLES TO THE CORRECT PATH
 # cov_pat_incident_FileName <- "set Path"
 # dbmartCases_FileName <-   "setPath"
@@ -281,3 +286,4 @@ corrs <- mergedCorrs %>%
 
 corrsFileName = paste0(outputDirectory,"/corrs.RData")
 save(corrs, file=corrsFileName)
+}
