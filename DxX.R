@@ -373,8 +373,11 @@ for(i in seq(1:numOfChunks)){
 
 
 ###get descriptive statistics
-data.frame(length(unique(longhaulers$patient_num)))
+temp <- data.frame(length(unique(longhaulers$patient_num)))
+temp$Var1 <- "unique long haulers"
+colnames(temp)[1] <- "Freq"
 long_COVID_list <- data.frame(table(longhaulers$phenx))
+long_COVID_list <- rbind(long_COVID_list,temp)
 write.csv(long_COVID_list,file=resultsFileName_sum)
 write.csv(longhaulers,file=resultsFileName_longCOVID_patients)
 
