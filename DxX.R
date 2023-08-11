@@ -5,9 +5,11 @@
 ### you can run this script after candidate J, if you cannot compute correlations due to computing limitations
 
 ###hyperparameters
+site <- "MGB"
 param1 <- 0.25 ###rho value for cov->J 
 param2 <- 0.4 ### rho value for viral infection ->J
-viral <- FALSE ##exclude Js with significant correlation to another viral infection?
+p <- 0.05 ### p-value for correlations
+viral <- TRUE ##exclude Js with significant correlation to another viral infection?
 sparsity <- 0.001 ##sparsity screening 
 mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
 cores_buffer <- 1 # choose the number of cores to free up make sure not to overload your computer!
@@ -74,8 +76,8 @@ apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
 #base file names will be completed in the loop
 jBaseFileName <- paste0(outputDirectory,"/J.RData")
 dbBaseFileName <- paste0(outputDirectory, "/db_longhauler_chunk_")
-resultsFileName_sum <- paste0(outputDirectory, "/longCOVID_summary_",param1,param2,viral,".csv")
-resultsFileName_longCOVID_patients <- paste0(outputDirectory, "/longCOVID_patients_",param1,param2,viral,".csv")
+resultsFileName_sum <- paste0(outputDirectory, "/longCOVID_summary_",site,param1,param2,p,viral,".csv")
+resultsFileName_longCOVID_patients <- paste0(outputDirectory, "/longCOVID_patients_",site,param1,param2,p,viral,".csv")
 
 
 
@@ -105,14 +107,14 @@ for(i in seq(1:numOfChunks)){
   
   ################ identify correlated Js
   ###we want Js that have significant correlations and also correlated to covid
-  corrs_cov_J_sig <- subset(corrs,corrs$sequence >0 & corrs$p.adjust <=0.01 & corrs$rho >=param1 & 
+  corrs_cov_J_sig <- subset(corrs,corrs$sequence >0 & corrs$p.adjust <= p & corrs$rho >=param1 & 
                               corrs$startPhen %in% cov_cods & !(corrs$endPhenx %in% cov_cods))
   unique(corrs_cov_J_sig$endPhenx)
   J <- subset(J,J$endPhenx %in% corrs_cov_J_sig$endPhenx)
   
   if(viral== TRUE){
   ###we also want Js that do NOT have significant correlations with a Viral infection
-  corrs_VI_J_sig <- subset(corrs,corrs$sequence >0 & corrs$p.adjust <=0.01 & corrs$rho >= param2 & 
+  corrs_VI_J_sig <- subset(corrs,corrs$sequence >0 & corrs$p.adjust <= p & corrs$rho >= param2 & 
                              corrs$startPhen %in% virals_cod & !(corrs$endPhenx %in% virals_cod))
   unique(corrs_VI_J_sig$endPhenx)
   

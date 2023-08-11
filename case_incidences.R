@@ -4,7 +4,7 @@
 #### load the encounters data
 ### we will need 2 columns patient_num, start_date
 ## better not have duplicated rows!
-
+site <- "MGB"
 load(file.choose()) ### open cov_pats.RData -- the output from the mapping script
 outputDirectory <- choose_directory(caption = "select output data directory") ## where outputs are saved
 outputDirectory
@@ -143,6 +143,6 @@ colnames(by_month) <- c("group","count")
 
 cov_pats_summary <- rbind(by_count,by_month)
 
-sumFileName = paste0(outputDirectory,"/cov_pats_summary.RData")
+sumFileName = paste0(outputDirectory,"/",site,"cov_pats_summary.RData")
 save(cov_pats_summary, file=sumFileName)
 }

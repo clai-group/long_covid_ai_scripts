@@ -2,6 +2,7 @@
 ###this is step 1 to identify potential candidates or Js
 
 ##request parameters:
+site <- "MGB"
 mem_buffer <- 1 #in GB. just a buffer to make sure the computer wont crash
 cores_buffer <- 1 # choose the number of cores to free up - make sure not to overload your computer!
 
@@ -291,5 +292,5 @@ J <- J %>%
   filter(count_perc > 0.5) %>%
   dplyr::select(endPhenx,phenx)
 
-save(J,file=paste0(outputDirectory,"/J.RData"))
+save(J,file=paste0(outputDirectory,"/",site,"J.RData"))
 }

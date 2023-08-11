@@ -3,6 +3,7 @@
 ### we will use cases, controls_pre, and controls
 
 ##request parameters:
+site <- "MGB"
 mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
 cores_buffer <- 90 # choose the number of cores to free up make sure not to overload your computer!
 #### be extra cautious here to only select 4-5 cores
@@ -284,6 +285,6 @@ corrs <- mergedCorrs %>%
   dplyr::group_by(endPhenx,startPhen_dur,sequence,startPhen) %>%
   dplyr::summarise_all(mean, na.rm=TRUE)
 
-corrsFileName = paste0(outputDirectory,"/corrs.RData")
+corrsFileName = paste0(outputDirectory,"/",site,"corrs.RData")
 save(corrs, file=corrsFileName)
 }
