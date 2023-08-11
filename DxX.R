@@ -7,9 +7,8 @@
 ###hyperparameters
 site <- "MGB"
 param1 <- 0.25 ###rho value for cov->J 
-param2 <- 0.4 ### rho value for viral infection ->J
+param2 <- 0.4 ### rho value for exclusion by correlation
 p <- 0.05 ### p-value for correlations
-viral <- TRUE ##exclude Js with significant correlation to another viral infection?
 sparsity <- 0.001 ##sparsity screening 
 mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
 cores_buffer <- 1 # choose the number of cores to free up make sure not to overload your computer!
@@ -76,8 +75,8 @@ apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
 #base file names will be completed in the loop
 jBaseFileName <- paste0(outputDirectory,"/J.RData")
 dbBaseFileName <- paste0(outputDirectory, "/db_longhauler_chunk_")
-resultsFileName_sum <- paste0(outputDirectory, "/longCOVID_summary_",site,param1,param2,p,viral,".csv")
-resultsFileName_longCOVID_patients <- paste0(outputDirectory, "/longCOVID_patients_",site,param1,param2,p,viral,".csv")
+resultsFileName_sum <- paste0(outputDirectory, "/longCOVID_summary_",site,param1,param2,p,".csv")
+resultsFileName_longCOVID_patients <- paste0(outputDirectory, "/longCOVID_patients_",site,param1,param2,p,".csv")
 
 
 
@@ -112,15 +111,6 @@ for(i in seq(1:numOfChunks)){
   unique(corrs_cov_J_sig$endPhenx)
   J <- subset(J,J$endPhenx %in% corrs_cov_J_sig$endPhenx)
   
-  if(viral== TRUE){
-  ###we also want Js that do NOT have significant correlations with a Viral infection
-  corrs_VI_J_sig <- subset(corrs,corrs$sequence >0 & corrs$p.adjust <= p & corrs$rho >= param2 & 
-                             corrs$startPhen %in% virals_cod & !(corrs$endPhenx %in% virals_cod))
-  unique(corrs_VI_J_sig$endPhenx)
-  
-  if (length(unique(corrs_VI_J_sig$endPhenx)) > 0){
-  J <- subset(J,!(J$endPhenx %in% corrs_VI_J_sig$endPhenx))}
-  }
   
   endPhenx = c(J$endPhenx,cov_cods) #TODO look up id for covid phenx in db$phenxLookUp
   temporalBucket =  c(0,1,3)
@@ -179,7 +169,7 @@ for(i in seq(1:numOfChunks)){
   ########################################################################
   
   ######## HYPERPARAMETER ALERT!
-  exlusion_corrs <- subset(corrs,corrs$p.adjust <= 0.005 & corrs$rho >= 0.5) 
+  exlusion_corrs <- subset(corrs,corrs$p.adjust <= p & corrs$rho >= param2) 
   
   ###J->J sequences
   # we will only remove Js when J->J with longer than 3 months is significant and also the patient has a J-->COVID sequence
