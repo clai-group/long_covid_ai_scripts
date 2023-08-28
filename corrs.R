@@ -4,8 +4,8 @@
 
 ##request parameters:
 site <- "MGB"
-mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
-cores_buffer <- 90 # choose the number of cores to free up make sure not to overload your computer!
+mem_buffer <- 1 #in GB. just a buffer to make sure the computer wont crash
+cores_buffer <- 1 # choose the number of cores to free up make sure not to overload your computer!
 #### be extra cautious here to only select 4-5 cores
 
 ###libraries and stuff!
@@ -263,7 +263,7 @@ for (i in seq(1:numOfChunks)) {
   },
   error = function(foll) {cat("ERROR in chunk ",i, ": ", conditionMessage(foll), "\n")})
   stopCluster(cl)
-  
+
 }
 
 for (i in seq(1:numOfChunks)) {
