@@ -36,23 +36,23 @@ pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,
   ##utils::choose.dir is a windows functionality use tk on other systems
   choose_directory = function(caption = 'Select directory') {
     if (exists('utils::choose.dir')) {
-      choose.dir(caption = caption) 
+      choose.dir(caption = caption)
     } else {
       tcltk::tk_choose.dir(caption = caption)
     }
   }
-  
+
 }
-  
+
     # cov_pat incident level data
     cov_pat_incident_FileName <- file.choose() ##the cov_pats.RData file
     dbmartCases_FileName <-   file.choose() ##CCSR-mapped cases
     outputDirectory <- choose_directory(caption = "select output data directory") ## where outputs are saved
     # dbmartControlls_FileName <-   file.choose()
 
-    
-    
-    
+
+
+
 ### run the following chunk
 {
     #   ###### NON-INTERACTIVE MODE ### CHANGE THIS VARIABLES TO THE CORRECT PATH
@@ -105,7 +105,7 @@ save(patlookup, file = patlookup_FileName)
 sparsity = 0.001
 numOfThreads = detectCores()-cores_buffer
 
-phenxOfInterest = c(as.numeric(db$phenxLookUp[(db$phenxLookUp$phenx %like% "COVID"),"num_Phenx"]$num_Phenx)) #TODO look up id for covid phenx in db$phenxLookUp
+phenxOfInterest = c(as.numeric(db$phenxLookUp[(db$phenxLookUp$phenx %like% "COVID\\d+"),"num_Phenx"]$num_Phenx)) #TODO look up id for covid phenx in db$phenxLookUp
 temporalBucket =  c(0,1,3)
 minDuration = 0 #techical parameter, ignore for now ##TODO if not working with 0 use 1
 bitShift = 0 #techical parameter, ignore for now
@@ -114,7 +114,7 @@ storeSequencesDuringCreation = FALSE #if true, old way -> writing out "plain" sp
 
 
 ### adaptive chunk sizes
-buffer<- 100000000*mem_buffer #extra buffer in bytes find good value *a higher value here decrease the chunk size, but left more memory to work with after the sequencing, the chunk size is calculated on the memory consumption of the non-sparse sequences, reduce buffer 
+buffer<- 100000000*mem_buffer #extra buffer in bytes find good value *a higher value here decrease the chunk size, but left more memory to work with after the sequencing, the chunk size is calculated on the memory consumption of the non-sparse sequences, reduce buffer
 dbmart_adapt <- tSPMPlus::splitdbMartInChunks(db$dbMart, includeCorSeq = TRUE, buffer = buffer)
 numOfChunks = length(dbmart_adapt$chunks)
 
@@ -133,22 +133,22 @@ for (i in seq(1:numOfChunks)) {
                                                   storeSequencesDuringCreation,
                                                   numOfThreads = numOfThreads,
                                                   sparsityValue = sparsity)
-  
-  
+
+
   corseq <- dplyr::distinct(corseq, .keep_all = TRUE)
   gc()
-  
+
   ##construct covid --> J sequences
   J <- data.frame(unique(corseq$endPhenx))
   colnames(J) <- "endPhenx"
   Js <- list()
   for(j in 1:length(phenxOfInterest)) {
     Js.j <- J
-    
+
     Js.j$candidate_sequences <- ifelse(Js.j$endPhenx<10,paste0(phenxOfInterest[j],"000000",Js.j$endPhenx),NA)
     Js.j$candidate_sequences <- ifelse(Js.j$endPhenx<100 & Js.j$endPhenx>9,paste0(phenxOfInterest[j],"00000",Js.j$endPhenx),Js.j$candidate_sequences)
     Js.j$candidate_sequences <- ifelse(Js.j$endPhenx<1000 & Js.j$endPhenx>99,paste0(phenxOfInterest[j],"0000",Js.j$endPhenx),Js.j$candidate_sequences)
-    
+
     Js[[j]] <- Js.j
   }
   J <- data.table::rbindlist(Js)
@@ -156,120 +156,120 @@ for (i in seq(1:numOfChunks)) {
   rm(Js,Js.j)
   ###
   corseq_sub <- subset(corseq,corseq$sequence %in% c(J$candidate_sequences))
-  
+
   ##now start looping through with the last infection
-  infections <- data.frame(db$phenxLookUp[(db$phenxLookUp$phenx %like% "COVID"),c("phenx","num_Phenx")])
+  infections <- data.frame(db$phenxLookUp[(db$phenxLookUp$phenx %like% "COVID\\d+"),c("phenx","num_Phenx")])
   infections$num <- as.numeric(sub('.*COVID', '', infections$phenx))
-  
+
   J_low <- list()
-  
+
   for (inf in max(infections$num):1){
     tryCatch({
       gc()
       phen_num_inf <- infections[infections$num <- inf,"num_Phenx"]
       corseq_sub_inf <- corseq_sub %>%
         dplyr::filter(sequence %like% paste0("^",phen_num_inf))
-      
+
       pat_num_inf <- length(unique(corseq_sub_inf$patient_num))
-      
+
       if (nrow(corseq_sub_inf) > 0) {
         ### now we want to make sure that patients have a data point 12 months after this last infection
         ### if not, they are out for this round of sparsity calculations
-        
+
         pat_sub_inf <- corseq_sub_inf %>%
           dplyr::group_by(patient_num) %>%
           dplyr::summarise(duration_max=max(duration)) %>%
           dplyr::filter(duration_max >= 12)
-        
-        
+
+
         if (nrow(pat_sub_inf) > 0){
           corseq_sub_inf <- corseq_sub_inf %>%
             ### sequences longer than 12 months are not of interest!
             dplyr::filter(duration <= 12) %>%
             dplyr::filter(patient_num %in% pat_sub_inf$patient_num)
-          
+
           ##### these patients have follow up data to consider
-          
+
           ###### now make sure the patient has more than 1 of the sequences post that infection
           corseq_sub_count_inf <- corseq_sub_inf %>%
             dplyr::group_by(patient_num,sequence) %>%
             dplyr::summarise(count=length((patient_num))) #%>%
           # filter(count > sparsity*length(unique(cov_pats$PATIENT_NUM)))
-          
+
           ##remove patients who only had 1 sequence to redo the sparsity screen
           corseq_sub_count_inft_single <- corseq_sub_count_inf %>%
             filter(count==1)
-          
+
           corseq_sub_inf <- subset(corseq_sub_inf,!(paste0(corseq_sub_inf$patient_num,corseq_sub_inf$sequence) %in%
                                                       paste0(corseq_sub_count_inft_single$patient_num,corseq_sub_count_inft_single$sequence)))
- 
+
           ###now sparsity screening
           ##sparsity screen
           corseq_sub_inf_count <- corseq_sub_inf %>%
             dplyr::group_by(sequence) %>%
             dplyr::summarise(count=length(unique(patient_num)))%>%
             filter(count > sparsity*pat_num_inf)
-          
-          
+
+
           corseq_sub_inf <- subset(corseq_sub_inf,corseq_sub_inf$sequence %in% c(unique(corseq_sub_inf_count$sequence)))
-          
-          
+
+
           #### the 2-month requirement
-          
-          
+
+
           ###calculate the min duration for each patient and sequence
           corseq_sub_inf_min <- corseq_sub_inf %>%
             dplyr::group_by(patient_num,sequence) %>%
             dplyr::summarise(min_duration=min((duration)))
-          
-          
+
+
           corseq_sub_inf <- merge(corseq_sub_inf,corseq_sub_inf_min,by=c("patient_num","sequence"))
-          
-          corseq_sub_inf <- subset(corseq_sub_inf,corseq_sub_inf$duration == corseq_sub_inf$min_duration | 
+
+          corseq_sub_inf <- subset(corseq_sub_inf,corseq_sub_inf$duration == corseq_sub_inf$min_duration |
                                      corseq_sub_inf$duration >= corseq_sub_inf$min_duration+2)
-          
+
           corseq_sub_inf_count <- corseq_sub_inf %>%
             dplyr::group_by(patient_num,sequence) %>%
             dplyr::summarise(count=length((patient_num)))
-          
+
           ##remove patients who only had 1 sequences to redo the sparsity screen
           corseq_sub_inf_count_single <- corseq_sub_inf_count %>%
             filter(count==1)
-          
-          
+
+
           corseq_sub_inf <- subset(corseq_sub_inf,!(paste0(corseq_sub_inf$patient_num,corseq_sub_inf$sequence) %in%
                                                       paste0(corseq_sub_inf_count_single$patient_num,corseq_sub_inf_count_single$sequence)))
-          
+
           ###see if we pass the sparsity screen
-          
+
           corseq_sub_inf_count <- corseq_sub_inf %>%
             dplyr::group_by(sequence) %>%
             dplyr::summarise(count=length(unique(patient_num)))%>%
             filter(count > sparsity*pat_num_inf)
-          
-          
+
+
           corseq_sub_inf <- subset(corseq_sub_inf,corseq_sub_inf$sequence %in% c(unique(corseq_sub_inf_count$sequence)))
-          
-          
+
+
           ###the remaining sequences are the ones of interest. Now extract J from them
           J_inf <- subset(J,J$candidate_sequences  %in% c(unique(corseq_sub_inf_count$sequence)))
           J_inf <- merge(J_inf,db$phenxLookUp,by.x = "endPhenx",by.y ="num_Phenx" )
-          
+
           J_low[[inf]] <- J_inf
-          
+
           rm(J_inf,pat_sub_inf,corseq_sub_count_inf,corseq_sub_count_inft_single,
              corseq_sub_inf_count_single,corseq_sub_inf_count,corseq_sub_inf_min,pat_num_inf)
           gc()
         }
       }
-      
-      
-      
-    }, 
+
+
+
+    },
     error = function(foll) {cat("ERROR :",conditionMessage(foll), "\n")})
   }
-  
-  
+
+
   J <- data.table::rbindlist(J_low)
   J <- dplyr::distinct(dplyr::select(J,endPhenx,phenx), .keep_all = TRUE)
   J_loop[[i]] <- J
@@ -278,11 +278,11 @@ for (i in seq(1:numOfChunks)) {
   save(J,file=jFileName)
   rm(j,jFileName, infections, corseq_sub)
   gc();
-  
+
   },
   error = function(foll) {cat("ERROR in chunk ",i, ": ", conditionMessage(foll), "\n")})
 }
-  
+
 J <- data.table::rbindlist(J_loop)
 
 ###we will limit candidate Js to those that came up in half of the chunks
