@@ -73,7 +73,7 @@ phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
 patlookup_FileName <- paste0(outputDirectory, "/patlookup.RData")
 apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
 #base file names will be completed in the loop
-jBaseFileName <- paste0(outputDirectory,"/J.RData")
+jBaseFileName <- paste0(outputDirectory,"/",site,"_J.RData")
 dbBaseFileName <- paste0(outputDirectory, "/db_longhauler_chunk_")
 resultsFileName_sum <- paste0(outputDirectory, "/longCOVID_summary_",site,param1,param2,p,".csv")
 resultsFileName_longCOVID_patients <- paste0(outputDirectory, "/longCOVID_patients_",site,param1,param2,p,".csv")

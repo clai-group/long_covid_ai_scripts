@@ -292,5 +292,5 @@ J <- J %>%
   filter(count_perc > 0.5) %>%
   dplyr::select(endPhenx,phenx)
 
-save(J,file=paste0(outputDirectory,"/",site,"J.RData"))
+save(J,file=paste0(outputDirectory,"/",site,"_J.RData"))
 }
