@@ -6,8 +6,8 @@
 
 ###hyperparameters
 site <- "MGB"
-param1 <- 0.25 ###rho value for cov->J
-param2 <- 0.4 ### rho value for exclusion by correlation
+param1 <- 0.1 ###rho value for cov->J
+param2 <- 0.6 ### rho value for exclusion by correlation
 p <- 0.05 ### p-value for correlations
 sparsity <- 0.001 ##sparsity screening
 mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash

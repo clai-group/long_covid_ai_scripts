@@ -285,6 +285,6 @@ corrs <- mergedCorrs %>%
   dplyr::group_by(endPhenx,startPhen_dur,sequence,startPhen) %>%
   dplyr::summarise_all(mean, na.rm=TRUE)
 
-corrsFileName = paste0(outputDirectory,"/",site,"corrs.RData")
+corrsFileName = paste0(outputDirectory,"/",site,"_corrs.RData")
 save(corrs, file=corrsFileName)
 }

@@ -25,7 +25,7 @@ choose_directory = function(caption = 'Select directory') {
 }
 
 ###### Modify the following lines
-group <- "controls" #cases, controls, controls_pre
+group <- "cases" #cases, controls, controls_pre
 
 groupDirectory <- choose_directory(caption = "select group data directory")  ## where the inputs come from 
 outputDirectory <- choose_directory(caption = "select output data directory") ## where the outputs are saved
@@ -38,7 +38,7 @@ site <- "MGH"
 ```{r load data}
 input_file <- paste0(groupDirectory, "/",group, ".csv")
 df <-  data.table::fread(input_file) 
-ccsr <- data.table::fread("P:/PASC/data/CCSR_PASC_ACT_Mapping_part.csv")
+ccsr <- data.table::fread("P:/CCSR/CCSR_PASC_ACT_Mapping_part_082023.csv")
 ```
 
 
