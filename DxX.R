@@ -106,8 +106,14 @@ for(i in seq(1:numOfChunks)){
 
   ################ identify correlated Js
   ###we want Js that have significant correlations and also correlated to covid
-  corrs_cov_J_sig <- subset(corrs,corrs$sequence >0 & corrs$p.adjust <= p & corrs$rho >=param1 &
+  corrs_cov_J_sig <- subset(corrs, !(corrs$startPhen_dur %like% "-0") & corrs$sequence >0 & corrs$p.adjust <= p &
                               corrs$startPhen %in% cov_cods & !(corrs$endPhenx %in% cov_cods))
+
+  corrs_cov_J_sig <- corrs_cov_J_sig %>%
+    dplyr::group_by(phenx) %>%
+    dplyr::summarise(mean.rho=mean((rho.abs))) %>%
+    filter(mean.rho > param1)
+
   unique(corrs_cov_J_sig$endPhenx)
   J <- subset(J,J$endPhenx %in% corrs_cov_J_sig$endPhenx)
 
