@@ -11,7 +11,7 @@ param2 <- 0.6 ### rho value for exclusion by correlation
 p <- 0.05 ### p-value for correlations
 sparsity <- 0.001 ##sparsity screening
 mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
-cores_buffer <- 1 # choose the number of cores to free up make sure not to overload your computer!
+cores_buffer <- 90 # choose the number of cores to free up make sure not to overload your computer!
 ### again, this number will be taken from available cores. Set a number that get's you  3-5 cores max
 
 
@@ -110,7 +110,7 @@ for(i in seq(1:numOfChunks)){
                               corrs$startPhen %in% cov_cods & !(corrs$endPhenx %in% cov_cods))
 
   corrs_cov_J_sig <- corrs_cov_J_sig %>%
-    dplyr::group_by(phenx) %>%
+    dplyr::group_by(endPhenx) %>%
     dplyr::summarise(mean.rho=mean((rho.abs))) %>%
     filter(mean.rho > param1)
 
