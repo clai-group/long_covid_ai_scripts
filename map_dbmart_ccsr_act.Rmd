@@ -38,7 +38,7 @@ site <- "MGH"
 ```{r load data}
 input_file <- paste0(groupDirectory, "/",group, ".csv")
 df <-  data.table::fread(input_file) 
-ccsr <- data.table::fread("P:/CCSR/CCSR_PASC_ACT_Mapping_part_082023.csv")
+ccsr <- data.table::fread("CCSR_PASC_ACT_Mapping_part_082023.csv")
 ```
 
 
