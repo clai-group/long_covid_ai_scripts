@@ -7,11 +7,11 @@
 ###hyperparameters
 site <- "MGB"
 param1 <- 0.2 ###rho value for cov->J
-param2 <- 0.6 ### rho value for exclusion by correlation
+param2 <- 0.4 ### rho value for exclusion by correlation
 p <- 0.05 ### p-value for correlations
 sparsity <- 0.001 ##sparsity screening
 mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
-cores_buffer <- 90 # choose the number of cores to free up make sure not to overload your computer!
+cores_buffer <- 1 # choose the number of cores to free up make sure not to overload your computer!
 ### again, this number will be taken from available cores. Set a number that get's you  3-5 cores max
 
 
