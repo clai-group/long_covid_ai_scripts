@@ -35,13 +35,14 @@ pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,
 
 ##utils::choose.dir is a windows functionality use tk on other systems
 choose_directory = function(caption = 'Select directory') {
-  if (exists('utils::choose.dir')) {
+  if(commandArgs()[[1L]] == "RStudio"){
+    rstudioapi::selectDirectory(caption = caption)
+  }else if (exists('utils::choose.dir')) {
     choose.dir(caption = caption)
-  } else {
+  } else{
     tcltk::tk_choose.dir(caption = caption)
   }
 }
-
 }
 
 # cov_pat incident level data
