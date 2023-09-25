@@ -4,29 +4,32 @@
 #### load the encounters data
 ### we will need 2 columns patient_num, start_date
 ## better not have duplicated rows!
+
+#### libraries and stuff!
+{
+  if(!require(pacman)) install.packages("pacman")
+  
+  pacman::p_load(data.table, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,scales,readr,Rmisc,
+                 httr, DT, lubridate, tidyverse,reshape2,foreach,doParallel,caret,gbm,lubridate,praznik,
+                 ggridges, forcats, stats)
+  
+  ##utils::choose.dir is a windows functionality use tk on other systems
+  choose_directory = function(caption = 'Select directory') {
+    if(commandArgs()[[1L]] == "RStudio"){
+      rstudioapi::selectDirectory(caption = caption)
+    }else if (exists('utils::choose.dir')) {
+      choose.dir(caption = caption)
+    } else{
+      tcltk::tk_choose.dir(caption = caption)
+    }
+  }
+}
+
 site <- "MGB"
 load(file.choose()) ### open cov_pats.RData -- the output from the mapping script
 outputDirectory <- choose_directory(caption = "select output data directory") ## where outputs are saved
 outputDirectory
-#### libraries and stuff!
-{
-if(!require(pacman)) install.packages("pacman")
 
-pacman::p_load(data.table, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,scales,readr,Rmisc,
-               httr, DT, lubridate, tidyverse,reshape2,foreach,doParallel,caret,gbm,lubridate,praznik,
-               ggridges, forcats, stats)
-
-##utils::choose.dir is a windows functionality use tk on other systems
-choose_directory = function(caption = 'Select directory') {
-  if(commandArgs()[[1L]] == "RStudio"){
-    rstudioapi::selectDirectory(caption = caption)
-  }else if (exists('utils::choose.dir')) {
-    choose.dir(caption = caption)
-  } else{
-    tcltk::tk_choose.dir(caption = caption)
-  }
-}
-}
 
 ##run the chunk below
 
