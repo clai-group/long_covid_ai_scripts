@@ -6,12 +6,12 @@
 
 ###hyperparameters
 site <- "MGB"
-param1 <- 100 ###rho value for cov->J, 100 refering to clinically selected features
-param2s <- c(0.65,0.95,0.75,0.85) ### rho value for exclusion by correlation
+param1 <- 0.2 ###rho value for cov->J, 100 refering to clinically selected features
+param2s <- c(0.86,0.87,0.88,0.89) ### rho value for exclusion by correlation
 p <- 0.05 ### p-value for correlations
 sparsity <- 0.001 ##sparsity screening
 mem_buffer <- 5 #in GB. just a buffer to make sure the computer wont crash
-cores_buffer <- 1 # choose the number of cores to free up make sure not to overload your computer!
+cores_buffer <- 92 # choose the number of cores to free up make sure not to overload your computer!
 ### again, this number will be taken from available cores. Set a number that get's you  3-5 cores max
 
 
@@ -388,8 +388,16 @@ for(i in seq(1:numOfChunks)){
 temp <- data.frame(length(unique(longhaulers$patient_num)))
 temp$Var1 <- "unique long haulers"
 colnames(temp)[1] <- "Freq"
-long_COVID_list <- data.frame(table(longhaulers$phenx))
+temp <- temp[c("Var1", "Freq")]
+long_COVID_list <- longhaulers %>%
+  dplyr::group_by(phenx) %>%
+  dplyr::summarise(unique_patients=length(unique(patient_num)))
+colnames(long_COVID_list) <- c("Var1", "Freq")
 long_COVID_list <- rbind(long_COVID_list,temp)
+
+long_COVID_list <- cbind(long_COVID_list, param1 = c(param1), param2 = c(param2))
+longhaulers <- cbind(longhaulers, param1 = c(param1), param2 = c(param2))
+
 write.csv(long_COVID_list,file=resultsFileName_sum)
 write.csv(longhaulers,file=resultsFileName_longCOVID_patients)
 

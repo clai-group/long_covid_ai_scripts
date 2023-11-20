@@ -376,8 +376,17 @@ for(i in seq(1:numOfChunks)){
 temp <- data.frame(length(unique(longhaulers$patient_num)))
 temp$Var1 <- "unique long haulers"
 colnames(temp)[1] <- "Freq"
-long_COVID_list <- data.frame(table(longhaulers$phenx))
+temp <- temp[c("Var1", "Freq")]
+
+long_COVID_list <- longhaulers %>%
+  dplyr::group_by(phenx) %>%
+  dplyr::summarise(unique_patients=length(unique(patient_num)))
+colnames(long_COVID_list) <- c("Var1", "Freq")
 long_COVID_list <- rbind(long_COVID_list,temp)
+
+long_COVID_list <- cbind(long_COVID_list, param1 = c(param1), param2 = c(param2))
+longhaulers <- cbind(longhaulers, param1 = c(param1), param2 = c(param2))
+
 write.csv(long_COVID_list,file=resultsFileName_sum)
 write.csv(longhaulers,file=resultsFileName_longCOVID_patients)
 
