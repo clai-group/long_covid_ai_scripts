@@ -1,4 +1,4 @@
-###this script creates incident-level data from patient encounters for COVID infections
+### this script creates incident-level data from patient encounters for COVID infections
 ### rule is to cluster infections dates and recognize an infection if a cluster is 90 days or longer apart from another
 
 #### load the encounters data
