@@ -10,9 +10,11 @@ library(stringr)
 library(data.table)
 
 choose_directory = function(caption = 'Select directory') {
-  if (exists('utils::choose.dir')) {
-    choose.dir(caption = caption) 
-  } else {
+  if(commandArgs()[[1L]] == "RStudio"){
+    rstudioapi::selectDirectory(caption = caption)
+  }else if (exists('utils::choose.dir')) {
+    choose.dir(caption = caption)
+  } else{
     tcltk::tk_choose.dir(caption = caption)
   }
 }
