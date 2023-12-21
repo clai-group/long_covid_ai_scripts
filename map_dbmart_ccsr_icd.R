@@ -29,7 +29,7 @@ group <- "cases" # cases, controls, controls_pre
 # Load Data ------------------------------------ 
 input_file <- paste0(groupDirectory, "/",group, ".csv")
 df <-  data.table::fread(input_file) 
-ccsr <- data.table::fread("P:/CCSR/CCSR_PASC_ICD.csv")
+ccsr <- data.table::fread("scripts/long_covid_ai_scripts/CCSR_PASC_ICD.csv")
 
 # Extract cov_pats.RData ------------------------------------ 
 names(df) <- toupper(names(df))
