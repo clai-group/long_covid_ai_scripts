@@ -1,4 +1,4 @@
-###this script extracts the positive incidences data 
+### this script extracts the positive incidences data 
 ### and generates the summary statistics for the study population.
  
 # Load packages ------------------------------------
@@ -26,12 +26,12 @@ outputDirectory <- choose_directory(caption = "select output data directory") ##
 # Extract cov_pats.RData  ------------------------------------ 
 df <- data.table::fread(paste0(groupDirectory, "/",group, ".csv")) 
 names(df) <- toupper(names(df))
-# Patient data should have at least these four columns
-target_cols <- c("PATIENT_NUM", "START_DATE", "CONCEPT_CD","C_FULLNAME")
+# Patient data should have at least four columns
+target_cols <- c("PATIENT_NUM", "START_DATE", "CONCEPT_CD","C_FULLNAME", "PHENX", "ICD10_DESC")
 if (all(target_cols %in% colnames(df))) {
   df <- subset(df, select = target_cols)
 } else {
-  print("The input data doesn't include 'PATIENT_NUM', 'START_DATE', 'CONCEPT_CD' or 'C_FULLNAME' columns.")
+  print("The input data doesn't include 'PATIENT_NUM', 'START_DATE', 'CONCEPT_CD', 'C_FULLNAME', 'PHENX' or 'ICD10_DESC' columns.")
 }
 
 df_rmdup <- unique(df)
@@ -70,7 +70,7 @@ if(group == 'cases'){
 # Summary Statistics  ------------------------------------
 summary <- function(group){
   dems_all <-  data.table::fread(paste0(groupDirectory, "/dems_",group, ".csv"))
-  dems <- dems_all[, c("patient_num", "age", "sex_cd", "CHARLSON_INDEX", "race_cd" )]#, "ethnicity_cd")]
+  dems <- dems_all[, c("patient_num", "age", "sex_cd", "CHARLSON_INDEX", "race_cd", "ethnicity_cd")]
   rm(dems_all)
   
   # If the patient has more than 1 ages, select the oldest.
@@ -127,7 +127,8 @@ summary <- function(group){
 
 stat <- summary(group)
 
+# Output  ------------------------------------
 lapply(1:length(stat), function(i) write.csv(stat[[i]], 
                                                 file = paste0(outputDirectory,"/",group, "_", names(stat[i]),"_", site,".csv"),
                                                 row.names = FALSE))
-
+fwrite(df_rmdup, paste0(groupDirectory,"/", group, "_map_CCSR_",site, ".csv"))
