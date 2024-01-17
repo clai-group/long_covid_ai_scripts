@@ -18,26 +18,26 @@ choose_directory = function(caption = 'Select directory') {
 
 # Modify the following lines ------------------------------------ 
 site <- "MGB"
-group <- "cases" #cases, controls, controls_pre
-groupDirectory <- choose_directory(caption = "select group data directory")  ## where the inputs come from
+cohort <- "cases" #cases, controls, controls_pre
+cohortDirectory <- choose_directory(caption = "select cohort data directory")  ## where the inputs come from
 outputDirectory <- choose_directory(caption = "select output data directory") ## where the outputs are saved
 
 
 # Extract cov_pats.RData  ------------------------------------ 
-df <- data.table::fread(paste0(groupDirectory, "/",group, ".csv")) 
+df <- data.table::fread(paste0(cohortDirectory, "/",cohort, ".csv")) 
 names(df) <- toupper(names(df))
-# Patient data should have at least four columns
-target_cols <- c("PATIENT_NUM", "START_DATE", "CONCEPT_CD","C_FULLNAME", "PHENX", "ICD10_DESC")
+# Patient data should have at least these five columns
+target_cols <- c("PATIENT_NUM", "START_DATE", "CONCEPT_CD","C_FULLNAME", "PHENX")
 if (all(target_cols %in% colnames(df))) {
   df <- subset(df, select = target_cols)
 } else {
-  print("The input data doesn't include 'PATIENT_NUM', 'START_DATE', 'CONCEPT_CD', 'C_FULLNAME', 'PHENX' or 'ICD10_DESC' columns.")
+  print("The input data doesn't include 'PATIENT_NUM', 'START_DATE', 'CONCEPT_CD', 'C_FULLNAME' or 'PHENX' columns.")
 }
 
 df_rmdup <- unique(df)
 rm(df)
 
-if(group == 'cases'){
+if(cohort == 'cases'){
   rdx <-  df_rmdup[(df_rmdup$CONCEPT_CD=="ICD10:U07.1"), ]
   rp1 <-  df_rmdup[startsWith(df_rmdup$C_FULLNAME, "\\ACT\\UMLS_C0031437\\SNOMED_3947185011\\UMLS_C0037088\\SNOMED_3947183016\\"), ]
   rp2 <-  df_rmdup[startsWith(df_rmdup$C_FULLNAME, "\\ACT\\UMLS_C0031437\\SNOMED_3947185011\\UMLS_C0022885\\UMLS_C1335447\\"), ]
@@ -55,7 +55,7 @@ if(group == 'cases'){
   cases_encs <- cases_encs[as.Date(cases_encs$START_DATE) <= cases_encs$max_date_possib, ]
   cases_encs <- cases_encs[,-c("max_date", "max_date_possib")]
   
-  save(cases_encs, file= paste0(groupDirectory, "/cov_pats.RData")) 
+  save(cases_encs, file= paste0(cohortDirectory, "/cov_pats.RData")) 
   
   df_rmdup <- df_rmdup[df_rmdup$PATIENT_NUM %in% cases_encs$PATIENT_NUM, ]
   
@@ -68,8 +68,8 @@ if(group == 'cases'){
 # }
 
 # Summary Statistics  ------------------------------------
-summary <- function(group){
-  dems_all <-  data.table::fread(paste0(groupDirectory, "/dems_",group, ".csv"))
+summary <- function(cohort){
+  dems_all <-  data.table::fread(paste0(cohortDirectory, "/dems_",cohort, ".csv"))
   dems <- dems_all[, c("patient_num", "age", "sex_cd", "CHARLSON_INDEX", "race_cd", "ethnicity_cd")]
   rm(dems_all)
   
@@ -110,25 +110,25 @@ summary <- function(group){
   
   table1 <- rbind(tb1,tb2,tb3,tb4,tb5)
   table1$site <- site
-  table1$group <- group
+  table1$cohort <- cohort
   rm(tb1,tb2,tb3,tb4,tb5)
   
   race <- data.frame(table(dems$race_cd))
   race <- subset(race,race$Freq > 30)
   race$site <- site
-  race$group <- group 
+  race$cohort <- cohort 
   
   eth <- data.frame(table(dems$ethnicity_cd))
   eth$site <- site
-  eth$group <- group
+  eth$cohort <- cohort
 
   return(list(dems_stat = table1, race_stat =race, eth_stat=eth))
 }
 
-stat <- summary(group)
+stat <- summary(cohort)
 
 # Output  ------------------------------------
 lapply(1:length(stat), function(i) write.csv(stat[[i]], 
-                                                file = paste0(outputDirectory,"/",group, "_", names(stat[i]),"_", site,".csv"),
+                                                file = paste0(outputDirectory,"/",cohort, "_", names(stat[i]),"_", site,".csv"),
                                                 row.names = FALSE))
-fwrite(df_rmdup, paste0(groupDirectory,"/", group, "_map_CCSR_",site, ".csv"))
+fwrite(df_rmdup, paste0(cohortDirectory,"/", cohort, "_map_CCSR_",site, ".csv"))
