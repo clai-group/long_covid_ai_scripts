@@ -35,6 +35,9 @@ if (all(target_cols %in% colnames(df))) {
 }
 
 df_rmdup <- unique(df)
+df_rmdup$START_DATE <- as.Date( df_rmdup$START_DATE, format="%Y-%m-%d")
+df_rmdup$PATIENT_NUM <- as.integer(df_rmdup$PATIENT_NUM)
+
 rm(df)
 
 if(cohort == 'cases'){
@@ -53,7 +56,7 @@ if(cohort == 'cases'){
   
   cases_encs <- merge(cases_encs, last_dates, by ="PATIENT_NUM")
   cases_encs <- cases_encs[as.Date(cases_encs$START_DATE) <= cases_encs$max_date_possib, ]
-  cases_encs <- cases_encs[,-c("max_date", "max_date_possib")]
+  cases_encs <- dplyr::select(cases_encs, -c(max_date, max_date_possib))
   
   save(cases_encs, file= paste0(cohortDirectory, "/cov_pats.RData")) 
   
