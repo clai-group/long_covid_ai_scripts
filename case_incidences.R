@@ -121,11 +121,12 @@ cases_encs_mi_no <- subset(cases_encs_mi,!(cases_encs_mi$patient_num %in% reps$V
 ##those who truly have more than infections
 cases_encs_mi <- subset(cases_encs_mi,(cases_encs_mi$patient_num %in% reps$Var1))
 
+cases_encs$start_date <- as.POSIXct(cases_encs$start_date, "%Y-%m-%d")
 
 cov_pats <- rbind(cases_encs,cases_encs_mi,cases_encs_mi_no)
 
 # stopCluster(cl)
-rm(list=setdiff(ls(), "cov_pats"))
+# rm(list=setdiff(ls(), "cov_pats"))
 
 cov_patsFileName = paste0(outputDirectory,"/cov_pats.RData")
 save(cov_pats, file=cov_patsFileName)
