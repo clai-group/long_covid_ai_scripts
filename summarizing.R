@@ -35,7 +35,7 @@ if (all(target_cols %in% colnames(df))) {
 }
 
 df_rmdup <- unique(df)
-df_rmdup$START_DATE <- as.Date( df_rmdup$START_DATE, format="%Y-%m-%d")
+df_rmdup$START_DATE <- as.POSIXct(df_rmdup$START_DATE, "%Y-%m-%d")
 df_rmdup$PATIENT_NUM <- as.integer(df_rmdup$PATIENT_NUM)
 
 rm(df)
