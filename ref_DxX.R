@@ -85,11 +85,11 @@ load(JFileName)
 colnames(J_threshold_correlations)[1] <- "phenx"
 
 ### IS EVERYONE GOING TO HAVE THE RELEVANCE COLUMN OR ARE WE CUTTING IT FROM THE QUERY?
-dbmart_cases_map_ccsr <- subset(dbmart_cases_map_ccsr,is.na(dbmart_cases_map_ccsr$relevance))
+# dbmart_cases_map_ccsr <- subset(dbmart_cases_map_ccsr,is.na(dbmart_cases_map_ccsr$relevance))
 
-length(unique(dbmart_cases_map_ccsr$phenx))
 
 colnames(dbmart_cases_map_ccsr) <- tolower(colnames(dbmart_cases_map_ccsr))
+length(unique(dbmart_cases_map_ccsr$phenx))
 colnames(cov_pats) <- tolower(colnames(cov_pats))
 
 
