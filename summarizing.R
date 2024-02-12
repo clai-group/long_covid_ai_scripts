@@ -45,7 +45,7 @@ if(cohort == 'cases'){
   rp1 <-  df_rmdup[startsWith(df_rmdup$C_FULLNAME, "\\ACT\\UMLS_C0031437\\SNOMED_3947185011\\UMLS_C0037088\\SNOMED_3947183016\\"), ]
   rp2 <-  df_rmdup[startsWith(df_rmdup$C_FULLNAME, "\\ACT\\UMLS_C0031437\\SNOMED_3947185011\\UMLS_C0022885\\UMLS_C1335447\\"), ]
   rp3 <- df_rmdup[startsWith(df_rmdup$C_FULLNAME, "\\ACT\\UMLS_C0031437\\SNOMED_3947185011\\UMLS_C0022885\\ACT_LOCAL_LAB_ANY_POSITIVE\\"), ] 
-  cases_encs <- rbind(rdx, rp1, rp2, rp3)
+  cases_encs <- rbind(rdx, rp1, rp2, rp3) %>% distinct()
   
   df_rmdup <- anti_join(df_rmdup, cases_encs) 
   
