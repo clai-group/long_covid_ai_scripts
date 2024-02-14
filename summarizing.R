@@ -23,7 +23,7 @@ cohortDirectory <- choose_directory(caption = "select cohort data directory")  #
 outputDirectory <- choose_directory(caption = "select output data directory") ## where the outputs are saved
 
 
-# Extract cov_pats.RData  ------------------------------------ 
+# Preprocess data  ------------------------------------ 
 df <- data.table::fread(paste0(cohortDirectory, "/",cohort, ".csv")) 
 names(df) <- toupper(names(df))
 # Patient data should have at least these five columns
@@ -40,13 +40,16 @@ df_rmdup$PATIENT_NUM <- as.integer(df_rmdup$PATIENT_NUM)
 
 rm(df)
 
+# Extract cov_pats.RData  ------------------------------------ 
 if(cohort == 'cases'){
+  # Extract cov_pats.RData based on U07.1 and these three paths
   rdx <-  df_rmdup[(df_rmdup$CONCEPT_CD=="ICD10:U07.1"), ]
   rp1 <-  df_rmdup[startsWith(df_rmdup$C_FULLNAME, "\\ACT\\UMLS_C0031437\\SNOMED_3947185011\\UMLS_C0037088\\SNOMED_3947183016\\"), ]
   rp2 <-  df_rmdup[startsWith(df_rmdup$C_FULLNAME, "\\ACT\\UMLS_C0031437\\SNOMED_3947185011\\UMLS_C0022885\\UMLS_C1335447\\"), ]
   rp3 <- df_rmdup[startsWith(df_rmdup$C_FULLNAME, "\\ACT\\UMLS_C0031437\\SNOMED_3947185011\\UMLS_C0022885\\ACT_LOCAL_LAB_ANY_POSITIVE\\"), ] 
   cases_encs <- rbind(rdx, rp1, rp2, rp3) %>% distinct()
   
+  # Remove the covid positive incidences from the cases data
   df_rmdup <- anti_join(df_rmdup, cases_encs) 
   
   last_dates <- df_rmdup %>%
