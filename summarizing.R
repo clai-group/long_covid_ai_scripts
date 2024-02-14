@@ -23,7 +23,7 @@ cohortDirectory <- choose_directory(caption = "select cohort data directory")  #
 outputDirectory <- choose_directory(caption = "select output data directory") ## where the outputs are saved
 
 
-# Preprocess data  ------------------------------------ 
+# Preprocess data and data quality check  ------------------------------------ 
 df <- data.table::fread(paste0(cohortDirectory, "/",cohort, ".csv")) 
 names(df) <- toupper(names(df))
 # Patient data should have at least these five columns
@@ -33,11 +33,12 @@ if (all(target_cols %in% colnames(df))) {
 } else {
   print("The input data doesn't include 'PATIENT_NUM', 'START_DATE', 'CONCEPT_CD', 'C_FULLNAME' or 'PHENX' columns.")
 }
-
+# Data quality (data type, date) check
 df_rmdup <- unique(df)
 df_rmdup$START_DATE <- as.POSIXct(df_rmdup$START_DATE, "%Y-%m-%d")
 df_rmdup$PATIENT_NUM <- as.integer(df_rmdup$PATIENT_NUM)
 
+df_rmdup <- dplyr::filter(df_rmdup, START_DATE >= "2017-01-01")
 rm(df)
 
 # Extract cov_pats.RData  ------------------------------------ 
