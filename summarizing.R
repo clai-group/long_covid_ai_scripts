@@ -92,7 +92,8 @@ summary <- function(cohort){
   names(df_rmdup) <- tolower(names(df_rmdup))
   dat.sum <- subset(df_rmdup,df_rmdup$patient_num %in% dems$patient_num)
   colnames(dat.sum) <- tolower(colnames(dat.sum))
-  
+
+  dems <- subset(dems, dems$patient_num %in% df_rmdup$patient_num)
   dems_temp1 <- data.frame(rbind(c("patients",nrow(dems))))
   dems_temp2 <- data.frame(rbind(c("mean age",mean(dems$age))))
   dems_sd <- data.frame(rbind(c("sd age",sd(dems$age))))
