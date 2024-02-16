@@ -53,7 +53,7 @@ choose_directory = function(caption = 'Select directory') {
 }
 
 # cov_pat incident level data
-cov_pat_incident_FileName <- file.choose() ##the cov_pats.RData file
+cov_pat_incident_FileName <- file.choose() ##the cov_pats.RData file under output folder
 dbmartCases_FileName <-   file.choose() ##CCSR-mapped cases
 corrsFileName <- file.choose() ## the pre-computed delivered with the docker container -- ref_corrs.RData
 refJFileName <- file.choose() ## the pre-computed delivered with the docker container -- ref_J_thresholds.RData
