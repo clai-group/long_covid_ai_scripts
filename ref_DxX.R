@@ -53,17 +53,18 @@ choose_directory = function(caption = 'Select directory') {
 }
 
 # cov_pat incident level data
-cov_pat_incident_FileName <- file.choose() ##the cov_pats.RData file under output folder
-dbmartCases_FileName <-   file.choose() ##CCSR-mapped cases
+cov_pat_incident_FileName <- file.choose() ## the cov_pats.RData file under output folder
+dbmartCases_FileName <- file.choose() ## CCSR-mapped cases under data folder
 corrsFileName <- file.choose() ## the pre-computed delivered with the docker container -- ref_corrs.RData
 refJFileName <- file.choose() ## the pre-computed delivered with the docker container -- ref_J_thresholds.RData
 JFileName <- file.choose() ## the pre-computed delivered with the docker container -- ref_J.RData
+ref_phenxlookupFileName <- file.choose() ## the pre-computed delivered with the docker container -- ref_phenxlookup.RData
 
 outputDirectory <- choose_directory(caption = "select output data directory") ## where outputs are saved
 
 
 numOfChunksFileName <- paste0(outputDirectory,"/num_of_case_chunks.RData")
-phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup.RData")
+phenxlookup_FileName <- paste0(outputDirectory, "/phenxlookup_", site,".RData")
 patlookup_FileName <- paste0(outputDirectory, "/patlookup.RData")
 apdativeDbFilenName <- paste0(outputDirectory,"/adpativeDBMart.RData")
   #base file names will be completed in the loop
@@ -81,6 +82,8 @@ load(cov_pat_incident_FileName)
 load(corrsFileName)
 load(refJFileName)
 load(JFileName)
+load(ref_phenxlookupFileName)
+ref_phenxlookup <- phenxlookup
 
 colnames(J_threshold_correlations)[1] <- "phenx"
 
@@ -101,10 +104,15 @@ cov_pats$phenx <- paste0("COVID",cov_pats$infection_seq)
 dbmart <- rbind(dbmart,dplyr::select(cov_pats,patient_num,start_date,phenx))
 
 dbmart <- dplyr::distinct(dbmart, .keep_all = TRUE)
+dbmart <- subset(dbmart, dbmart$phenx %in% ref_phenxlookup$phenx)
 
 db <- tSPMPlus::transformDbMartToNumeric(dbmart)
 
 phenxlookup <- db$phenxLookUp
+merged_df <- merge(phenxlookup, ref_phenxlookup, by = "phenx", suffixes = c("_", "_ref"))
+phenxlookup <- merged_df[, c("phenx", "num_Phenx_ref")]
+colnames(phenxlookup)[2] <- "num_Phenx"
+
 save(phenxlookup,file=phenxlookup_FileName)
 patlookup <- db$patientLookUp
 save(patlookup, file = patlookup_FileName)
@@ -112,7 +120,6 @@ save(patlookup, file = patlookup_FileName)
   ### define sequencing parameters
 
 numOfThreads = detectCores()-cores_buffer
-
 
 J_threshold_correlations <- merge(J_threshold_correlations,phenxlookup,by="phenx")
 cov_cods <- c(subset(phenxlookup$num_Phenx,phenxlookup$phenx %like% "COVID\\d+"))
