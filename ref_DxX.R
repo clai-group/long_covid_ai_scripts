@@ -96,17 +96,18 @@ length(unique(dbmart_cases_map_ccsr$phenx))
 colnames(cov_pats) <- tolower(colnames(cov_pats))
 
 
-dbmart <- dplyr::select(dbmart_cases_map_ccsr,patient_num,start_date,phenx)
+dbmart <- dplyr::select(dbmart_cases_map_ccsr, patient_num, start_date, phenx)
 rm(dbmart_cases_map_ccsr);gc()
 
 cov_pats <- subset(cov_pats,cov_pats$infection_seq <= 5)
 cov_pats$phenx <- paste0("COVID",cov_pats$infection_seq)
-dbmart <- rbind(dbmart,dplyr::select(cov_pats,patient_num,start_date,phenx))
+cov_pats$start_date <-as.IDate(cov_pats$start_date)
+dbmart <- rbind(dbmart,dplyr::select(cov_pats, patient_num, start_date, phenx))
 
 dbmart <- dplyr::distinct(dbmart, .keep_all = TRUE)
 dbmart <- subset(dbmart, dbmart$phenx %in% ref_phenxlookup$phenx)
 
-db <- tSPMPlus::transformDbMartToNumeric(dbmart)
+db <- tSPMPlus::transformDbMartToNumeric(dbmart, ref_phenxlookup)
 
 phenxlookup <- db$phenxLookUp
 merged_df <- merge(phenxlookup, ref_phenxlookup, by = "phenx", suffixes = c("_", "_ref"))
@@ -125,7 +126,7 @@ J_threshold_correlations <- merge(J_threshold_correlations,phenxlookup,by="phenx
 cov_cods <- c(subset(phenxlookup$num_Phenx,phenxlookup$phenx %like% "COVID\\d+"))
 
 
-endPhenx = c(J_threshold_correlations$num_Phenx,cov_cods) #TODO look up id for covid phenx in db$phenxLookUp
+endPhenx = c(J_threshold_correlations$num_Phenx, cov_cods) #TODO look up id for covid phenx in db$phenxLookUp
 temporalBucket =  c(0,1,3)
 minDuration = 0 #technical parameter, ignore for now
 bitShift = 0 #technical parameter, ignore for now
