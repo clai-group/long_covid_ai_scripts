@@ -1,0 +1,1294 @@
+phenx,ICD10_desc,combo,Organ,count,Subcombo
+Abnormal findings without diagnosis,Abnormal electrocardiogram [ECG] [EKG],Abnormal Labs/Tests,Cardiovascular,196,
+Abnormal findings without diagnosis,Abnormal findings on diagnostic imaging of heart and coronary circulation,Abnormal Labs/Tests,Cardiovascular,17,
+Abnormal findings without diagnosis,"Abnormal result of cardiovascular function study, unspecified",Abnormal Labs/Tests,Cardiovascular,6,
+Abnormal findings without diagnosis,Abnormal result of other cardiovascular function study,Abnormal Labs/Tests,Cardiovascular,12,
+Cardiac dysrhythmias,Atrial premature depolarization,Dysrhythmias,Cardiovascular,29,
+Cardiac dysrhythmias,Atypical atrial flutter,Dysrhythmias,Cardiovascular,3,
+Cardiac dysrhythmias,"Cardiac arrhythmia, unspecified",Dysrhythmias,Cardiovascular,350,
+Cardiac dysrhythmias,Junctional premature depolarization,Dysrhythmias,Cardiovascular,1,
+Cardiac dysrhythmias,Other specified cardiac arrhythmias,Dysrhythmias,Cardiovascular,73,
+Cardiac dysrhythmias,Paroxysmal atrial fibrillation,Dysrhythmias,Cardiovascular,179,
+Cardiac dysrhythmias,"Paroxysmal tachycardia, unspecified",Dysrhythmias,Cardiovascular,4,
+Cardiac dysrhythmias,Sick sinus syndrome,Dysrhythmias,Cardiovascular,14,
+Cardiac dysrhythmias,Supraventricular tachycardia,Dysrhythmias,Cardiovascular,135,
+Cardiac dysrhythmias,Typical atrial flutter,Dysrhythmias,Cardiovascular,19,
+Cardiac dysrhythmias,Unspecified atrial fibrillation,Dysrhythmias,Cardiovascular,203,
+Cardiac dysrhythmias,Unspecified atrial flutter,Dysrhythmias,Cardiovascular,46,
+Cardiac dysrhythmias,Ventricular premature depolarization,Dysrhythmias,Cardiovascular,83,
+Cardiac dysrhythmias,Ventricular tachycardia,Dysrhythmias,Cardiovascular,63,
+Cardiovascular Procedures,NA,Cardiovascular Procedures,Cardiovascular,12,
+Circulatory signs and symptoms,Benign and innocent cardiac murmurs,Circulatory s/s,Cardiovascular,10,Murmur
+Circulatory signs and symptoms,"Bradycardia, unspecified",Circulatory s/s,Cardiovascular,654,Bradycardia
+Circulatory signs and symptoms,"Cardiac murmur, unspecified",Circulatory s/s,Cardiovascular,218,Murmur
+Circulatory signs and symptoms,"Elevated blood-pressure reading, without diagnosis of hypertension",Circulatory s/s,Cardiovascular,881,Hypertension
+Circulatory signs and symptoms,"Hemorrhage, not elsewhere classified",Circulatory s/s,Cardiovascular,79,Hemorrhage
+Circulatory signs and symptoms,Nonspecific low blood-pressure reading,Circulatory s/s,Cardiovascular,11,Hypotension
+Circulatory signs and symptoms,Other abnormalities of heart beat,Circulatory s/s,Cardiovascular,6,Other
+Circulatory signs and symptoms,Other cardiac sounds,Circulatory s/s,Cardiovascular,2,Other
+Circulatory signs and symptoms,Other specified symptoms and signs involving the circulatory and respiratory systems,Circulatory s/s,Cardiovascular,430,Other
+Circulatory signs and symptoms,Palpitations,Circulatory s/s,Cardiovascular,1866,Palpitation
+Circulatory signs and symptoms,"Tachycardia, unspecified",Circulatory s/s,Cardiovascular,1397,Tachycardia
+Circulatory signs and symptoms,Unspecified abnormalities of heart beat,Circulatory s/s,Cardiovascular,8,Other
+Conduction disorders,"Atrioventricular block, complete",Conduction disorders,Cardiovascular,11,
+Conduction disorders,"Atrioventricular block, first degree",Conduction disorders,Cardiovascular,13,
+Conduction disorders,"Atrioventricular block, second degree",Conduction disorders,Cardiovascular,6,
+Conduction disorders,Bifascicular block,Conduction disorders,Cardiovascular,3,
+Conduction disorders,"Conduction disorder, unspecified",Conduction disorders,Cardiovascular,11,
+Conduction disorders,Encounter for adjustment and management of other part of cardiac pacemaker,Conduction disorders,Cardiovascular,2,
+Conduction disorders,Left anterior fascicular block,Conduction disorders,Cardiovascular,9,
+Conduction disorders,"Left bundle-branch block, unspecified",Conduction disorders,Cardiovascular,21,
+Conduction disorders,Long QT syndrome,Conduction disorders,Cardiovascular,2,
+Conduction disorders,Nonspecific intraventricular block,Conduction disorders,Cardiovascular,4,
+Conduction disorders,Other atrioventricular block,Conduction disorders,Cardiovascular,6,
+Conduction disorders,Other specified conduction disorders,Conduction disorders,Cardiovascular,1,
+Conduction disorders,Other specified heart block,Conduction disorders,Cardiovascular,6,
+Conduction disorders,Pre-excitation syndrome,Conduction disorders,Cardiovascular,4,
+Conduction disorders,Presence of cardiac pacemaker,Conduction disorders,Cardiovascular,17,
+Conduction disorders,Trifascicular block,Conduction disorders,Cardiovascular,1,
+Conduction disorders,Unspecified atrioventricular block,Conduction disorders,Cardiovascular,5,
+Conduction disorders,Unspecified right bundle-branch block,Conduction disorders,Cardiovascular,32,
+Coronary atherosclerosis and other heart disease,"Acute ischemic heart disease, unspecified",Coronary atherosclerosis,Cardiovascular,21,
+Coronary atherosclerosis and other heart disease,Angina pectoris with documented spasm,Coronary atherosclerosis,Cardiovascular,2,
+Coronary atherosclerosis and other heart disease,"Angina pectoris, unspecified",Coronary atherosclerosis,Cardiovascular,16,
+Coronary atherosclerosis and other heart disease,Atherosclerosis of bypass graft of coronary artery of transplanted heart without angina pectoris,Coronary atherosclerosis,Cardiovascular,2,
+Coronary atherosclerosis and other heart disease,Atherosclerosis of coronary artery bypass graft(s) without angina pectoris,Coronary atherosclerosis,Cardiovascular,1,
+Coronary atherosclerosis and other heart disease,Atherosclerosis of native coronary artery of transplanted heart with unstable angina,Coronary atherosclerosis,Cardiovascular,1,
+Coronary atherosclerosis and other heart disease,Atherosclerosis of native coronary artery of transplanted heart without angina pectoris,Coronary atherosclerosis,Cardiovascular,1,
+Coronary atherosclerosis and other heart disease,Atherosclerotic heart disease of native coronary artery with angina pectoris with documented spasm,Coronary atherosclerosis,Cardiovascular,1,
+Coronary atherosclerosis and other heart disease,Atherosclerotic heart disease of native coronary artery with other forms of angina pectoris,Coronary atherosclerosis,Cardiovascular,35,
+Coronary atherosclerosis and other heart disease,Atherosclerotic heart disease of native coronary artery with unspecified angina pectoris,Coronary atherosclerosis,Cardiovascular,27,
+Coronary atherosclerosis and other heart disease,Atherosclerotic heart disease of native coronary artery with unstable angina pectoris,Coronary atherosclerosis,Cardiovascular,21,
+Coronary atherosclerosis and other heart disease,Atherosclerotic heart disease of native coronary artery without angina pectoris,Coronary atherosclerosis,Cardiovascular,374,
+Coronary atherosclerosis and other heart disease,"Chronic ischemic heart disease, unspecified",Coronary atherosclerosis,Cardiovascular,16,
+Coronary atherosclerosis and other heart disease,Chronic total occlusion of coronary artery,Coronary atherosclerosis,Cardiovascular,2,
+Coronary atherosclerosis and other heart disease,Coronary angioplasty status,Coronary atherosclerosis,Cardiovascular,4,
+Coronary atherosclerosis and other heart disease,Coronary atherosclerosis due to calcified coronary lesion,Coronary atherosclerosis,Cardiovascular,24,
+Coronary atherosclerosis and other heart disease,Coronary atherosclerosis due to lipid rich plaque,Coronary atherosclerosis,Cardiovascular,6,
+Coronary atherosclerosis and other heart disease,Old myocardial infarction,Coronary atherosclerosis,Cardiovascular,33,
+Coronary atherosclerosis and other heart disease,Other forms of acute ischemic heart disease,Coronary atherosclerosis,Cardiovascular,10,
+Coronary atherosclerosis and other heart disease,Other forms of angina pectoris,Coronary atherosclerosis,Cardiovascular,251,
+Coronary atherosclerosis and other heart disease,Presence of aortocoronary bypass graft,Coronary atherosclerosis,Cardiovascular,17,
+Coronary atherosclerosis and other heart disease,Presence of coronary angioplasty implant and graft,Coronary atherosclerosis,Cardiovascular,18,
+Coronary atherosclerosis and other heart disease,Unstable angina,Coronary atherosclerosis,Cardiovascular,32,
+"Diabetes mellitus, Type 2",Type 2 diabetes mellitus with diabetic peripheral angiopathy without gangrene,Diabetic Complication,Cardiovascular,3,
+"Diabetes mellitus, Type 2",Type 2 diabetes mellitus with other circulatory complications,Diabetic Complication,Cardiovascular,7,
+HTN; heart,Hypertensive heart disease with heart failure,HTN heart dz,Cardiovascular,28,
+HTN; heart,Hypertensive heart disease without heart failure,HTN heart dz,Cardiovascular,25,
+Heart failure,Acute combined systolic (congestive) and diastolic (congestive) heart failure,Heart failure,Cardiovascular,8,
+Heart failure,Acute diastolic (congestive) heart failure,Heart failure,Cardiovascular,56,
+Heart failure,Acute on chronic combined systolic (congestive) and diastolic (congestive) heart failure,Heart failure,Cardiovascular,13,
+Heart failure,Acute on chronic diastolic (congestive) heart failure,Heart failure,Cardiovascular,76,
+Heart failure,Acute on chronic systolic (congestive) heart failure,Heart failure,Cardiovascular,22,
+Heart failure,Acute systolic (congestive) heart failure,Heart failure,Cardiovascular,46,
+Heart failure,Chronic combined systolic (congestive) and diastolic (congestive) heart failure,Heart failure,Cardiovascular,5,
+Heart failure,Chronic diastolic (congestive) heart failure,Heart failure,Cardiovascular,79,
+Heart failure,Chronic systolic (congestive) heart failure,Heart failure,Cardiovascular,38,
+Heart failure,"Heart failure, unspecified",Heart failure,Cardiovascular,129,
+Heart failure,"Left ventricular failure, unspecified",Heart failure,Cardiovascular,4,
+Heart failure,Presence of heart assist device,Heart failure,Cardiovascular,1,
+Heart failure,Unspecified combined systolic (congestive) and diastolic (congestive) heart failure,Heart failure,Cardiovascular,1,
+Heart failure,Unspecified diastolic (congestive) heart failure,Heart failure,Cardiovascular,52,
+Heart failure,Unspecified systolic (congestive) heart failure,Heart failure,Cardiovascular,68,
+Myocarditis and cardiomyopathy,"Acute myocarditis, unspecified",Myocarditis and cardiomyopathy,Cardiovascular,5,
+Myocarditis and cardiomyopathy,Alcoholic cardiomyopathy,Myocarditis and cardiomyopathy,Cardiovascular,1,
+Myocarditis and cardiomyopathy,Cardiomyopathy due to drug and external agent,Myocarditis and cardiomyopathy,Cardiovascular,10,
+Myocarditis and cardiomyopathy,Cardiomyopathy in diseases classified elsewhere,Myocarditis and cardiomyopathy,Cardiovascular,8,
+Myocarditis and cardiomyopathy,"Cardiomyopathy, unspecified",Myocarditis and cardiomyopathy,Cardiovascular,93,
+Myocarditis and cardiomyopathy,Dilated cardiomyopathy,Myocarditis and cardiomyopathy,Cardiovascular,34,
+Myocarditis and cardiomyopathy,Infective myocarditis,Myocarditis and cardiomyopathy,Cardiovascular,6,
+Myocarditis and cardiomyopathy,Ischemic cardiomyopathy,Myocarditis and cardiomyopathy,Cardiovascular,58,
+Myocarditis and cardiomyopathy,Isolated myocarditis,Myocarditis and cardiomyopathy,Cardiovascular,5,
+Myocarditis and cardiomyopathy,Myocarditis in diseases classified elsewhere,Myocarditis and cardiomyopathy,Cardiovascular,1,
+Myocarditis and cardiomyopathy,"Myocarditis, unspecified",Myocarditis and cardiomyopathy,Cardiovascular,13,
+Myocarditis and cardiomyopathy,Obstructive hypertrophic cardiomyopathy,Myocarditis and cardiomyopathy,Cardiovascular,6,
+Myocarditis and cardiomyopathy,Other acute myocarditis,Myocarditis and cardiomyopathy,Cardiovascular,2,
+Myocarditis and cardiomyopathy,Other cardiomyopathies,Myocarditis and cardiomyopathy,Cardiovascular,42,
+Myocarditis and cardiomyopathy,Other hypertrophic cardiomyopathy,Myocarditis and cardiomyopathy,Cardiovascular,30,
+Myocarditis and cardiomyopathy,Other restrictive cardiomyopathy,Myocarditis and cardiomyopathy,Cardiovascular,3,
+Myocarditis and cardiomyopathy,Peripartum cardiomyopathy,Myocarditis and cardiomyopathy,Cardiovascular,1,
+Myocarditis and cardiomyopathy,Viral cardiomyopathy,Myocarditis and cardiomyopathy,Cardiovascular,4,
+Myocarditis and cardiomyopathy,Viral myocarditis,Myocarditis and cardiomyopathy,Cardiovascular,2,
+Nonspecific chest pain,"Chest pain, unspecified",Circulatory s/s,Cardiovascular,585,Chest pain
+Nonspecific chest pain,Other chest pain,Circulatory s/s,Cardiovascular,430,Chest pain
+Nonspecific chest pain,Precordial pain,Circulatory s/s,Cardiovascular,45,Chest pain
+Other specified and unspecified circulatory disease,Abdominal aortic ectasia,Circulatory disorder,Cardiovascular,7,
+Other specified and unspecified circulatory disease,"Aortic ectasia, unspecified site",Circulatory disorder,Cardiovascular,11,
+Other specified and unspecified circulatory disease,Arterial fibromuscular dysplasia,Circulatory disorder,Cardiovascular,18,
+Other specified and unspecified circulatory disease,"Arteriovenous fistula, acquired",Circulatory disorder,Cardiovascular,8,
+Other specified and unspecified circulatory disease,Celiac artery compression syndrome,Circulatory disorder,Cardiovascular,9,
+Other specified and unspecified circulatory disease,"Disease of capillaries, unspecified",Circulatory disorder,Cardiovascular,1,
+Other specified and unspecified circulatory disease,"Disorder of arteries and arterioles, unspecified",Circulatory disorder,Cardiovascular,17,
+Other specified and unspecified circulatory disease,Hereditary hemorrhagic telangiectasia,Circulatory disorder,Cardiovascular,1,
+Other specified and unspecified circulatory disease,"Nevus, non-neoplastic",Circulatory disorder,Cardiovascular,21,
+Other specified and unspecified circulatory disease,Other diseases of capillaries,Circulatory disorder,Cardiovascular,2,
+Other specified and unspecified circulatory disease,Other disorder of circulatory system,Circulatory disorder,Cardiovascular,17,
+Other specified and unspecified circulatory disease,Other specified disorders of arteries and arterioles,Circulatory disorder,Cardiovascular,12,
+Other specified and unspecified circulatory disease,Rupture of artery,Circulatory disorder,Cardiovascular,2,
+Other specified and unspecified circulatory disease,Stricture of artery,Circulatory disorder,Cardiovascular,11,
+Other specified and unspecified circulatory disease,Thoracic aortic ectasia,Circulatory disorder,Cardiovascular,66,
+Other specified and unspecified circulatory disease,Unspecified disorder of circulatory system,Circulatory disorder,Cardiovascular,4,
+Postthrombotic syndrome and venous insufficiency/hypertension,Chronic venous hypertension (idiopathic) with inflammation of left lower extremity,Venous HTN/Insufficiency ,Cardiovascular,1,
+Postthrombotic syndrome and venous insufficiency/hypertension,Chronic venous hypertension (idiopathic) with inflammation of right lower extremity,Venous HTN/Insufficiency ,Cardiovascular,1,
+Postthrombotic syndrome and venous insufficiency/hypertension,Chronic venous hypertension (idiopathic) with other complications of bilateral lower extremity,Venous HTN/Insufficiency ,Cardiovascular,4,
+Postthrombotic syndrome and venous insufficiency/hypertension,Chronic venous hypertension (idiopathic) with other complications of left lower extremity,Venous HTN/Insufficiency ,Cardiovascular,3,
+Postthrombotic syndrome and venous insufficiency/hypertension,Chronic venous hypertension (idiopathic) with ulcer and inflammation of left lower extremity,Venous HTN/Insufficiency ,Cardiovascular,1,
+Postthrombotic syndrome and venous insufficiency/hypertension,Chronic venous hypertension (idiopathic) with ulcer of left lower extremity,Venous HTN/Insufficiency ,Cardiovascular,3,
+Postthrombotic syndrome and venous insufficiency/hypertension,Chronic venous hypertension (idiopathic) with ulcer of right lower extremity,Venous HTN/Insufficiency ,Cardiovascular,2,
+Postthrombotic syndrome and venous insufficiency/hypertension,Chronic venous hypertension (idiopathic) without complications of bilateral lower extremity,Venous HTN/Insufficiency ,Cardiovascular,2,
+Postthrombotic syndrome and venous insufficiency/hypertension,Chronic venous hypertension (idiopathic) without complications of unspecified lower extremity,Venous HTN/Insufficiency ,Cardiovascular,1,
+Postthrombotic syndrome and venous insufficiency/hypertension,Compression of vein,Venous HTN/Insufficiency ,Cardiovascular,12,
+Postthrombotic syndrome and venous insufficiency/hypertension,Postthrombotic syndrome without complications of left lower extremity,Venous HTN/Insufficiency ,Cardiovascular,1,
+Postthrombotic syndrome and venous insufficiency/hypertension,Postthrombotic syndrome without complications of right lower extremity,Venous HTN/Insufficiency ,Cardiovascular,2,
+Postthrombotic syndrome and venous insufficiency/hypertension,Postthrombotic syndrome without complications of unspecified extremity,Venous HTN/Insufficiency ,Cardiovascular,2,
+Postthrombotic syndrome and venous insufficiency/hypertension,Varicose veins of other specified sites,Venous HTN/Insufficiency ,Cardiovascular,19,
+Postthrombotic syndrome and venous insufficiency/hypertension,Venous insufficiency (chronic) (peripheral),Venous HTN/Insufficiency ,Cardiovascular,167,
+Disorders of lipid metabolism,"Hyperlipidemia, unspecified",Dyslipidemia,Endocrine,293,Hyperlipidemia
+Disorders of lipid metabolism,Mixed hyperlipidemia,Dyslipidemia,Endocrine,177,Hyperlipidemia
+Disorders of lipid metabolism,Pure hyperglyceridemia,Dyslipidemia,Endocrine,41,Hyperlipidemia
+Abnormal findings without diagnosis,"Abnormal level of hormones in specimens from other organs, systems and tissues",Pancreas,Endocrine,1,Abnormal hormone
+Abnormal findings without diagnosis,Abnormal results of other endocrine function studies,Pancreas,Endocrine,1,Abnormal hormone
+Abnormal findings without diagnosis,"Hyperglycemia, unspecified",Pancreas,Endocrine,73,Hyperglycemia
+Abnormal findings without diagnosis,Impaired fasting glucose,Pancreas,Endocrine,25,Abnormal glucose
+Abnormal findings without diagnosis,Impaired glucose tolerance (oral),Pancreas,Endocrine,26,Abnormal glucose
+Abnormal findings without diagnosis,Other abnormal glucose,Pancreas,Endocrine,118,Abnormal glucose
+Diabetes mellitus,Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC),Pancreas,Endocrine,1,Diabetes mellitus
+Diabetes mellitus,Diabetes mellitus due to underlying condition without complications,Pancreas,Endocrine,1,Diabetes mellitus
+Diabetes mellitus,Drug or chemical induced diabetes mellitus without complications,Pancreas,Endocrine,2,Diabetes mellitus
+Diabetes mellitus,Other specified diabetes mellitus with hyperglycemia,Pancreas,Endocrine,3,Diabetes mellitus
+Diabetes mellitus,Other specified diabetes mellitus without complications,Pancreas,Endocrine,7,Diabetes mellitus
+"Diabetes mellitus, Type 2",Type 2 diabetes mellitus with hyperglycemia,Pancreas,Endocrine,143,Diabetes mellitus
+"Diabetes mellitus, Type 2",Type 2 diabetes mellitus with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC),Pancreas,Endocrine,3,Diabetes mellitus
+"Diabetes mellitus, Type 2",Type 2 diabetes mellitus with hypoglycemia without coma,Pancreas,Endocrine,2,Diabetes mellitus
+"Diabetes mellitus, Type 2",Type 2 diabetes mellitus with other specified complication,Pancreas,Endocrine,14,Diabetes mellitus
+"Diabetes mellitus, Type 2",Type 2 diabetes mellitus with unspecified complications,Pancreas,Endocrine,6,Diabetes mellitus
+"Diabetes mellitus, Type 2",Type 2 diabetes mellitus without complications,Pancreas,Endocrine,432,Diabetes mellitus
+Abnormal findings without diagnosis,Abnormal results of thyroid function studies,Thyroid,Endocrine,8,Abnormal Labs
+Thyroid disorders,Acute thyroiditis,Thyroid,Endocrine,1,Thyroiditis
+Thyroid disorders,Atrophy of thyroid (acquired),Thyroid,Endocrine,2,Hypothyroidism
+Thyroid disorders,Autoimmune thyroiditis,Thyroid,Endocrine,22,Thyroiditis
+Thyroid disorders,"Disorder of thyroid, unspecified",Thyroid,Endocrine,15,Other
+Thyroid disorders,Hypothyroidism due to medicaments and other exogenous substances,Thyroid,Endocrine,8,Hypothyroidism
+Thyroid disorders,"Hypothyroidism, unspecified",Thyroid,Endocrine,199,Hypothyroidism
+Thyroid disorders,Iodine-deficiency related diffuse (endemic) goiter,Thyroid,Endocrine,6,Goiter
+Thyroid disorders,Nontoxic diffuse goiter,Thyroid,Endocrine,1,Goiter
+Thyroid disorders,"Nontoxic goiter, unspecified",Thyroid,Endocrine,59,Goiter
+Thyroid disorders,Nontoxic multinodular goiter,Thyroid,Endocrine,102,Goiter
+Thyroid disorders,Nontoxic single thyroid nodule,Thyroid,Endocrine,220,Nodule
+Thyroid disorders,Other specified disorders of thyroid,Thyroid,Endocrine,4,Other
+Thyroid disorders,Other specified hypothyroidism,Thyroid,Endocrine,59,Hypothyroidism
+Thyroid disorders,Other thyrotoxicosis without thyrotoxic crisis or storm,Thyroid,Endocrine,4,Thyrotoxicosis
+Thyroid disorders,Postprocedural hypothyroidism,Thyroid,Endocrine,7,Hypothyroidism
+Thyroid disorders,Sick-euthyroid syndrome,Thyroid,Endocrine,3,Other
+Thyroid disorders,Subacute thyroiditis,Thyroid,Endocrine,2,Thyroiditis
+Thyroid disorders,Subclinical iodine-deficiency hypothyroidism,Thyroid,Endocrine,2,Hypothyroidism
+Thyroid disorders,"Thyroiditis, unspecified",Thyroid,Endocrine,10,Thyroiditis
+Thyroid disorders,Thyrotoxicosis with diffuse goiter without thyrotoxic crisis or storm,Thyroid,Endocrine,12,Thyrotoxicosis
+Thyroid disorders,Thyrotoxicosis with toxic multinodular goiter without thyrotoxic crisis or storm,Thyroid,Endocrine,1,Thyrotoxicosis
+Thyroid disorders,"Thyrotoxicosis, unspecified without thyrotoxic crisis or storm",Thyroid,Endocrine,65,Thyrotoxicosis
+Hearing loss,"Conductive hearing loss, bilateral",Hearing loss,Eyes & Ears,12,
+Hearing loss,"Conductive hearing loss, unilateral, left ear, with unrestricted hearing on the contralateral side",Hearing loss,Eyes & Ears,6,
+Hearing loss,"Conductive hearing loss, unilateral, right ear, with unrestricted hearing on the contralateral side",Hearing loss,Eyes & Ears,8,
+Hearing loss,"Conductive hearing loss, unspecified",Hearing loss,Eyes & Ears,6,
+Hearing loss,"Mixed conductive and sensorineural hearing loss, bilateral",Hearing loss,Eyes & Ears,9,
+Hearing loss,"Mixed conductive and sensorineural hearing loss, unilateral, left ear, with unrestricted hearing on the contralateral side",Hearing loss,Eyes & Ears,3,
+Hearing loss,"Mixed conductive and sensorineural hearing loss, unilateral, right ear, with unrestricted hearing on the contralateral side",Hearing loss,Eyes & Ears,1,
+Hearing loss,"Mixed conductive and sensorineural hearing loss, unspecified",Hearing loss,Eyes & Ears,2,
+Hearing loss,"Other specified hearing loss, bilateral",Hearing loss,Eyes & Ears,4,
+Hearing loss,"Other specified hearing loss, left ear",Hearing loss,Eyes & Ears,3,
+Hearing loss,"Other specified hearing loss, right ear",Hearing loss,Eyes & Ears,1,
+Hearing loss,"Other specified hearing loss, unspecified ear",Hearing loss,Eyes & Ears,4,
+Hearing loss,"Sensorineural hearing loss, bilateral",Hearing loss,Eyes & Ears,110,
+Hearing loss,"Sensorineural hearing loss, unilateral, left ear, with unrestricted hearing on the contralateral side",Hearing loss,Eyes & Ears,17,
+Hearing loss,"Sensorineural hearing loss, unilateral, right ear, with unrestricted hearing on the contralateral side",Hearing loss,Eyes & Ears,13,
+Hearing loss,"Sudden idiopathic hearing loss, bilateral",Hearing loss,Eyes & Ears,1,
+Hearing loss,"Sudden idiopathic hearing loss, left ear",Hearing loss,Eyes & Ears,4,
+Hearing loss,"Sudden idiopathic hearing loss, right ear",Hearing loss,Eyes & Ears,6,
+Hearing loss,"Sudden idiopathic hearing loss, unspecified ear",Hearing loss,Eyes & Ears,8,
+Hearing loss,"Unspecified hearing loss, bilateral",Hearing loss,Eyes & Ears,95,
+Hearing loss,"Unspecified hearing loss, left ear",Hearing loss,Eyes & Ears,18,
+Hearing loss,"Unspecified hearing loss, right ear",Hearing loss,Eyes & Ears,19,
+Hearing loss,"Unspecified hearing loss, unspecified ear",Hearing loss,Eyes & Ears,91,
+Hearing loss,Unspecified sensorineural hearing loss,Hearing loss,Eyes & Ears,23,
+Blindness and vision defects,"Blindness, one eye, unspecified eye",Blind/visual defects,Eyes & Ears,3,
+Blindness and vision defects,"Deprivation amblyopia, bilateral",Blind/visual defects,Eyes & Ears,1,
+Blindness and vision defects,Diplopia,Blind/visual defects,Eyes & Ears,30,
+Blindness and vision defects,"Generalized contraction of visual field, bilateral",Blind/visual defects,Eyes & Ears,3,
+Blindness and vision defects,"Generalized contraction of visual field, left eye",Blind/visual defects,Eyes & Ears,1,
+Blindness and vision defects,"Generalized contraction of visual field, right eye",Blind/visual defects,Eyes & Ears,1,
+Blindness and vision defects,Glare sensitivity,Blind/visual defects,Eyes & Ears,1,
+Blindness and vision defects,Heteronymous bilateral field defects,Blind/visual defects,Eyes & Ears,2,
+Blindness and vision defects,"Homonymous bilateral field defects, left side",Blind/visual defects,Eyes & Ears,3,
+Blindness and vision defects,"Legal blindness, as defined in USA",Blind/visual defects,Eyes & Ears,5,
+Blindness and vision defects,"Other localized visual field defect, bilateral",Blind/visual defects,Eyes & Ears,17,
+Blindness and vision defects,"Other localized visual field defect, left eye",Blind/visual defects,Eyes & Ears,1,
+Blindness and vision defects,Other subjective visual disturbances,Blind/visual defects,Eyes & Ears,4,
+Blindness and vision defects,Other visual disturbances,Blind/visual defects,Eyes & Ears,64,
+Blindness and vision defects,Psychophysical visual disturbances,Blind/visual defects,Eyes & Ears,1,
+Blindness and vision defects,"Refractive amblyopia, left eye",Blind/visual defects,Eyes & Ears,2,
+Blindness and vision defects,"Scotoma involving central area, bilateral",Blind/visual defects,Eyes & Ears,3,
+Blindness and vision defects,"Scotoma of blind spot area, bilateral",Blind/visual defects,Eyes & Ears,1,
+Blindness and vision defects,"Sector or arcuate defects, bilateral",Blind/visual defects,Eyes & Ears,1,
+Blindness and vision defects,"Sudden visual loss, right eye",Blind/visual defects,Eyes & Ears,2,
+Blindness and vision defects,"Transient visual loss, bilateral",Blind/visual defects,Eyes & Ears,2,
+Blindness and vision defects,"Transient visual loss, left eye",Blind/visual defects,Eyes & Ears,5,
+Blindness and vision defects,"Transient visual loss, right eye",Blind/visual defects,Eyes & Ears,2,
+Blindness and vision defects,"Transient visual loss, unspecified eye",Blind/visual defects,Eyes & Ears,4,
+Blindness and vision defects,"Unqualified visual loss, both eyes",Blind/visual defects,Eyes & Ears,3,
+Blindness and vision defects,"Unqualified visual loss, left eye, normal vision right eye",Blind/visual defects,Eyes & Ears,7,
+Blindness and vision defects,"Unqualified visual loss, one eye, unspecified",Blind/visual defects,Eyes & Ears,2,
+Blindness and vision defects,"Unqualified visual loss, right eye, normal vision left eye",Blind/visual defects,Eyes & Ears,6,
+Blindness and vision defects,"Unspecified amblyopia, bilateral",Blind/visual defects,Eyes & Ears,1,
+Blindness and vision defects,"Unspecified amblyopia, left eye",Blind/visual defects,Eyes & Ears,1,
+Blindness and vision defects,"Unspecified amblyopia, right eye",Blind/visual defects,Eyes & Ears,1,
+Blindness and vision defects,Unspecified disorder of binocular vision,Blind/visual defects,Eyes & Ears,2,
+Blindness and vision defects,Unspecified night blindness,Blind/visual defects,Eyes & Ears,2,
+Blindness and vision defects,Unspecified subjective visual disturbances,Blind/visual defects,Eyes & Ears,2,
+Blindness and vision defects,Unspecified visual disturbance,Blind/visual defects,Eyes & Ears,53,
+Blindness and vision defects,Unspecified visual field defects,Blind/visual defects,Eyes & Ears,6,
+Blindness and vision defects,Unspecified visual loss,Blind/visual defects,Eyes & Ears,16,
+Blindness and vision defects,"Visual discomfort, bilateral",Blind/visual defects,Eyes & Ears,3,
+Blindness and vision defects,"Visual discomfort, left eye",Blind/visual defects,Eyes & Ears,1,
+Blindness and vision defects,"Visual discomfort, unspecified",Blind/visual defects,Eyes & Ears,3,
+"Diabetes mellitus, Type 2",Type 2 diabetes mellitus with other diabetic ophthalmic complication,Blind/visual defects,Eyes & Ears,4,
+Abnormal findings without diagnosis,Abnormal levels of other serum enzymes,Abnormal Labs/Tests,Systemic,87,
+Abnormal findings without diagnosis,"Other abnormal findings in specimens from other organs, systems and tissues",Abnormal Labs/Tests,Systemic,4,
+Abnormal findings without diagnosis,"Unspecified abnormal finding in specimens from other organs, systems and tissues",Abnormal Labs/Tests,Systemic,20,
+Fluid and electrolyte disorders,Acidosis,Fluid/electrolyte disorders,Systemic,70,
+Fluid and electrolyte disorders,Alkalosis,Fluid/electrolyte disorders,Systemic,9,
+Fluid and electrolyte disorders,Dehydration,Fluid/electrolyte disorders,Systemic,53,
+Fluid and electrolyte disorders,"Fluid overload, unspecified",Fluid/electrolyte disorders,Systemic,34,
+Fluid and electrolyte disorders,Hyperkalemia,Fluid/electrolyte disorders,Systemic,117,
+Fluid and electrolyte disorders,Hyperosmolality and hypernatremia,Fluid/electrolyte disorders,Systemic,30,
+Fluid and electrolyte disorders,Hypo-osmolality and hyponatremia,Fluid/electrolyte disorders,Systemic,164,
+Fluid and electrolyte disorders,Hypokalemia,Fluid/electrolyte disorders,Systemic,142,
+Fluid and electrolyte disorders,Hypovolemia,Fluid/electrolyte disorders,Systemic,42,
+Fluid and electrolyte disorders,Mixed disorder of acid-base balance,Fluid/electrolyte disorders,Systemic,3,
+Fluid and electrolyte disorders,"Other disorders of electrolyte and fluid balance, not elsewhere classified",Fluid/electrolyte disorders,Systemic,24,
+Fluid and electrolyte disorders,Other fluid overload,Fluid/electrolyte disorders,Systemic,13,
+Fluid and electrolyte disorders,"Volume depletion, unspecified",Fluid/electrolyte disorders,Systemic,5,
+General sensation/perception signs and symptoms,Dizziness and giddiness,General s/s,Systemic,557,Dizziness
+General sensation/perception signs and symptoms,Other symptoms and signs involving general sensations and perceptions,General s/s,Systemic,6,Other
+General sensation/perception signs and symptoms,Unspecified symptoms and signs involving general sensations and perceptions,General s/s,Systemic,3,Other
+Malaise and fatigue,"Chronic fatigue, unspecified",Malaise and fatigue,Systemic,85,
+Malaise and fatigue,Other fatigue,Malaise and fatigue,Systemic,595,
+Malaise and fatigue,Other malaise,Malaise and fatigue,Systemic,310,
+Malaise and fatigue,Weakness,Malaise and fatigue,Systemic,159,
+Nutritional deficiencies,Ascorbic acid deficiency,Nutritional deficiencies,Systemic,3,
+Nutritional deficiencies,Copper deficiency,Nutritional deficiencies,Systemic,1,
+Nutritional deficiencies,Deficiency of other specified B group vitamins,Nutritional deficiencies,Systemic,146,
+Nutritional deficiencies,Deficiency of other specified nutrient elements,Nutritional deficiencies,Systemic,1,
+Nutritional deficiencies,Dietary zinc deficiency,Nutritional deficiencies,Systemic,7,
+Nutritional deficiencies,Iron deficiency,Nutritional deficiencies,Systemic,85,
+Nutritional deficiencies,Magnesium deficiency,Nutritional deficiencies,Systemic,4,
+Nutritional deficiencies,"Nutritional deficiency, unspecified",Nutritional deficiencies,Systemic,17,
+Nutritional deficiencies,Other ocular manifestations of vitamin A deficiency,Nutritional deficiencies,Systemic,1,
+Nutritional deficiencies,Other specified nutritional deficiencies,Nutritional deficiencies,Systemic,5,
+Nutritional deficiencies,Pyridoxine deficiency,Nutritional deficiencies,Systemic,3,
+Nutritional deficiencies,"Thiamine deficiency, unspecified",Nutritional deficiencies,Systemic,2,
+Nutritional deficiencies,"Vitamin A deficiency, unspecified",Nutritional deficiencies,Systemic,3,
+Nutritional deficiencies,"Vitamin B deficiency, unspecified",Nutritional deficiencies,Systemic,1,
+Nutritional deficiencies,"Vitamin D deficiency, unspecified",Nutritional deficiencies,Systemic,549,
+Nutritional deficiencies,"Vitamin deficiency, unspecified",Nutritional deficiencies,Systemic,76,
+Nutritional deficiencies,Wernicke's encephalopathy,Nutritional deficiencies,Systemic,3,
+Other general signs and symptoms,Abnormal posture,General s/s,Systemic,31,Other
+Other general signs and symptoms,Abnormal weight gain,General s/s,Systemic,623,Weight Gain
+Other general signs and symptoms,Abnormal weight loss,General s/s,Systemic,816,Weight Loss
+Other general signs and symptoms,Adult failure to thrive,General s/s,Systemic,210,FTT
+Other general signs and symptoms,Age-related physical debility,General s/s,Systemic,127,FTT
+Other general signs and symptoms,Anorexia,General s/s,Systemic,140,Weight Loss
+Other general signs and symptoms,Aphonia,General s/s,Systemic,8,Other
+Other general signs and symptoms,Cachexia,General s/s,Systemic,43,Weight Loss
+Other general signs and symptoms,Chills (without fever),General s/s,Systemic,101,Chills
+Other general signs and symptoms,Clubbing of fingers,General s/s,Systemic,3,Other
+Other general signs and symptoms,Cramp and spasm,General s/s,Systemic,303,Cramp/Spasm
+Other general signs and symptoms,Decreased libido,General s/s,Systemic,82,Low libido
+Other general signs and symptoms,Dysphonia,General s/s,Systemic,552,Dysphonia
+Other general signs and symptoms,Early satiety,General s/s,Systemic,73,Early Satiety
+Other general signs and symptoms,"Edema, unspecified",General s/s,Systemic,503,Edema
+Other general signs and symptoms,"Enlarged lymph nodes, unspecified",General s/s,Systemic,134,Lymphadenopathy
+Other general signs and symptoms,Failure to thrive (child),General s/s,Systemic,8,FTT
+Other general signs and symptoms,Feeding difficulties,General s/s,Systemic,8,FTT
+Other general signs and symptoms,Generalized edema,General s/s,Systemic,33,Edema
+Other general signs and symptoms,Generalized enlarged lymph nodes,General s/s,Systemic,150,Lymphadenopathy
+Other general signs and symptoms,Generalized hyperhidrosis,General s/s,Systemic,227,Hyperhidrosis
+Other general signs and symptoms,Hyponasality,General s/s,Systemic,1,Other
+Other general signs and symptoms,"Hypothermia, not associated with low environmental temperature",General s/s,Systemic,2,Other
+Other general signs and symptoms,Ill-defined and unknown cause of mortality,General s/s,Systemic,2,Other
+Other general signs and symptoms,"Illness, unspecified",General s/s,Systemic,200,Illness
+Other general signs and symptoms,Localized edema,General s/s,Systemic,1299,Edema
+Other general signs and symptoms,Localized enlarged lymph nodes,General s/s,Systemic,498,Lymphadenopathy
+Other general signs and symptoms,Loss of height,General s/s,Systemic,28,Other
+Other general signs and symptoms,Other general symptoms and signs,General s/s,Systemic,316,Other
+Other general signs and symptoms,Other lack of expected normal physiological development in childhood,General s/s,Systemic,1,Other
+Other general signs and symptoms,Other symptoms and signs concerning food and fluid intake,General s/s,Systemic,73,Other
+Other general signs and symptoms,Other voice and resonance disorders,General s/s,Systemic,24,Other
+Other general signs and symptoms,"Pain, unspecified",General s/s,Systemic,1305,Pain
+Other general signs and symptoms,Polydipsia,General s/s,Systemic,20,Other
+Other general signs and symptoms,Polyphagia,General s/s,Systemic,20,Other
+Other general signs and symptoms,Repeated falls,General s/s,Systemic,195,Falls
+Other general signs and symptoms,Short stature (child),General s/s,Systemic,5,Other
+Other general signs and symptoms,Systemic inflammatory response syndrome (SIRS) of non-infectious origin without acute organ dysfunction,General s/s,Systemic,10,Other
+Other general signs and symptoms,Underweight,General s/s,Systemic,70,Weight Loss
+Other general signs and symptoms,Unspecified lack of expected normal physiological development in childhood,General s/s,Systemic,51,Other
+Other general signs and symptoms,Unspecified voice and resonance disorder,General s/s,Systemic,29,Other
+Sleep wake disorders,Adjustment insomnia,Sleep disorders,Systemic,24,
+Sleep wake disorders,Central sleep apnea in conditions classified elsewhere,Sleep disorders,Systemic,3,
+Sleep wake disorders,"Circadian rhythm sleep disorder, delayed sleep phase type",Sleep disorders,Systemic,4,
+Sleep wake disorders,"Circadian rhythm sleep disorder, jet lag type",Sleep disorders,Systemic,1,
+Sleep wake disorders,"Circadian rhythm sleep disorder, shift work type",Sleep disorders,Systemic,5,
+Sleep wake disorders,"Circadian rhythm sleep disorder, unspecified type",Sleep disorders,Systemic,8,
+Sleep wake disorders,Confusional arousals,Sleep disorders,Systemic,1,
+Sleep wake disorders,"Hypersomnia, unspecified",Sleep disorders,Systemic,11,
+Sleep wake disorders,Idiopathic sleep related nonobstructive alveolar hypoventilation,Sleep disorders,Systemic,21,
+Sleep wake disorders,Insomnia due to medical condition,Sleep disorders,Systemic,14,
+Sleep wake disorders,Insomnia due to other mental disorder,Sleep disorders,Systemic,12,
+Sleep wake disorders,"Insomnia, unspecified",Sleep disorders,Systemic,262,
+Sleep wake disorders,Narcolepsy without cataplexy,Sleep disorders,Systemic,2,
+Sleep wake disorders,Nightmare disorder,Sleep disorders,Systemic,10,
+Sleep wake disorders,Obstructive sleep apnea (adult) (pediatric),Sleep disorders,Systemic,469,
+Sleep wake disorders,Other hypersomnia,Sleep disorders,Systemic,40,
+Sleep wake disorders,Other insomnia,Sleep disorders,Systemic,48,
+Sleep wake disorders,Other insomnia not due to a substance or known physiological condition,Sleep disorders,Systemic,1,
+Sleep wake disorders,Other sleep apnea,Sleep disorders,Systemic,4,
+Sleep wake disorders,Other sleep disorders,Sleep disorders,Systemic,15,
+Sleep wake disorders,Other sleep disorders not due to a substance or known physiological condition,Sleep disorders,Systemic,1,
+Sleep wake disorders,Paradoxical insomnia,Sleep disorders,Systemic,1,
+Sleep wake disorders,"Parasomnia, unspecified",Sleep disorders,Systemic,3,
+Sleep wake disorders,Periodic breathing,Sleep disorders,Systemic,1,
+Sleep wake disorders,Periodic limb movement disorder,Sleep disorders,Systemic,16,
+Sleep wake disorders,Primary central sleep apnea,Sleep disorders,Systemic,5,
+Sleep wake disorders,Primary insomnia,Sleep disorders,Systemic,73,
+Sleep wake disorders,Psychophysiologic insomnia,Sleep disorders,Systemic,20,
+Sleep wake disorders,REM sleep behavior disorder,Sleep disorders,Systemic,3,
+Sleep wake disorders,"Sleep apnea, unspecified",Sleep disorders,Systemic,156,
+Sleep wake disorders,"Sleep disorder, unspecified",Sleep disorders,Systemic,117,
+Sleep wake disorders,Sleep related bruxism,Sleep disorders,Systemic,3,
+Sleep wake disorders,Sleep related leg cramps,Sleep disorders,Systemic,4,
+Sleep wake disorders,Sleep terrors [night terrors],Sleep disorders,Systemic,1,
+Sleep wake disorders,Sleepwalking [somnambulism],Sleep disorders,Systemic,4,
+Biliary tract disease,Acute cholecystitis,Biliary ,GI,21,
+Biliary tract disease,Acute cholecystitis with chronic cholecystitis,Biliary ,GI,3,
+Biliary tract disease,"Calculus of bile duct with cholangitis, unspecified, without obstruction",Biliary ,GI,1,
+Biliary tract disease,"Calculus of bile duct with cholecystitis, unspecified, without obstruction",Biliary ,GI,1,
+Biliary tract disease,Calculus of bile duct without cholangitis or cholecystitis with obstruction,Biliary ,GI,3,
+Biliary tract disease,Calculus of bile duct without cholangitis or cholecystitis without obstruction,Biliary ,GI,32,
+Biliary tract disease,Calculus of gallbladder and bile duct with acute and chronic cholecystitis without obstruction,Biliary ,GI,1,
+Biliary tract disease,Calculus of gallbladder and bile duct with acute cholecystitis without obstruction,Biliary ,GI,1,
+Biliary tract disease,Calculus of gallbladder and bile duct without cholecystitis with obstruction,Biliary ,GI,1,
+Biliary tract disease,Calculus of gallbladder and bile duct without cholecystitis without obstruction,Biliary ,GI,10,
+Biliary tract disease,Calculus of gallbladder with acute and chronic cholecystitis without obstruction,Biliary ,GI,1,
+Biliary tract disease,Calculus of gallbladder with acute cholecystitis with obstruction,Biliary ,GI,1,
+Biliary tract disease,Calculus of gallbladder with acute cholecystitis without obstruction,Biliary ,GI,8,
+Biliary tract disease,Calculus of gallbladder with chronic cholecystitis without obstruction,Biliary ,GI,12,
+Biliary tract disease,Calculus of gallbladder with other cholecystitis without obstruction,Biliary ,GI,1,
+Biliary tract disease,Calculus of gallbladder without cholecystitis with obstruction,Biliary ,GI,3,
+Biliary tract disease,Calculus of gallbladder without cholecystitis without obstruction,Biliary ,GI,147,
+Biliary tract disease,"Cholecystitis, unspecified",Biliary ,GI,21,
+Biliary tract disease,Cholesterolosis of gallbladder,Biliary ,GI,41,
+Biliary tract disease,Chronic cholecystitis,Biliary ,GI,9,
+Biliary tract disease,"Disease of biliary tract, unspecified",Biliary ,GI,5,
+Biliary tract disease,"Disease of gallbladder, unspecified",Biliary ,GI,5,
+Biliary tract disease,Obstruction of bile duct,Biliary ,GI,33,
+Biliary tract disease,Other cholelithiasis without obstruction,Biliary ,GI,6,
+Biliary tract disease,Other specified diseases of biliary tract,Biliary ,GI,48,
+Biliary tract disease,Other specified diseases of gallbladder,Biliary ,GI,52,
+Biliary tract disease,Postcholecystectomy syndrome,Biliary ,GI,1,
+Abdominal symptoms,Aphagia,Abdominal s/s,GI,3,Aphagia
+Abdominal symptoms,Change in bowel habit,Abdominal s/s,GI,35,Bowel habit change
+Abdominal symptoms,"Diarrhea, unspecified",Abdominal s/s,GI,237,Diarrhea
+Abdominal symptoms,Epigastric pain,Abdominal s/s,GI,193,Pain
+Abdominal symptoms,Fecal urgency,Abdominal s/s,GI,1,Bowel habit change
+Abdominal symptoms,Flatulence,Abdominal s/s,GI,6,Flatulence
+Abdominal symptoms,Full incontinence of feces,Abdominal s/s,GI,12,Incontinence
+Abdominal symptoms,Heartburn,Abdominal s/s,GI,34,Heartburn
+Abdominal symptoms,Other fecal abnormalities,Abdominal s/s,GI,55,Bowel habit change
+Abdominal symptoms,Other specified symptoms and signs involving the digestive system and abdomen,Abdominal s/s,GI,41,Other
+Abdominal symptoms,Visible peristalsis,Abdominal s/s,GI,1,Other
+Abnormal findings without diagnosis,Abnormal cytological findings in specimens from other digestive organs and abdominal cavity,Abnormal Labs/Tests,GI,2,
+Abnormal findings without diagnosis,Abnormal findings on diagnostic imaging of other parts of digestive tract,Abnormal Labs/Tests,GI,28,
+Abnormal findings without diagnosis,Atypical squamous cells of undetermined significance on cytologic smear of anus (ASC-US),Abnormal Labs/Tests,GI,2,
+Abnormal findings without diagnosis,Low grade squamous intraepithelial lesion on cytologic smear of anus (LGSIL),Abnormal Labs/Tests,GI,2,
+Abnormal findings without diagnosis,Other abnormal cytological findings on specimens from anus,Abnormal Labs/Tests,GI,1,
+Abnormal findings without diagnosis,Unspecified abnormal cytological findings in specimens from anus,Abnormal Labs/Tests,GI,1,
+Dysphagia,"Dysphagia, oral phase",Dysphagia,GI,1,
+Dysphagia,"Dysphagia, oropharyngeal phase",Dysphagia,GI,127,
+Dysphagia,"Dysphagia, pharyngeal phase",Dysphagia,GI,7,
+Dysphagia,"Dysphagia, pharyngoesophageal phase",Dysphagia,GI,18,
+Dysphagia,"Dysphagia, unspecified",Dysphagia,GI,282,
+Dysphagia,Other dysphagia,Dysphagia,GI,79,
+Esophageal disorders,"Barrett's esophagus with dysplasia, unspecified",Esophageal disorders,GI,2,
+Esophageal disorders,Barrett's esophagus with low grade dysplasia,Esophageal disorders,GI,2,
+Esophageal disorders,Barrett's esophagus without dysplasia,Esophageal disorders,GI,19,
+Esophageal disorders,Candidal esophagitis,Esophageal disorders,GI,7,
+Esophageal disorders,"Disease of esophagus, unspecified",Esophageal disorders,GI,12,
+Esophageal disorders,Dyskinesia of esophagus,Esophageal disorders,GI,14,
+Esophageal disorders,Eosinophilic esophagitis,Esophageal disorders,GI,20,
+Esophageal disorders,Esophageal obstruction,Esophageal disorders,GI,16,
+Esophageal disorders,"Esophagitis, unspecified",Esophageal disorders,GI,3,
+Esophageal disorders,Gastro-esophageal laceration-hemorrhage syndrome,Esophageal disorders,GI,3,
+Esophageal disorders,Gastro-esophageal reflux disease with esophagitis,Esophageal disorders,GI,3,
+Esophageal disorders,Gastro-esophageal reflux disease without esophagitis,Esophageal disorders,GI,786,
+Esophageal disorders,Other specified diseases of esophagus,Esophageal disorders,GI,25,
+Esophageal disorders,Ulcer of esophagus with bleeding,Esophageal disorders,GI,3,
+Esophageal disorders,Ulcer of esophagus without bleeding,Esophageal disorders,GI,11,
+Nausea and vomiting,Bilious vomiting,Abdominal s/s,GI,11,Nausea and vomiting
+Nausea and vomiting,Nausea,Abdominal s/s,GI,212,Nausea and vomiting
+Nausea and vomiting,"Nausea with vomiting, unspecified",Abdominal s/s,GI,254,Nausea and vomiting
+Nausea and vomiting,Projectile vomiting,Abdominal s/s,GI,1,Nausea and vomiting
+Nausea and vomiting,Vomiting without nausea,Abdominal s/s,GI,4,Nausea and vomiting
+Nausea and vomiting,"Vomiting, unspecified",Abdominal s/s,GI,48,Nausea and vomiting
+Other specified and unspecified gastrointestinal disorders,Celiac disease,GI disorder,GI,14,Celiac
+Other specified and unspecified gastrointestinal disorders,"Constipation, unspecified",Abdominal s/s,GI,338,Constipation
+Other specified and unspecified gastrointestinal disorders,"Disease of digestive system, unspecified",GI disorder,GI,2,Other
+Other specified and unspecified gastrointestinal disorders,"Disease of intestine, unspecified",GI disorder,GI,21,Intestinal disease
+Other specified and unspecified gastrointestinal disorders,"Disorder of peritoneum, unspecified",GI disorder,GI,2,Other
+Other specified and unspecified gastrointestinal disorders,Fistula of intestine,GI disorder,GI,2,Other
+Other specified and unspecified gastrointestinal disorders,Functional diarrhea,Abdominal s/s,GI,22,Diarrhea
+Other specified and unspecified gastrointestinal disorders,"Functional intestinal disorder, unspecified",GI disorder,GI,1,Intestinal disease
+Other specified and unspecified gastrointestinal disorders,Hemoperitoneum,GI disorder,GI,8,Hemoperitoneum
+Other specified and unspecified gastrointestinal disorders,"Intestinal malabsorption, unspecified",GI disorder,GI,15,Intestinal disease
+Other specified and unspecified gastrointestinal disorders,Irritable bowel syndrome with diarrhea,GI disorder,GI,22,IBS
+Other specified and unspecified gastrointestinal disorders,Irritable bowel syndrome without diarrhea,GI disorder,GI,33,IBS
+Other specified and unspecified gastrointestinal disorders,"Neurogenic bowel, not elsewhere classified",GI disorder,GI,6,Other
+Other specified and unspecified gastrointestinal disorders,Other constipation,Abdominal s/s,GI,72,Constipation
+Other specified and unspecified gastrointestinal disorders,Other disorders of retroperitoneum,GI disorder,GI,1,Other
+Other specified and unspecified gastrointestinal disorders,Other intestinal malabsorption,GI disorder,GI,11,Intestinal disease
+Other specified and unspecified gastrointestinal disorders,Other specified diseases of intestine,GI disorder,GI,88,Intestinal disease
+Other specified and unspecified gastrointestinal disorders,Other specified diseases of the digestive system,GI disorder,GI,10,Other
+Other specified and unspecified gastrointestinal disorders,Other specified disorders of peritoneum,GI disorder,GI,14,Other
+Other specified and unspecified gastrointestinal disorders,Other specified functional intestinal disorders,GI disorder,GI,2,Intestinal disease
+Other specified and unspecified gastrointestinal disorders,Other vascular disorders of intestine,GI disorder,GI,1,Intestinal disease
+Other specified and unspecified gastrointestinal disorders,Outlet dysfunction constipation,Abdominal s/s,GI,5,Constipation
+Other specified and unspecified gastrointestinal disorders,Peritoneal adhesions (postprocedural) (postinfection),GI disorder,GI,9,Other
+Other specified and unspecified gastrointestinal disorders,Slow transit constipation,Abdominal s/s,GI,53,Constipation
+Other specified and unspecified gastrointestinal disorders,Ulcer of intestine,GI disorder,GI,8,Intestinal disease
+Other specified and unspecified gastrointestinal disorders,"Vascular disorder of intestine, unspecified",GI disorder,GI,7,Intestinal disease
+Regional enteritis and ulcerative colitis,Crohn's disease of both small and large intestine without complications,GI disorder,GI,3,IBD
+Regional enteritis and ulcerative colitis,Crohn's disease of large intestine with rectal bleeding,GI disorder,GI,1,IBD
+Regional enteritis and ulcerative colitis,Crohn's disease of large intestine with unspecified complications,GI disorder,GI,1,IBD
+Regional enteritis and ulcerative colitis,Crohn's disease of large intestine without complications,GI disorder,GI,5,IBD
+Regional enteritis and ulcerative colitis,Crohn's disease of small intestine with other complication,GI disorder,GI,1,IBD
+Regional enteritis and ulcerative colitis,Crohn's disease of small intestine with rectal bleeding,GI disorder,GI,2,IBD
+Regional enteritis and ulcerative colitis,Crohn's disease of small intestine without complications,GI disorder,GI,14,IBD
+Regional enteritis and ulcerative colitis,"Crohn's disease, unspecified, with unspecified complications",GI disorder,GI,3,IBD
+Regional enteritis and ulcerative colitis,"Crohn's disease, unspecified, without complications",GI disorder,GI,1,IBD
+Regional enteritis and ulcerative colitis,Inflammatory polyps of colon without complications,GI disorder,GI,2,IBD
+Regional enteritis and ulcerative colitis,Left sided colitis without complications,GI disorder,GI,3,IBD
+Regional enteritis and ulcerative colitis,Other ulcerative colitis with rectal bleeding,GI disorder,GI,1,IBD
+Regional enteritis and ulcerative colitis,Ulcerative (chronic) pancolitis with rectal bleeding,GI disorder,GI,1,IBD
+Regional enteritis and ulcerative colitis,Ulcerative (chronic) pancolitis with unspecified complications,GI disorder,GI,2,IBD
+Regional enteritis and ulcerative colitis,Ulcerative (chronic) pancolitis without complications,GI disorder,GI,6,IBD
+Regional enteritis and ulcerative colitis,Ulcerative (chronic) proctitis with rectal bleeding,GI disorder,GI,3,IBD
+Regional enteritis and ulcerative colitis,Ulcerative (chronic) proctitis with unspecified complications,GI disorder,GI,1,IBD
+Regional enteritis and ulcerative colitis,Ulcerative (chronic) proctitis without complications,GI disorder,GI,5,IBD
+Regional enteritis and ulcerative colitis,Ulcerative (chronic) rectosigmoiditis with rectal bleeding,GI disorder,GI,2,IBD
+Regional enteritis and ulcerative colitis,Ulcerative (chronic) rectosigmoiditis without complications,GI disorder,GI,4,IBD
+Regional enteritis and ulcerative colitis,"Ulcerative colitis, unspecified with rectal bleeding",GI disorder,GI,2,IBD
+Regional enteritis and ulcerative colitis,"Ulcerative colitis, unspecified with unspecified complications",GI disorder,GI,3,IBD
+Regional enteritis and ulcerative colitis,"Ulcerative colitis, unspecified, without complications",GI disorder,GI,11,IBD
+Abdominal symptoms,Abdominal distension (gaseous),Abdominal s/s,GI,146,Distension
+Abdominal symptoms,"Abdominal tenderness, unspecified site",Abdominal s/s,GI,2,Pain
+Abdominal symptoms,Acute abdomen,Abdominal s/s,GI,5,Pain
+Abdominal symptoms,Colic,Abdominal s/s,GI,1,Pain
+Abdominal symptoms,Epigastric abdominal tenderness,Abdominal s/s,GI,2,Pain
+Abdominal symptoms,Eructation,Abdominal s/s,GI,17,Other
+Abdominal symptoms,Gas pain,Abdominal s/s,GI,8,Pain
+Abdominal symptoms,Generalized abdominal pain,Abdominal s/s,GI,83,Pain
+Abdominal symptoms,Halitosis,Abdominal s/s,GI,1,Other
+Abdominal symptoms,"Left lower quadrant abdominal swelling, mass and lump",Abdominal s/s,GI,1,Other
+Abdominal symptoms,Left lower quadrant pain,Abdominal s/s,GI,76,Pain
+Abdominal symptoms,Left upper quadrant abdominal tenderness,Abdominal s/s,GI,1,Pain
+Abdominal symptoms,Left upper quadrant pain,Abdominal s/s,GI,44,Pain
+Abdominal symptoms,Left upper quadrant rebound abdominal tenderness,Abdominal s/s,GI,1,Pain
+Abdominal symptoms,"Lower abdominal pain, unspecified",Abdominal s/s,GI,67,Pain
+Abdominal symptoms,Other ascites,Abdominal s/s,GI,32,Ascites
+Abdominal symptoms,"Periumbilic swelling, mass or lump",Abdominal s/s,GI,1,Pain
+Abdominal symptoms,Periumbilical pain,Abdominal s/s,GI,22,Pain
+Abdominal symptoms,"Right lower quadrant abdominal swelling, mass and lump",Abdominal s/s,GI,2,Pain
+Abdominal symptoms,Right lower quadrant abdominal tenderness,Abdominal s/s,GI,2,Pain
+Abdominal symptoms,Right lower quadrant pain,Abdominal s/s,GI,84,Pain
+Abdominal symptoms,"Right upper quadrant abdominal swelling, mass and lump",Abdominal s/s,GI,3,Pain
+Abdominal symptoms,Right upper quadrant pain,Abdominal s/s,GI,102,Pain
+Abdominal symptoms,Unspecified abdominal pain,Abdominal s/s,GI,398,Pain
+Abdominal symptoms,Unspecified jaundice,Abdominal s/s,GI,29,Jaundice
+Abdominal symptoms,"Upper abdominal pain, unspecified",Abdominal s/s,GI,27,Pain
+Abnormal findings without diagnosis,"Abnormal findings on diagnostic imaging of other abdominal regions, including retroperitoneum",Abnormal Labs/Tests,GI,12,
+Gastrointestinal System Procedures,NA,GI Procedures,GI,28,
+Abdominal symptoms,"Hepatomegaly with splenomegaly, not elsewhere classified",Liver,GI,2,
+Abdominal symptoms,"Hepatomegaly, not elsewhere classified",Liver,GI,15,
+Abnormal findings without diagnosis,Abnormal findings on diagnostic imaging of liver and biliary tract,Liver,GI,6,
+Abnormal findings without diagnosis,Abnormal results of liver function studies,Liver,GI,68,
+Abnormal findings without diagnosis,Nonspecific elevation of levels of transaminase and lactic acid dehydrogenase [LDH],Liver,GI,10,
+Other specified and unspecified liver disease,Alcoholic cirrhosis of liver with ascites,Liver,GI,5,
+Other specified and unspecified liver disease,Alcoholic cirrhosis of liver without ascites,Liver,GI,5,
+Other specified and unspecified liver disease,Alcoholic fatty liver,Liver,GI,2,
+Other specified and unspecified liver disease,"Alcoholic liver disease, unspecified",Liver,GI,2,
+Other specified and unspecified liver disease,Chronic passive congestion of liver,Liver,GI,2,
+Other specified and unspecified liver disease,"Fatty (change of) liver, not elsewhere classified",Liver,GI,277,
+Other specified and unspecified liver disease,Hepatic veno-occlusive disease,Liver,GI,1,
+Other specified and unspecified liver disease,"Inflammatory liver disease, unspecified",Liver,GI,13,
+Other specified and unspecified liver disease,Liver and biliary tract disorders in childbirth,Liver,GI,2,
+Other specified and unspecified liver disease,"Liver and biliary tract disorders in pregnancy, second trimester",Liver,GI,3,
+Other specified and unspecified liver disease,"Liver and biliary tract disorders in pregnancy, third trimester",Liver,GI,5,
+Other specified and unspecified liver disease,"Liver and biliary tract disorders in pregnancy, unspecified trimester",Liver,GI,1,
+Other specified and unspecified liver disease,"Liver disease, unspecified",Liver,GI,116,
+Other specified and unspecified liver disease,Other cirrhosis of liver,Liver,GI,6,
+Other specified and unspecified liver disease,Other specified diseases of liver,Liver,GI,52,
+Other specified and unspecified liver disease,Other specified inflammatory liver diseases,Liver,GI,4,
+Other specified and unspecified liver disease,Phlebitis of portal vein,Liver,GI,1,
+Other specified and unspecified liver disease,Portal hypertension,Liver,GI,6,
+Other specified and unspecified liver disease,Primary biliary cirrhosis,Liver,GI,3,
+Other specified and unspecified liver disease,"Toxic liver disease, unspecified",Liver,GI,1,
+Other specified and unspecified liver disease,Unspecified cirrhosis of liver,Liver,GI,23,
+Abdominal symptoms,"Splenomegaly, not elsewhere classified",Spleen,GI,43,
+Other specified and unspecified hematologic conditions,Infarction of spleen,Spleen,GI,1,
+Abdominal symptoms,"Generalized intra-abdominal and pelvic swelling, mass and lump",Abdominal s/s,Gynecology/Pelvis,1,Swelling/mass
+Abdominal symptoms,"Intra-abdominal and pelvic swelling, mass and lump, unspecified site",Abdominal s/s,Gynecology/Pelvis,30,Swelling/mass
+Abdominal symptoms,"Other intra-abdominal and pelvic swelling, mass and lump",Abdominal s/s,Gynecology/Pelvis,13,Swelling/mass
+Abdominal symptoms,Pelvic and perineal pain,Abdominal s/s,Gynecology/Pelvis,161,Pain
+Abnormal findings without diagnosis,Abnormal microbiological findings in specimens from female genital organs,Abnormal Labs/Tests,Gynecology/Pelvis,1,
+Abnormal findings without diagnosis,Anal high risk human papillomavirus (HPV) DNA test positive,Abnormal Labs/Tests,Gynecology/Pelvis,1,
+Abnormal findings without diagnosis,Atypical squamous cells cannot exclude high grade squamous intraepithelial lesion on cytologic smear of cervix (ASC-H),Abnormal Labs/Tests,Gynecology/Pelvis,2,
+Abnormal findings without diagnosis,Atypical squamous cells of undetermined significance on cytologic smear of cervix (ASC-US),Abnormal Labs/Tests,Gynecology/Pelvis,29,
+Abnormal findings without diagnosis,Atypical squamous cells of undetermined significance on cytologic smear of vagina (ASC-US),Abnormal Labs/Tests,Gynecology/Pelvis,3,
+Abnormal findings without diagnosis,Cervical high risk human papillomavirus (HPV) DNA test positive,Abnormal Labs/Tests,Gynecology/Pelvis,26,
+Abnormal findings without diagnosis,Elevated cancer antigen 125 [CA 125],Abnormal Labs/Tests,Gynecology/Pelvis,1,
+Abnormal findings without diagnosis,High grade squamous intraepithelial lesion on cytologic smear of cervix (HGSIL),Abnormal Labs/Tests,Gynecology/Pelvis,1,
+Abnormal findings without diagnosis,High grade squamous intraepithelial lesion on cytologic smear of vagina (HGSIL),Abnormal Labs/Tests,Gynecology/Pelvis,1,
+Abnormal findings without diagnosis,Low grade squamous intraepithelial lesion on cytologic smear of cervix (LGSIL),Abnormal Labs/Tests,Gynecology/Pelvis,13,
+Abnormal findings without diagnosis,Low grade squamous intraepithelial lesion on cytologic smear of vagina (LGSIL),Abnormal Labs/Tests,Gynecology/Pelvis,1,
+Abnormal findings without diagnosis,Other abnormal cytological findings on specimens from cervix uteri,Abnormal Labs/Tests,Gynecology/Pelvis,3,
+Abnormal findings without diagnosis,Other abnormal findings in specimens from female genital organs,Abnormal Labs/Tests,Gynecology/Pelvis,1,
+Abnormal findings without diagnosis,Unsatisfactory cytologic smear of cervix,Abnormal Labs/Tests,Gynecology/Pelvis,4,
+Abnormal findings without diagnosis,Unspecified abnormal cytological findings in specimens from cervix uteri,Abnormal Labs/Tests,Gynecology/Pelvis,13,
+Abnormal findings without diagnosis,Unspecified abnormal cytological findings in specimens from vagina,Abnormal Labs/Tests,Gynecology/Pelvis,2,
+Abnormal findings without diagnosis,Vaginal high risk human papillomavirus (HPV) DNA test positive,Abnormal Labs/Tests,Gynecology/Pelvis,1,
+Diabetes mellitus,"Gestational diabetes mellitus in pregnancy, diet controlled",Gestational Diabetes,Gynecology/Pelvis,2,
+Diabetes mellitus,"Gestational diabetes mellitus in pregnancy, unspecified control",Gestational Diabetes,Gynecology/Pelvis,1,
+Other specified and unspecified diseases of kidney and ureters,"Pregnancy related renal disease, second trimester",Pregnancy Renal dz,Gynecology/Pelvis,1,
+Abnormal findings without diagnosis,Abnormal coagulation profile,Abnormal Labs/Tests,Systemic,13,
+Abnormal findings without diagnosis,"Abnormal finding of blood chemistry, unspecified",Abnormal Labs/Tests,Systemic,15,
+Abnormal findings without diagnosis,Abnormal level of blood mineral,Abnormal Labs/Tests,Systemic,12,
+Abnormal findings without diagnosis,Abnormality of globulin,Abnormal Labs/Tests,Systemic,1,
+Abnormal findings without diagnosis,"Abnormality of plasma protein, unspecified",Abnormal Labs/Tests,Systemic,1,
+Abnormal findings without diagnosis,Other abnormality of red blood cells,Abnormal Labs/Tests,Systemic,12,
+Abnormal findings without diagnosis,Other specified abnormal findings of blood chemistry,Abnormal Labs/Tests,Systemic,340,
+Abnormal findings without diagnosis,Precipitous drop in hematocrit,Abnormal Labs/Tests,Systemic,4,
+Other specified and unspecified hematologic conditions,"Disease of blood and blood-forming organs, unspecified",Hematologic condition,Systemic,2,
+Abnormal findings without diagnosis,"Abnormal immunological finding in serum, unspecified",Abnormal Labs/Tests,Systemic,4,
+Abnormal findings without diagnosis,"Abnormal immunological findings in specimens from other organs, systems and tissues",Abnormal Labs/Tests,Systemic,1,
+Abnormal findings without diagnosis,Bacteremia,Abnormal Labs/Tests,Systemic,33,
+Abnormal findings without diagnosis,Elevated C-reactive protein (CRP),Abnormal Labs/Tests,Systemic,22,
+Abnormal findings without diagnosis,Elevated erythrocyte sedimentation rate,Abnormal Labs/Tests,Systemic,4,
+Abnormal findings without diagnosis,Inconclusive laboratory evidence of human immunodeficiency virus [HIV],Abnormal Labs/Tests,Systemic,2,
+Abnormal findings without diagnosis,Nonspecific reaction to cell mediated immunity measurement of gamma interferon antigen response without active tuberculosis,Abnormal Labs/Tests,Systemic,5,
+Abnormal findings without diagnosis,Nonspecific reaction to tuberculin skin test without active tuberculosis,Abnormal Labs/Tests,Systemic,14,
+Abnormal findings without diagnosis,Other specified abnormal immunological findings in serum,Abnormal Labs/Tests,Systemic,80,
+Abnormal findings without diagnosis,Other specified abnormalities of plasma proteins,Abnormal Labs/Tests,Systemic,13,
+Abnormal findings without diagnosis,Raised antibody titer,Abnormal Labs/Tests,Systemic,5,
+Immunity disorders,Acute graft-versus-host disease,Immunity disorders,Systemic,1,
+Immunity disorders,Antibody deficiency with near-normal immunoglobulins or with hyperimmunoglobulinemia,Immunity disorders,Systemic,1,
+Immunity disorders,"Common variable immunodeficiency, unspecified",Immunity disorders,Systemic,2,
+Immunity disorders,"Disorder involving the immune mechanism, unspecified",Immunity disorders,Systemic,12,
+Immunity disorders,"Graft-versus-host disease, unspecified",Immunity disorders,Systemic,2,
+Immunity disorders,"Immunodeficiency, unspecified",Immunity disorders,Systemic,24,
+Immunity disorders,Nonfamilial hypogammaglobulinemia,Immunity disorders,Systemic,8,
+Immunity disorders,"Other specified disorders involving the immune mechanism, not elsewhere classified",Immunity disorders,Systemic,12,
+Immunity disorders,Polyclonal hypergammaglobulinemia,Immunity disorders,Systemic,1,
+Immunity disorders,Sarcoid myocarditis,Immunity disorders,Systemic,1,
+Immunity disorders,Sarcoidosis of lung,Immunity disorders,Systemic,1,
+Immunity disorders,Sarcoidosis of lung with sarcoidosis of lymph nodes,Immunity disorders,Systemic,1,
+Immunity disorders,"Sarcoidosis, unspecified",Immunity disorders,Systemic,5,
+Abnormal findings without diagnosis,Abnormal findings on diagnostic imaging of limbs,Abnormal Labs/Tests,MSK,1,
+Abnormal findings without diagnosis,Abnormal findings on diagnostic imaging of other parts of musculoskeletal system,Abnormal Labs/Tests,MSK,14,
+Abnormal findings without diagnosis,"Abnormal findings on diagnostic imaging of skull and head, not elsewhere classified",Abnormal Labs/Tests,MSK,11,
+Other general signs and symptoms,Clicking hip,MSK s/s,MSK,1,
+Other general signs and symptoms,Other symptoms and signs involving the musculoskeletal system,MSK s/s,MSK,451,
+Other general signs and symptoms,Unspecified symptoms and signs involving the musculoskeletal system,MSK s/s,MSK,5,
+Spondylopathies/spondyloarthropathy (including infective),"Ankylosing hyperostosis [Forestier], site unspecified",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Cervical disc disorder with myelopathy, high cervical region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Cervical disc disorder with radiculopathy, cervicothoracic region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Cervical disc disorder with radiculopathy, high cervical region",Spondylo(arthro)pathy,MSK,4,
+Spondylopathies/spondyloarthropathy (including infective),"Cervical disc disorder with radiculopathy, unspecified cervical region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Cervical disc disorder, unspecified, unspecified cervical region",Spondylo(arthro)pathy,MSK,5,
+Spondylopathies/spondyloarthropathy (including infective),Cervicalgia,Spondylo(arthro)pathy,MSK,398,
+Spondylopathies/spondyloarthropathy (including infective),"Deforming dorsopathy, unspecified",Spondylo(arthro)pathy,MSK,3,
+Spondylopathies/spondyloarthropathy (including infective),"Discitis, unspecified, cervical region",Spondylo(arthro)pathy,MSK,2,
+Spondylopathies/spondyloarthropathy (including infective),"Discitis, unspecified, site unspecified",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Fusion of spine, lumbosacral region",Spondylo(arthro)pathy,MSK,2,
+Spondylopathies/spondyloarthropathy (including infective),"Infection of intervertebral disc (pyogenic), cervical region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Intervertebral disc disorders with myelopathy, lumbar region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Intervertebral disc disorders with radiculopathy, lumbar region",Spondylo(arthro)pathy,MSK,23,
+Spondylopathies/spondyloarthropathy (including infective),"Intervertebral disc disorders with radiculopathy, lumbosacral region",Spondylo(arthro)pathy,MSK,22,
+Spondylopathies/spondyloarthropathy (including infective),"Intervertebral disc disorders with radiculopathy, thoracic region",Spondylo(arthro)pathy,MSK,2,
+Spondylopathies/spondyloarthropathy (including infective),"Intervertebral disc disorders with radiculopathy, thoracolumbar region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Lumbago with sciatica, left side",Spondylo(arthro)pathy,MSK,123,
+Spondylopathies/spondyloarthropathy (including infective),"Lumbago with sciatica, right side",Spondylo(arthro)pathy,MSK,139,
+Spondylopathies/spondyloarthropathy (including infective),"Lumbago with sciatica, unspecified side",Spondylo(arthro)pathy,MSK,46,
+Spondylopathies/spondyloarthropathy (including infective),"Other cervical disc degeneration, high cervical region",Spondylo(arthro)pathy,MSK,3,
+Spondylopathies/spondyloarthropathy (including infective),"Other cervical disc degeneration, unspecified cervical region",Spondylo(arthro)pathy,MSK,13,
+Spondylopathies/spondyloarthropathy (including infective),"Other cervical disc displacement, high cervical region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Other cervical disc displacement, unspecified cervical region",Spondylo(arthro)pathy,MSK,4,
+Spondylopathies/spondyloarthropathy (including infective),"Other intervertebral disc degeneration, lumbar region",Spondylo(arthro)pathy,MSK,67,
+Spondylopathies/spondyloarthropathy (including infective),"Other intervertebral disc degeneration, lumbosacral region",Spondylo(arthro)pathy,MSK,37,
+Spondylopathies/spondyloarthropathy (including infective),"Other intervertebral disc degeneration, thoracic region",Spondylo(arthro)pathy,MSK,7,
+Spondylopathies/spondyloarthropathy (including infective),"Other intervertebral disc degeneration, thoracolumbar region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Other intervertebral disc disorders, lumbar region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Other intervertebral disc displacement, lumbar region",Spondylo(arthro)pathy,MSK,30,
+Spondylopathies/spondyloarthropathy (including infective),"Other intervertebral disc displacement, lumbosacral region",Spondylo(arthro)pathy,MSK,14,
+Spondylopathies/spondyloarthropathy (including infective),"Other intervertebral disc displacement, thoracic region",Spondylo(arthro)pathy,MSK,3,
+Spondylopathies/spondyloarthropathy (including infective),"Other specified dorsopathies, cervical region",Spondylo(arthro)pathy,MSK,3,
+Spondylopathies/spondyloarthropathy (including infective),"Other specified dorsopathies, lumbar region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Other specified dorsopathies, lumbosacral region",Spondylo(arthro)pathy,MSK,2,
+Spondylopathies/spondyloarthropathy (including infective),"Other spondylosis with myelopathy, cervical region",Spondylo(arthro)pathy,MSK,3,
+Spondylopathies/spondyloarthropathy (including infective),"Other spondylosis with myelopathy, cervicothoracic region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Other spondylosis with myelopathy, lumbar region",Spondylo(arthro)pathy,MSK,2,
+Spondylopathies/spondyloarthropathy (including infective),"Other spondylosis with radiculopathy, cervical region",Spondylo(arthro)pathy,MSK,33,
+Spondylopathies/spondyloarthropathy (including infective),"Other spondylosis with radiculopathy, cervicothoracic region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Other spondylosis with radiculopathy, lumbar region",Spondylo(arthro)pathy,MSK,29,
+Spondylopathies/spondyloarthropathy (including infective),"Other spondylosis with radiculopathy, lumbosacral region",Spondylo(arthro)pathy,MSK,27,
+Spondylopathies/spondyloarthropathy (including infective),"Other spondylosis with radiculopathy, thoracic region",Spondylo(arthro)pathy,MSK,2,
+Spondylopathies/spondyloarthropathy (including infective),"Radiculopathy, cervical region",Spondylo(arthro)pathy,MSK,117,
+Spondylopathies/spondyloarthropathy (including infective),"Radiculopathy, lumbar region",Spondylo(arthro)pathy,MSK,152,
+Spondylopathies/spondyloarthropathy (including infective),"Radiculopathy, lumbosacral region",Spondylo(arthro)pathy,MSK,41,
+Spondylopathies/spondyloarthropathy (including infective),"Radiculopathy, occipito-atlanto-axial region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Radiculopathy, sacral and sacrococcygeal region",Spondylo(arthro)pathy,MSK,2,
+Spondylopathies/spondyloarthropathy (including infective),"Radiculopathy, site unspecified",Spondylo(arthro)pathy,MSK,20,
+Spondylopathies/spondyloarthropathy (including infective),"Radiculopathy, thoracic region",Spondylo(arthro)pathy,MSK,3,
+Spondylopathies/spondyloarthropathy (including infective),"Sacrococcygeal disorders, not elsewhere classified",Spondylo(arthro)pathy,MSK,78,
+Spondylopathies/spondyloarthropathy (including infective),"Sacroiliitis, not elsewhere classified",Spondylo(arthro)pathy,MSK,9,
+Spondylopathies/spondyloarthropathy (including infective),"Sciatica, left side",Spondylo(arthro)pathy,MSK,35,
+Spondylopathies/spondyloarthropathy (including infective),"Sciatica, right side",Spondylo(arthro)pathy,MSK,37,
+Spondylopathies/spondyloarthropathy (including infective),"Sciatica, unspecified side",Spondylo(arthro)pathy,MSK,15,
+Spondylopathies/spondyloarthropathy (including infective),"Spinal instabilities, cervical region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Spinal instabilities, lumbar region",Spondylo(arthro)pathy,MSK,2,
+Spondylopathies/spondyloarthropathy (including infective),"Spinal instabilities, sacral and sacrococcygeal region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Spinal stenosis, cervical region",Spondylo(arthro)pathy,MSK,83,
+Spondylopathies/spondyloarthropathy (including infective),"Spinal stenosis, cervicothoracic region",Spondylo(arthro)pathy,MSK,2,
+Spondylopathies/spondyloarthropathy (including infective),"Spinal stenosis, lumbosacral region",Spondylo(arthro)pathy,MSK,47,
+Spondylopathies/spondyloarthropathy (including infective),"Spinal stenosis, site unspecified",Spondylo(arthro)pathy,MSK,6,
+Spondylopathies/spondyloarthropathy (including infective),"Spinal stenosis, thoracic region",Spondylo(arthro)pathy,MSK,6,
+Spondylopathies/spondyloarthropathy (including infective),"Spinal stenosis, thoracolumbar region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Spondylolisthesis, cervical region",Spondylo(arthro)pathy,MSK,13,
+Spondylopathies/spondyloarthropathy (including infective),"Spondylolisthesis, lumbar region",Spondylo(arthro)pathy,MSK,41,
+Spondylopathies/spondyloarthropathy (including infective),"Spondylolisthesis, lumbosacral region",Spondylo(arthro)pathy,MSK,17,
+Spondylopathies/spondyloarthropathy (including infective),"Spondylolisthesis, site unspecified",Spondylo(arthro)pathy,MSK,10,
+Spondylopathies/spondyloarthropathy (including infective),"Spondylolysis, lumbar region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Spondylosis without myelopathy or radiculopathy, cervical region",Spondylo(arthro)pathy,MSK,84,
+Spondylopathies/spondyloarthropathy (including infective),"Spondylosis without myelopathy or radiculopathy, lumbar region",Spondylo(arthro)pathy,MSK,162,
+Spondylopathies/spondyloarthropathy (including infective),"Spondylosis without myelopathy or radiculopathy, lumbosacral region",Spondylo(arthro)pathy,MSK,62,
+Spondylopathies/spondyloarthropathy (including infective),"Spondylosis without myelopathy or radiculopathy, sacral and sacrococcygeal region",Spondylo(arthro)pathy,MSK,2,
+Spondylopathies/spondyloarthropathy (including infective),"Spondylosis without myelopathy or radiculopathy, site unspecified",Spondylo(arthro)pathy,MSK,4,
+Spondylopathies/spondyloarthropathy (including infective),"Spondylosis without myelopathy or radiculopathy, thoracic region",Spondylo(arthro)pathy,MSK,17,
+Spondylopathies/spondyloarthropathy (including infective),"Spondylosis without myelopathy or radiculopathy, thoracolumbar region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Spondylosis, unspecified",Spondylo(arthro)pathy,MSK,9,
+Spondylopathies/spondyloarthropathy (including infective),Torticollis,Spondylo(arthro)pathy,MSK,8,
+Spondylopathies/spondyloarthropathy (including infective),"Unspecified inflammatory spondylopathy, cervical region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Unspecified inflammatory spondylopathy, lumbar region",Spondylo(arthro)pathy,MSK,2,
+Spondylopathies/spondyloarthropathy (including infective),"Unspecified inflammatory spondylopathy, lumbosacral region",Spondylo(arthro)pathy,MSK,1,
+Spondylopathies/spondyloarthropathy (including infective),"Unspecified thoracic, thoracolumbar and lumbosacral intervertebral disc disorder",Spondylo(arthro)pathy,MSK,8,
+Abnormal findings without diagnosis,Abnormal cytological findings in cerebrospinal fluid,Abnormal Labs/Tests,Neurology,2,
+Abnormal findings without diagnosis,Abnormal electroencephalogram [EEG],Abnormal Labs/Tests,Neurology,4,
+Abnormal findings without diagnosis,Other abnormal findings on diagnostic imaging of central nervous system,Abnormal Labs/Tests,Neurology,3,
+Abnormal findings without diagnosis,"White matter disease, unspecified",Abnormal Labs/Tests,Neurology,4,
+"Diabetes mellitus, Type 2",Type 2 diabetes mellitus with other diabetic neurological complication,Diabetic Neuropathy,Neurology,1,
+Diabetes mellitus; nerve,"Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified",Diabetic Neuropathy,Neurology,3,
+Diabetes mellitus; nerve,"Drug or chemical induced diabetes mellitus with neurological complications with diabetic neuropathy, unspecified",Diabetic Neuropathy,Neurology,1,
+Diabetes mellitus; nerve,Other specified diabetes mellitus with diabetic autonomic (poly)neuropathy,Diabetic Neuropathy,Neurology,1,
+Diabetes mellitus; nerve,Other specified diabetes mellitus with diabetic polyneuropathy,Diabetic Neuropathy,Neurology,2,
+Diabetes mellitus; nerve,"Type 1 diabetes mellitus with diabetic neuropathy, unspecified",Diabetic Neuropathy,Neurology,4,
+Diabetes mellitus; nerve,Type 1 diabetes mellitus with diabetic polyneuropathy,Diabetic Neuropathy,Neurology,2,
+Diabetes mellitus; nerve,Type 2 diabetes mellitus with diabetic autonomic (poly)neuropathy,Diabetic Neuropathy,Neurology,7,
+Diabetes mellitus; nerve,"Type 2 diabetes mellitus with diabetic neuropathy, unspecified",Diabetic Neuropathy,Neurology,85,
+Diabetes mellitus; nerve,Type 2 diabetes mellitus with diabetic polyneuropathy,Diabetic Neuropathy,Neurology,69,
+Headache; including migraine,"Acute post-traumatic headache, intractable",Headache,Neurology,3,
+Headache; including migraine,"Acute post-traumatic headache, not intractable",Headache,Neurology,2,
+Headache; including migraine,"Chronic migraine without aura, intractable, with status migrainosus",Migraine,Neurology,4,
+Headache; including migraine,"Chronic migraine without aura, intractable, without status migrainosus",Migraine,Neurology,4,
+Headache; including migraine,"Chronic migraine without aura, not intractable, without status migrainosus",Migraine,Neurology,14,
+Headache; including migraine,"Chronic paroxysmal hemicrania, not intractable",Headache,Neurology,2,
+Headache; including migraine,"Chronic post-traumatic headache, not intractable",Headache,Neurology,5,
+Headache; including migraine,"Chronic tension-type headache, not intractable",Headache,Neurology,16,
+Headache; including migraine,"Cluster headache syndrome, unspecified, not intractable",Headache,Neurology,3,
+Headache; including migraine,"Episodic cluster headache, intractable",Headache,Neurology,1,
+Headache; including migraine,"Episodic cluster headache, not intractable",Headache,Neurology,1,
+Headache; including migraine,"Episodic paroxysmal hemicrania, intractable",Headache,Neurology,1,
+Headache; including migraine,"Episodic paroxysmal hemicrania, not intractable",Headache,Neurology,2,
+Headache; including migraine,"Episodic tension-type headache, not intractable",Headache,Neurology,5,
+Headache; including migraine,Headache,Headache,Neurology,28,
+Headache; including migraine,"Hemiplegic migraine, not intractable, without status migrainosus",Migraine,Neurology,1,
+Headache; including migraine,Hypnic headache,Headache,Neurology,1,
+Headache; including migraine,"Menstrual migraine, not intractable, without status migrainosus",Migraine,Neurology,1,
+Headache; including migraine,"Migraine with aura, intractable, with status migrainosus",Migraine,Neurology,4,
+Headache; including migraine,"Migraine with aura, intractable, without status migrainosus",Migraine,Neurology,1,
+Headache; including migraine,"Migraine with aura, not intractable, with status migrainosus",Migraine,Neurology,2,
+Headache; including migraine,"Migraine with aura, not intractable, without status migrainosus",Migraine,Neurology,44,
+Headache; including migraine,"Migraine without aura, intractable, without status migrainosus",Migraine,Neurology,8,
+Headache; including migraine,"Migraine without aura, not intractable, with status migrainosus",Migraine,Neurology,5,
+Headache; including migraine,"Migraine without aura, not intractable, without status migrainosus",Migraine,Neurology,40,
+Headache; including migraine,"Migraine, unspecified, intractable, without status migrainosus",Migraine,Neurology,2,
+Headache; including migraine,"Migraine, unspecified, not intractable, with status migrainosus",Migraine,Neurology,2,
+Headache; including migraine,"Migraine, unspecified, not intractable, without status migrainosus",Migraine,Neurology,76,
+Headache; including migraine,New daily persistent headache (NDPH),Headache,Neurology,16,
+Headache; including migraine,"Ophthalmoplegic migraine, not intractable",Migraine,Neurology,1,
+Headache; including migraine,Other complicated headache syndrome,Headache,Neurology,5,
+Headache; including migraine,Other headache syndrome,Headache,Neurology,46,
+Headache; including migraine,"Other migraine, intractable, without status migrainosus",Migraine,Neurology,1,
+Headache; including migraine,"Other migraine, not intractable, without status migrainosus",Migraine,Neurology,19,
+Headache; including migraine,"Periodic headache syndromes in child or adult, intractable",Headache,Neurology,1,
+Headache; including migraine,"Periodic headache syndromes in child or adult, not intractable",Headache,Neurology,3,
+Headache; including migraine,"Post-traumatic headache, unspecified, intractable",Headache,Neurology,1,
+Headache; including migraine,"Post-traumatic headache, unspecified, not intractable",Headache,Neurology,3,
+Headache; including migraine,"Short lasting unilateral neuralgiform headache with conjunctival injection and tearing (SUNCT), not intractable",Headache,Neurology,1,
+Headache; including migraine,"Tension-type headache, unspecified, intractable",Headache,Neurology,8,
+Headache; including migraine,"Tension-type headache, unspecified, not intractable",Headache,Neurology,28,
+Headache; including migraine,"Vascular headache, not elsewhere classified",Headache,Neurology,3,
+Nervous system pain and pain syndromes,Acute pain due to trauma,Pain syndrome,Neurology,16,
+Nervous system pain and pain syndromes,Central pain syndrome,Pain syndrome,Neurology,1,
+Nervous system pain and pain syndromes,Chronic pain due to trauma,Pain syndrome,Neurology,5,
+Nervous system pain and pain syndromes,Chronic pain syndrome,Pain syndrome,Neurology,19,
+Nervous system pain and pain syndromes,Complex regional pain syndrome I of right lower limb,Pain syndrome,Neurology,1,
+Nervous system pain and pain syndromes,Horner's syndrome,Pain syndrome,Neurology,1,
+Nervous system pain and pain syndromes,Other acute postprocedural pain,Pain syndrome,Neurology,66,
+Nervous system pain and pain syndromes,Other chronic pain,Pain syndrome,Neurology,971,
+Nervous system pain and pain syndromes,Other chronic postprocedural pain,Pain syndrome,Neurology,2,
+Nervous system signs and symptoms,Abnormal reflex,Nervous system s/s,Neurology,4,Abnormal reflex
+Nervous system signs and symptoms,Age-related cognitive decline,Nervous system s/s,Neurology,2,Abnormal Cognition
+Nervous system signs and symptoms,Agnosia,Nervous system s/s,Neurology,2,Agnosia
+Nervous system signs and symptoms,"Altered mental status, unspecified",Nervous system s/s,Neurology,160,Abnormal Cognition
+Nervous system signs and symptoms,Anosmia,Nervous system s/s,Neurology,47,Abnormal Smell/Taste
+Nervous system signs and symptoms,Aphasia,Nervous system s/s,Neurology,16,Abnormal Speech
+Nervous system signs and symptoms,Apraxia,Nervous system s/s,Neurology,2,Abnormal Speech
+Nervous system signs and symptoms,"Ataxia, unspecified",Nervous system s/s,Neurology,12,Abnormal Gait
+Nervous system signs and symptoms,Ataxic gait,Nervous system s/s,Neurology,3,Abnormal Gait
+Nervous system signs and symptoms,Attention and concentration deficit,Nervous system s/s,Neurology,52,Abnormal Cognition
+Nervous system signs and symptoms,Cognitive communication deficit,Nervous system s/s,Neurology,20,Abnormal Cognition
+Nervous system signs and symptoms,"Coma scale, best motor response, abnormal flexion, 24 hours or more after hospital admission",Nervous system s/s,Neurology,1,Coma
+Nervous system signs and symptoms,"Coma scale, best motor response, obeys commands, at arrival to emergency department",Nervous system s/s,Neurology,2,Coma
+Nervous system signs and symptoms,"Coma scale, best motor response, obeys commands, at hospital admission",Nervous system s/s,Neurology,1,Coma
+Nervous system signs and symptoms,"Coma scale, best verbal response, oriented, 24 hours or more after hospital admission",Nervous system s/s,Neurology,1,Coma
+Nervous system signs and symptoms,"Coma scale, best verbal response, oriented, at arrival to emergency department",Nervous system s/s,Neurology,2,Coma
+Nervous system signs and symptoms,"Coma scale, best verbal response, oriented, at hospital admission",Nervous system s/s,Neurology,1,Coma
+Nervous system signs and symptoms,"Coma scale, eyes open, spontaneous, at arrival to emergency department",Nervous system s/s,Neurology,2,Coma
+Nervous system signs and symptoms,"Coma scale, eyes open, spontaneous, at hospital admission",Nervous system s/s,Neurology,1,Coma
+Nervous system signs and symptoms,"Coma scale, eyes open, to sound, 24 hours or more after hospital admission",Nervous system s/s,Neurology,1,Coma
+Nervous system signs and symptoms,"Difficulty in walking, not elsewhere classified",Nervous system s/s,Neurology,20,Abnormal Gait
+Nervous system signs and symptoms,"Disorientation, unspecified",Nervous system s/s,Neurology,110,Abnormal Cognition
+Nervous system signs and symptoms,Dysarthria and anarthria,Nervous system s/s,Neurology,14,Abnormal Speech
+Nervous system signs and symptoms,Dyslexia and alexia,Nervous system s/s,Neurology,2,Abnormal Speech
+Nervous system signs and symptoms,Dysphasia,Nervous system s/s,Neurology,4,Abnormal Speech
+Nervous system signs and symptoms,Facial weakness,Nervous system s/s,Neurology,15,Facial weakness
+Nervous system signs and symptoms,Fasciculation,Nervous system s/s,Neurology,13,Fasciculation
+Nervous system signs and symptoms,Frontal lobe and executive function deficit,Nervous system s/s,Neurology,4,Abnormal Cognition
+Nervous system signs and symptoms,Functional quadriplegia,Nervous system s/s,Neurology,1,Abnormal Gait
+Nervous system signs and symptoms,Neurologic neglect syndrome,Nervous system s/s,Neurology,1,Other
+Nervous system signs and symptoms,Other abnormal involuntary movements,Nervous system s/s,Neurology,6,Abnormal Gait
+Nervous system signs and symptoms,Other abnormalities of gait and mobility,Nervous system s/s,Neurology,100,Abnormal Gait
+Nervous system signs and symptoms,Other amnesia,Nervous system s/s,Neurology,177,Amnesia
+Nervous system signs and symptoms,Other disturbances of smell and taste,Nervous system s/s,Neurology,14,Abnormal Smell/Taste
+Nervous system signs and symptoms,Other lack of coordination,Nervous system s/s,Neurology,4,Abnormal Gait
+Nervous system signs and symptoms,Other speech disturbances,Nervous system s/s,Neurology,13,Abnormal Speech
+Nervous system signs and symptoms,Other symptoms and signs involving cognitive functions and awareness,Nervous system s/s,Neurology,111,Abnormal Cognition
+Nervous system signs and symptoms,Other symptoms and signs involving the nervous system,Nervous system s/s,Neurology,85,Other
+Nervous system signs and symptoms,Parageusia,Nervous system s/s,Neurology,23,Abnormal Smell/Taste
+Nervous system signs and symptoms,Paralytic gait,Nervous system s/s,Neurology,1,Abnormal Gait
+Nervous system signs and symptoms,Parosmia,Nervous system s/s,Neurology,8,Abnormal Smell/Taste
+Nervous system signs and symptoms,Slurred speech,Nervous system s/s,Neurology,7,Abnormal Speech
+Nervous system signs and symptoms,Transient alteration of awareness,Nervous system s/s,Neurology,21,Abnormal Cognition
+Nervous system signs and symptoms,"Tremor, unspecified",Nervous system s/s,Neurology,69,Tremor
+Nervous system signs and symptoms,Unspecified abnormal involuntary movements,Nervous system s/s,Neurology,8,Abnormal Gait
+Nervous system signs and symptoms,Unspecified abnormalities of gait and mobility,Nervous system s/s,Neurology,56,Abnormal Gait
+Nervous system signs and symptoms,Unspecified disturbances of smell and taste,Nervous system s/s,Neurology,28,Abnormal Smell/Taste
+Nervous system signs and symptoms,Unspecified speech disturbances,Nervous system s/s,Neurology,7,Abnormal Speech
+Nervous system signs and symptoms,Unspecified symptoms and signs involving cognitive functions and awareness,Nervous system s/s,Neurology,14,Abnormal Cognition
+Nervous system signs and symptoms,Unspecified symptoms and signs involving the nervous system,Nervous system s/s,Neurology,13,Other
+Nervous system signs and symptoms,Unsteadiness on feet,Nervous system s/s,Neurology,41,Abnormal Gait
+Other nervous system disorders,Acute transverse myelitis in demyelinating disease of central nervous system,Nervous System Disorders,Neurology,1,
+Other nervous system disorders,Amyotrophic lateral sclerosis,Nervous System Disorders,Neurology,2,
+Other nervous system disorders,Benign intracranial hypertension,Nervous System Disorders,Neurology,19,
+Other nervous system disorders,Blepharospasm,Nervous System Disorders,Neurology,4,
+Other nervous system disorders,Carotid sinus syncope,Nervous System Disorders,Neurology,1,
+Other nervous system disorders,Cerebral cysts,Nervous System Disorders,Neurology,4,
+Other nervous system disorders,Cerebral edema,Nervous System Disorders,Neurology,11,
+Other nervous system disorders,Communicating hydrocephalus,Nervous System Disorders,Neurology,1,
+Other nervous system disorders,Compression of brain,Nervous System Disorders,Neurology,6,
+Other nervous system disorders,Conus medullaris syndrome,Nervous System Disorders,Neurology,1,
+Other nervous system disorders,"Degenerative disease of nervous system, unspecified",Nervous System Disorders,Neurology,1,
+Other nervous system disorders,"Demyelinating disease of central nervous system, unspecified",Nervous System Disorders,Neurology,17,
+Other nervous system disorders,"Disease of spinal cord, unspecified",Nervous System Disorders,Neurology,34,
+Other nervous system disorders,"Disorder of brain, unspecified",Nervous System Disorders,Neurology,29,
+Other nervous system disorders,"Disorder of the autonomic nervous system, unspecified",Nervous System Disorders,Neurology,17,
+Other nervous system disorders,Dural tear,Nervous System Disorders,Neurology,2,
+Other nervous system disorders,"Dystonia, unspecified",Nervous System Disorders,Neurology,1,
+Other nervous system disorders,"Encephalopathy, unspecified",Nervous System Disorders,Neurology,27,
+Other nervous system disorders,Essential tremor,Nervous System Disorders,Neurology,18,
+Other nervous system disorders,"Extrapyramidal and movement disorder, unspecified",Nervous System Disorders,Neurology,1,
+Other nervous system disorders,Familial dysautonomia [Riley-Day],Nervous System Disorders,Neurology,33,
+Other nervous system disorders,"Hydrocephalus, unspecified",Nervous System Disorders,Neurology,2,
+Other nervous system disorders,Idiopathic orofacial dystonia,Nervous System Disorders,Neurology,3,
+Other nervous system disorders,Influenza due to other identified influenza virus with encephalopathy,Nervous System Disorders,Neurology,1,
+Other nervous system disorders,Intracranial and intraspinal phlebitis and thrombophlebitis,Nervous System Disorders,Neurology,4,
+Other nervous system disorders,Metabolic encephalopathy,Nervous System Disorders,Neurology,6,
+Other nervous system disorders,Mild cognitive impairment of uncertain or unknown etiology,Nervous System Disorders,Neurology,34,
+Other nervous system disorders,"Motor neuron disease, unspecified",Nervous System Disorders,Neurology,2,
+Other nervous system disorders,Multi-system degeneration of the autonomic nervous system,Nervous System Disorders,Neurology,2,
+Other nervous system disorders,Myelopathy in diseases classified elsewhere,Nervous System Disorders,Neurology,2,
+Other nervous system disorders,Myoclonus,Nervous System Disorders,Neurology,5,
+Other nervous system disorders,Neuromyelitis optica [Devic],Nervous System Disorders,Neurology,1,
+Other nervous system disorders,Obstructive hydrocephalus,Nervous System Disorders,Neurology,1,
+Other nervous system disorders,Other cord compression,Nervous System Disorders,Neurology,6,
+Other nervous system disorders,Other disorders of autonomic nervous system,Nervous System Disorders,Neurology,8,
+Other nervous system disorders,Other disorders of peripheral nervous system,Nervous System Disorders,Neurology,1,
+Other nervous system disorders,Other encephalopathy,Nervous System Disorders,Neurology,6,
+Other nervous system disorders,Other idiopathic peripheral autonomic neuropathy,Nervous System Disorders,Neurology,2,
+Other nervous system disorders,Other specified diseases of spinal cord,Nervous System Disorders,Neurology,5,
+Other nervous system disorders,Other specified disorders of brain,Nervous System Disorders,Neurology,35,
+Other nervous system disorders,Other specified extrapyramidal and movement disorders,Nervous System Disorders,Neurology,6,
+Other nervous system disorders,Other specified forms of tremor,Nervous System Disorders,Neurology,9,
+Other nervous system disorders,Other vascular myelopathies,Nervous System Disorders,Neurology,3,
+Other nervous system disorders,Postviral fatigue syndrome,Nervous System Disorders,Neurology,40,
+Other nervous system disorders,Restless legs syndrome,Nervous System Disorders,Neurology,67,
+Other nervous system disorders,Spasmodic torticollis,Nervous System Disorders,Neurology,10,
+Other nervous system disorders,"Spinal muscular atrophy, unspecified",Nervous System Disorders,Neurology,1,
+Other nervous system disorders,Syringomyelia and syringobulbia,Nervous System Disorders,Neurology,2,
+Other nervous system disorders,Temporal sclerosis,Nervous System Disorders,Neurology,1,
+Other nervous system disorders,Unspecified cord compression,Nervous System Disorders,Neurology,10,
+Polyneuropathies,Chronic inflammatory demyelinating polyneuritis,Polyneuropathies,Neurology,3,
+Polyneuropathies,Critical illness polyneuropathy,Polyneuropathies,Neurology,6,
+Polyneuropathies,Guillain-Barre syndrome,Polyneuropathies,Neurology,9,
+Polyneuropathies,"Hereditary and idiopathic neuropathy, unspecified",Polyneuropathies,Neurology,38,
+Polyneuropathies,Hereditary motor and sensory neuropathy,Polyneuropathies,Neurology,1,
+Polyneuropathies,Idiopathic progressive neuropathy,Polyneuropathies,Neurology,5,
+Polyneuropathies,"Inflammatory polyneuropathy, unspecified",Polyneuropathies,Neurology,3,
+Polyneuropathies,Other hereditary and idiopathic neuropathies,Polyneuropathies,Neurology,14,
+Polyneuropathies,Other specified polyneuropathies,Polyneuropathies,Neurology,16,
+Polyneuropathies,Polyneuropathy in diseases classified elsewhere,Polyneuropathies,Neurology,5,
+Polyneuropathies,"Polyneuropathy, unspecified",Polyneuropathies,Neurology,222,
+Abnormal findings without diagnosis,"Finding of other specified substances, not normally found in blood",Abnormal Labs/Tests,Psych,1,
+Anxiety and fear-related disorders,Agoraphobia with panic disorder,Anxiety/fear disorders,Psych,1,
+Anxiety and fear-related disorders,Anxiety disorder due to known physiological condition,Anxiety/fear disorders,Psych,6,
+Anxiety and fear-related disorders,"Anxiety disorder, unspecified",Anxiety/fear disorders,Psych,616,
+Anxiety and fear-related disorders,Claustrophobia,Anxiety/fear disorders,Psych,8,
+Anxiety and fear-related disorders,Fear of flying,Anxiety/fear disorders,Psych,5,
+Anxiety and fear-related disorders,Generalized anxiety disorder,Anxiety/fear disorders,Psych,261,
+Anxiety and fear-related disorders,Other mixed anxiety disorders,Anxiety/fear disorders,Psych,3,
+Anxiety and fear-related disorders,"Other psychoactive substance use, unspecified with psychoactive substance-induced anxiety disorder",Anxiety/fear disorders,Psych,1,
+Anxiety and fear-related disorders,Other specified anxiety disorders,Anxiety/fear disorders,Psych,86,
+Anxiety and fear-related disorders,Other specified phobia,Anxiety/fear disorders,Psych,2,
+Anxiety and fear-related disorders,Panic disorder [episodic paroxysmal anxiety],Anxiety/fear disorders,Psych,31,
+Anxiety and fear-related disorders,"Phobic anxiety disorder, unspecified",Anxiety/fear disorders,Psych,1,
+Anxiety and fear-related disorders,Selective mutism,Anxiety/fear disorders,Psych,1,
+Anxiety and fear-related disorders,"Social phobia, generalized",Anxiety/fear disorders,Psych,1,
+Anxiety and fear-related disorders,"Social phobia, unspecified",Anxiety/fear disorders,Psych,8,
+Depressive disorders,Dysthymic disorder,Depression,Psych,26,
+Depressive disorders,"Major depressive disorder, recurrent severe without psychotic features",Depression,Psych,25,
+Depressive disorders,"Major depressive disorder, recurrent, in partial remission",Depression,Psych,15,
+Depressive disorders,"Major depressive disorder, recurrent, mild",Depression,Psych,22,
+Depressive disorders,"Major depressive disorder, recurrent, moderate",Depression,Psych,60,
+Depressive disorders,"Major depressive disorder, recurrent, severe with psychotic symptoms",Depression,Psych,4,
+Depressive disorders,"Major depressive disorder, recurrent, unspecified",Depression,Psych,24,
+Depressive disorders,"Major depressive disorder, single episode, in partial remission",Depression,Psych,6,
+Depressive disorders,"Major depressive disorder, single episode, mild",Depression,Psych,23,
+Depressive disorders,"Major depressive disorder, single episode, moderate",Depression,Psych,54,
+Depressive disorders,"Major depressive disorder, single episode, severe with psychotic features",Depression,Psych,3,
+Depressive disorders,"Major depressive disorder, single episode, severe without psychotic features",Depression,Psych,18,
+Depressive disorders,"Major depressive disorder, single episode, unspecified",Depression,Psych,239,
+Depressive disorders,Mood disorder due to known physiological condition with depressive features,Depression,Psych,5,
+Depressive disorders,Mood disorder due to known physiological condition with mixed features,Depression,Psych,1,
+Depressive disorders,Other recurrent depressive disorders,Depression,Psych,2,
+General sensation/perception signs and symptoms,Auditory hallucinations,Hallucinations,Psych,11,
+General sensation/perception signs and symptoms,"Hallucinations, unspecified",Hallucinations,Psych,8,
+General sensation/perception signs and symptoms,Other hallucinations,Hallucinations,Psych,4,
+General sensation/perception signs and symptoms,Visual hallucinations,Hallucinations,Psych,12,
+Other specified and unspecified mood disorders,"Mood disorder due to known physiological condition, unspecified",Mood disorder,Psych,7,
+Other specified and unspecified mood disorders,"Persistent mood [affective] disorder, unspecified",Mood disorder,Psych,2,
+Other specified and unspecified mood disorders,Unspecified mood [affective] disorder,Mood disorder,Psych,273,
+Suicidal ideation/attempt/intentional self-harm,Suicidal ideations,Suicidal ideations,Psych,10,
+Symptoms of mental and substance use conditions,Anhedonia,Mental s/s,Psych,1,
+Symptoms of mental and substance use conditions,Demoralization and apathy,Mental s/s,Psych,3,
+Symptoms of mental and substance use conditions,Emotional lability,Mental s/s,Psych,13,
+Symptoms of mental and substance use conditions,Homicidal ideations,Mental s/s,Psych,10,
+Symptoms of mental and substance use conditions,Impulsiveness,Mental s/s,Psych,3,
+Symptoms of mental and substance use conditions,Irritability and anger,Mental s/s,Psych,7,
+Symptoms of mental and substance use conditions,Low self-esteem,Mental s/s,Psych,1,
+Symptoms of mental and substance use conditions,Nervousness,Mental s/s,Psych,2,
+Symptoms of mental and substance use conditions,Other symptoms and signs involving appearance and behavior,Mental s/s,Psych,22,
+Symptoms of mental and substance use conditions,Other symptoms and signs involving emotional state,Mental s/s,Psych,42,
+Symptoms of mental and substance use conditions,Restlessness and agitation,Mental s/s,Psych,43,
+Symptoms of mental and substance use conditions,Strange and inexplicable behavior,Mental s/s,Psych,1,
+Symptoms of mental and substance use conditions,Violent behavior,Mental s/s,Psych,3,
+Abnormal findings without diagnosis,Abnormal results of kidney function studies,Abnormal Labs/Tests,Renal/GU,5,
+Abnormal findings without diagnosis,Glycosuria,Abnormal Labs/Tests,Renal/GU,1,
+Acute and unspecified renal failure,Acute kidney failure with medullary necrosis,Acute and unspecified renal failure,Renal/GU,1,
+Acute and unspecified renal failure,Acute kidney failure with tubular necrosis,Acute and unspecified renal failure,Renal/GU,23,
+Acute and unspecified renal failure,"Acute kidney failure, unspecified",Acute and unspecified renal failure,Renal/GU,166,
+"Diabetes mellitus, Type 2",Type 2 diabetes mellitus with other diabetic kidney complication,Diabetes mellitus,Renal/GU,8,
+Diabetes mellitus; nerve,Type 1 diabetes mellitus with diabetic autonomic (poly)neuropathy,Diabetes mellitus,Renal/GU,1,
+Diabetes mellitus; renal complication,Diabetes mellitus due to underlying condition with diabetic chronic kidney disease,Diabetes mellitus,Renal/GU,1,
+Diabetes mellitus; renal complication,Drug or chemical induced diabetes mellitus with diabetic nephropathy,Diabetes mellitus,Renal/GU,1,
+Diabetes mellitus; renal complication,Type 1 diabetes mellitus with diabetic chronic kidney disease,Diabetes mellitus,Renal/GU,2,
+Diabetes mellitus; renal complication,Type 1 diabetes mellitus with diabetic nephropathy,Diabetes mellitus,Renal/GU,2,
+Diabetes mellitus; renal complication,Type 2 diabetes mellitus with diabetic chronic kidney disease,Diabetes mellitus,Renal/GU,32,
+Diabetes mellitus; renal complication,Type 2 diabetes mellitus with diabetic nephropathy,Diabetes mellitus,Renal/GU,10,
+Genitourinary signs and symptoms,Anuria and oliguria,Genitourinary s/s,Renal/GU,6,Other
+Genitourinary signs and symptoms,Biliuria,Genitourinary s/s,Renal/GU,3,Other
+Genitourinary signs and symptoms,"Disorder of urinary system, unspecified",Genitourinary s/s,Renal/GU,2,Other
+Genitourinary signs and symptoms,Dysuria,Genitourinary s/s,Renal/GU,286,Dysuria
+Genitourinary signs and symptoms,"Elevated urine levels of drugs, medicaments and biological substances",Genitourinary s/s,Renal/GU,2,Other
+Genitourinary signs and symptoms,Extravasation of urine,Genitourinary s/s,Renal/GU,1,Other
+Genitourinary signs and symptoms,Feeling of incomplete bladder emptying,Genitourinary s/s,Renal/GU,9,Urinary Retention
+Genitourinary signs and symptoms,Frequency of micturition,Genitourinary s/s,Renal/GU,265,Frequency of micturition
+Genitourinary signs and symptoms,Hematospermia,Genitourinary s/s,Renal/GU,7,Other
+Genitourinary signs and symptoms,Hesitancy of micturition,Genitourinary s/s,Renal/GU,12,Other
+Genitourinary signs and symptoms,Nocturia,Genitourinary s/s,Renal/GU,76,Nocturia
+Genitourinary signs and symptoms,Other polyuria,Genitourinary s/s,Renal/GU,2,Other
+Genitourinary signs and symptoms,Other retention of urine,Genitourinary s/s,Renal/GU,20,Urinary Retention
+Genitourinary signs and symptoms,Other specified disorders of urinary system,Genitourinary s/s,Renal/GU,2,Other
+Genitourinary signs and symptoms,Other symptoms and signs involving the genitourinary system,Genitourinary s/s,Renal/GU,13,Other
+Genitourinary signs and symptoms,"Painful micturition, unspecified",Genitourinary s/s,Renal/GU,5,Other
+Genitourinary signs and symptoms,Poor urinary stream,Genitourinary s/s,Renal/GU,11,Other
+Genitourinary signs and symptoms,"Retention of urine, unspecified",Genitourinary s/s,Renal/GU,97,Urinary Retention
+Genitourinary signs and symptoms,Splitting of urinary stream,Genitourinary s/s,Renal/GU,3,Other
+Genitourinary signs and symptoms,Straining to void,Genitourinary s/s,Renal/GU,3,Other
+Genitourinary signs and symptoms,Unspecified abnormal findings in urine,Abnormal Labs/Tests,Renal/GU,42,
+Genitourinary signs and symptoms,Unspecified symptoms and signs involving the genitourinary system,Genitourinary s/s,Renal/GU,70,Other
+Genitourinary signs and symptoms,"Urethral discharge, unspecified",Genitourinary s/s,Renal/GU,5,Other
+Genitourinary signs and symptoms,Urgency of urination,Genitourinary s/s,Renal/GU,70,Urgency
+Hematuria,Benign essential microscopic hematuria,Hematuria,Renal/GU,4,
+Hematuria,Gross hematuria,Hematuria,Renal/GU,103,
+Hematuria,"Hematuria, unspecified",Hematuria,Renal/GU,219,
+Other specified and unspecified diseases of kidney and ureters,Atrophy of kidney (terminal),Kidney/Ureters disorder,Renal/GU,2,
+Other specified and unspecified diseases of kidney and ureters,Crossing vessel and stricture of ureter without hydronephrosis,Kidney/Ureters disorder,Renal/GU,8,
+Other specified and unspecified diseases of kidney and ureters,"Cyst of kidney, acquired",Kidney/Ureters disorder,Renal/GU,84,
+Other specified and unspecified diseases of kidney and ureters,"Disorder of kidney and ureter, unspecified",Kidney/Ureters disorder,Renal/GU,45,
+Other specified and unspecified diseases of kidney and ureters,"Hydronephrosis with ureteral stricture, not elsewhere classified",Kidney/Ureters disorder,Renal/GU,3,
+Other specified and unspecified diseases of kidney and ureters,Hydroureter,Kidney/Ureters disorder,Renal/GU,2,
+Other specified and unspecified diseases of kidney and ureters,Ischemia and infarction of kidney,Kidney/Ureters disorder,Renal/GU,4,
+Other specified and unspecified diseases of kidney and ureters,Nephrogenic diabetes insipidus,Kidney/Ureters disorder,Renal/GU,1,
+Other specified and unspecified diseases of kidney and ureters,"Obstructive and reflux uropathy, unspecified",Kidney/Ureters disorder,Renal/GU,2,
+Other specified and unspecified diseases of kidney and ureters,Other disorders resulting from impaired renal tubular function,Kidney/Ureters disorder,Renal/GU,2,
+Other specified and unspecified diseases of kidney and ureters,Other hydronephrosis,Kidney/Ureters disorder,Renal/GU,7,
+Other specified and unspecified diseases of kidney and ureters,Other obstructive and reflux uropathy,Kidney/Ureters disorder,Renal/GU,38,
+Other specified and unspecified diseases of kidney and ureters,Other specified disorders of kidney and ureter,Kidney/Ureters disorder,Renal/GU,62,
+Other specified and unspecified diseases of kidney and ureters,Secondary hyperparathyroidism of renal origin,Kidney/Ureters disorder,Renal/GU,8,
+Other specified and unspecified diseases of kidney and ureters,Tuberculosis of kidney and ureter,Kidney/Ureters disorder,Renal/GU,1,
+Other specified and unspecified diseases of kidney and ureters,Unspecified hydronephrosis,Kidney/Ureters disorder,Renal/GU,36,
+Other specified and unspecified diseases of kidney and ureters,Unspecified renal colic,Kidney/Ureters disorder,Renal/GU,5,
+Proteinuria,"Persistent proteinuria, unspecified",Proteinuria,Renal/GU,3,
+Proteinuria,"Proteinuria, unspecified",Proteinuria,Renal/GU,10,
+Urinary tract infections,Acute cystitis with hematuria,UTI,Renal/GU,41,
+Urinary tract infections,Acute cystitis without hematuria,UTI,Renal/GU,109,
+Urinary tract infections,Acute pyelonephritis,UTI,Renal/GU,17,
+Urinary tract infections,Candidal cystitis and urethritis,UTI,Renal/GU,1,
+Urinary tract infections,Chronic obstructive pyelonephritis,UTI,Renal/GU,3,
+Urinary tract infections,"Chronic tubulo-interstitial nephritis, unspecified",UTI,Renal/GU,1,
+Urinary tract infections,"Cystitis, unspecified with hematuria",UTI,Renal/GU,2,
+Urinary tract infections,"Cystitis, unspecified without hematuria",UTI,Renal/GU,26,
+Urinary tract infections,"Infections of bladder in pregnancy, second trimester",UTI,Renal/GU,1,
+Urinary tract infections,"Infections of kidney in pregnancy, third trimester",UTI,Renal/GU,1,
+Urinary tract infections,"Infections of kidney in pregnancy, unspecified trimester",UTI,Renal/GU,1,
+Urinary tract infections,Interstitial cystitis (chronic) without hematuria,UTI,Renal/GU,2,
+Urinary tract infections,Irradiation cystitis without hematuria,UTI,Renal/GU,3,
+Urinary tract infections,Other chronic cystitis without hematuria,UTI,Renal/GU,1,
+Urinary tract infections,Other urethritis,UTI,Renal/GU,8,
+Urinary tract infections,Other urogenital candidiasis,UTI,Renal/GU,5,
+Urinary tract infections,Pyonephrosis,UTI,Renal/GU,8,
+Urinary tract infections,"Tubulo-interstitial nephritis, not specified as acute or chronic",UTI,Renal/GU,23,
+Urinary tract infections,"Unspecified infection of urinary tract in pregnancy, first trimester",UTI,Renal/GU,2,
+Urinary tract infections,"Unspecified infection of urinary tract in pregnancy, second trimester",UTI,Renal/GU,5,
+Urinary tract infections,"Unspecified infection of urinary tract in pregnancy, third trimester",UTI,Renal/GU,2,
+Urinary tract infections,"Unspecified infection of urinary tract in pregnancy, unspecified trimester",UTI,Renal/GU,6,
+Urinary tract infections,"Urinary tract infection following delivery, unspecified",UTI,Renal/GU,1,
+Urinary tract infections,"Urinary tract infection, site not specified",UTI,Renal/GU,297,
+Abnormal findings without diagnosis,Abnormal cytological findings in specimens from respiratory organs and thorax,Abnormal Labs/Tests,Respiratory,1,
+Abnormal findings without diagnosis,Abnormal microbiological findings in specimens from respiratory organs and thorax,Abnormal Labs/Tests,Respiratory,1,
+Abnormal findings without diagnosis,Abnormal results of pulmonary function studies,Abnormal Labs/Tests,Respiratory,1,
+Abnormal findings without diagnosis,Other abnormal findings in specimens from respiratory organs and thorax,Abnormal Labs/Tests,Respiratory,3,
+Abnormal findings without diagnosis,Other nonspecific abnormal finding of lung field,Abnormal Labs/Tests,Respiratory,436,
+Abnormal findings without diagnosis,Solitary pulmonary nodule,Abnormal Labs/Tests,Respiratory,107,
+Acute pulmonary embolism,Other pulmonary embolism with acute cor pulmonale,Acute PE,Respiratory,17,
+Acute pulmonary embolism,Other pulmonary embolism without acute cor pulmonale,Acute PE,Respiratory,205,
+Acute pulmonary embolism,Saddle embolus of pulmonary artery with acute cor pulmonale,Acute PE,Respiratory,8,
+Acute pulmonary embolism,Saddle embolus of pulmonary artery without acute cor pulmonale,Acute PE,Respiratory,13,
+Acute pulmonary embolism,Septic pulmonary embolism without acute cor pulmonale,Acute PE,Respiratory,6,
+Chronic obstructive pulmonary disease and bronchiectasis,Bronchiectasis with (acute) exacerbation,COPD/bronchiectasis,Respiratory,3,
+Chronic obstructive pulmonary disease and bronchiectasis,Bronchiectasis with acute lower respiratory infection,COPD/bronchiectasis,Respiratory,1,
+Chronic obstructive pulmonary disease and bronchiectasis,"Bronchiectasis, uncomplicated",COPD/bronchiectasis,Respiratory,55,
+Chronic obstructive pulmonary disease and bronchiectasis,Centrilobular emphysema,COPD/bronchiectasis,Respiratory,37,
+Chronic obstructive pulmonary disease and bronchiectasis,Chronic obstructive pulmonary disease with (acute) exacerbation,COPD/bronchiectasis,Respiratory,11,
+Chronic obstructive pulmonary disease and bronchiectasis,Chronic obstructive pulmonary disease with (acute) lower respiratory infection,COPD/bronchiectasis,Respiratory,5,
+Chronic obstructive pulmonary disease and bronchiectasis,"Chronic obstructive pulmonary disease, unspecified",COPD/bronchiectasis,Respiratory,74,
+Chronic obstructive pulmonary disease and bronchiectasis,"Emphysema, unspecified",COPD/bronchiectasis,Respiratory,28,
+Chronic obstructive pulmonary disease and bronchiectasis,Mucopurulent chronic bronchitis,COPD/bronchiectasis,Respiratory,3,
+Chronic obstructive pulmonary disease and bronchiectasis,Other emphysema,COPD/bronchiectasis,Respiratory,11,
+Chronic obstructive pulmonary disease and bronchiectasis,Panlobular emphysema,COPD/bronchiectasis,Respiratory,1,
+Chronic obstructive pulmonary disease and bronchiectasis,Simple chronic bronchitis,COPD/bronchiectasis,Respiratory,5,
+Chronic obstructive pulmonary disease and bronchiectasis,Unspecified chronic bronchitis,COPD/bronchiectasis,Respiratory,11,
+Other specified and unspecified lower respiratory disease,Abscess of lung without pneumonia,Lower respiratory disease,Respiratory,1,
+Other specified and unspecified lower respiratory disease,Acute bronchospasm,Lower respiratory disease,Respiratory,8,
+Other specified and unspecified lower respiratory disease,Acute pulmonary edema,Lower respiratory disease,Respiratory,38,
+Other specified and unspecified lower respiratory disease,Chronic pulmonary edema,Lower respiratory disease,Respiratory,129,
+Other specified and unspecified lower respiratory disease,Cryptogenic organizing pneumonia,Lower respiratory disease,Respiratory,6,
+Other specified and unspecified lower respiratory disease,Disorders of diaphragm,Lower respiratory disease,Respiratory,14,
+Other specified and unspecified lower respiratory disease,"Idiopathic interstitial pneumonia, not otherwise specified",Lower respiratory disease,Respiratory,1,
+Other specified and unspecified lower respiratory disease,Idiopathic pulmonary fibrosis,Lower respiratory disease,Respiratory,2,
+Other specified and unspecified lower respiratory disease,"Interstitial pulmonary disease, unspecified",Lower respiratory disease,Respiratory,164,
+Other specified and unspecified lower respiratory disease,Other alveolar and parieto-alveolar conditions,Lower respiratory disease,Respiratory,2,
+Other specified and unspecified lower respiratory disease,"Other diseases of bronchus, not elsewhere classified",Lower respiratory disease,Respiratory,7,
+Other specified and unspecified lower respiratory disease,Other disorders of lung,Lower respiratory disease,Respiratory,56,
+Other specified and unspecified lower respiratory disease,Other specified interstitial pulmonary diseases,Lower respiratory disease,Respiratory,37,
+Other specified and unspecified lower respiratory disease,Other specified respiratory disorders,Lower respiratory disease,Respiratory,31,
+Other specified and unspecified lower respiratory disease,"Pulmonary fibrosis, unspecified",Lower respiratory disease,Respiratory,32,
+Other specified and unspecified lower respiratory disease,"Respiratory disorder, unspecified",Lower respiratory disease,Respiratory,4,
+Other specified and unspecified lower respiratory disease,Respiratory disorders in diseases classified elsewhere,Lower respiratory disease,Respiratory,2,
+Other specified and unspecified lower respiratory disease,Unspecified acute lower respiratory infection,Lower respiratory disease,Respiratory,8,
+Other specified and unspecified upper respiratory disease,"Abscess, furuncle and carbuncle of nose",Upper respiratory disease,Respiratory,3,
+Other specified and unspecified upper respiratory disease,Chronic laryngitis,Upper respiratory disease,Respiratory,11,
+Other specified and unspecified upper respiratory disease,Chronic nasopharyngitis,Upper respiratory disease,Respiratory,2,
+Other specified and unspecified upper respiratory disease,Chronic pharyngitis,Upper respiratory disease,Respiratory,3,
+Other specified and unspecified upper respiratory disease,Chronic rhinitis,Upper respiratory disease,Respiratory,122,
+Other specified and unspecified upper respiratory disease,Cyst and mucocele of nose and nasal sinus,Upper respiratory disease,Respiratory,8,
+Other specified and unspecified upper respiratory disease,Deviated nasal septum,Upper respiratory disease,Respiratory,141,
+Other specified and unspecified upper respiratory disease,"Disease of upper respiratory tract, unspecified",Upper respiratory disease,Respiratory,2,
+Other specified and unspecified upper respiratory disease,Edema of larynx,Upper respiratory disease,Respiratory,26,
+Other specified and unspecified upper respiratory disease,Hypertrophy of nasal turbinates,Upper respiratory disease,Respiratory,89,
+Other specified and unspecified upper respiratory disease,Laryngeal spasm,Upper respiratory disease,Respiratory,12,
+Other specified and unspecified upper respiratory disease,"Nasal polyp, unspecified",Upper respiratory disease,Respiratory,27,
+Other specified and unspecified upper respiratory disease,Nodules of vocal cords,Upper respiratory disease,Respiratory,7,
+Other specified and unspecified upper respiratory disease,Other diseases of larynx,Upper respiratory disease,Respiratory,29,
+Other specified and unspecified upper respiratory disease,Other diseases of pharynx,Upper respiratory disease,Respiratory,24,
+Other specified and unspecified upper respiratory disease,Other diseases of vocal cords,Upper respiratory disease,Respiratory,86,
+Other specified and unspecified upper respiratory disease,Other polyp of sinus,Upper respiratory disease,Respiratory,2,
+Other specified and unspecified upper respiratory disease,Other specified diseases of upper respiratory tract,Upper respiratory disease,Respiratory,16,
+Other specified and unspecified upper respiratory disease,Other specified disorders of nose and nasal sinuses,Upper respiratory disease,Respiratory,178,
+Other specified and unspecified upper respiratory disease,"Paralysis of vocal cords and larynx, bilateral",Upper respiratory disease,Respiratory,6,
+Other specified and unspecified upper respiratory disease,"Paralysis of vocal cords and larynx, unilateral",Upper respiratory disease,Respiratory,45,
+Other specified and unspecified upper respiratory disease,"Paralysis of vocal cords and larynx, unspecified",Upper respiratory disease,Respiratory,14,
+Other specified and unspecified upper respiratory disease,Polyp of nasal cavity,Upper respiratory disease,Respiratory,3,
+Other specified and unspecified upper respiratory disease,Polyp of vocal cord and larynx,Upper respiratory disease,Respiratory,8,
+Other specified and unspecified upper respiratory disease,Stenosis of larynx,Upper respiratory disease,Respiratory,20,
+Other specified and unspecified upper respiratory disease,Unspecified disorder of nose and nasal sinuses,Upper respiratory disease,Respiratory,6,
+Other specified and unspecified upper respiratory disease,Vasomotor rhinitis,Upper respiratory disease,Respiratory,19,
+"Pleurisy, pleural effusion and pulmonary collapse",Atelectasis,Atelectasis,Respiratory,176,
+"Pleurisy, pleural effusion and pulmonary collapse",Hemothorax,Pulmonary collapse,Respiratory,4,
+"Pleurisy, pleural effusion and pulmonary collapse",Interstitial emphysema,Pulmonary collapse,Respiratory,7,
+"Pleurisy, pleural effusion and pulmonary collapse",Other pulmonary collapse,Pulmonary collapse,Respiratory,5,
+"Pleurisy, pleural effusion and pulmonary collapse",Other specified pleural conditions,Pleural condition,Respiratory,10,
+"Pleurisy, pleural effusion and pulmonary collapse","Pleural condition, unspecified",Pleural condition,Respiratory,1,
+"Pleurisy, pleural effusion and pulmonary collapse",Pleural effusion in other conditions classified elsewhere,Pleural effusion,Respiratory,5,
+"Pleurisy, pleural effusion and pulmonary collapse","Pleural effusion, not elsewhere classified",Pleural effusion,Respiratory,217,
+"Pleurisy, pleural effusion and pulmonary collapse",Pleural plaque without asbestos,Pleural condition,Respiratory,1,
+"Pleurisy, pleural effusion and pulmonary collapse",Pleurisy,Pleural condition,Respiratory,3,
+"Pleurisy, pleural effusion and pulmonary collapse",Pyothorax with fistula,Pleural condition,Respiratory,2,
+"Pleurisy, pleural effusion and pulmonary collapse",Pyothorax without fistula,Pleural condition,Respiratory,5,
+Pneumonia (except that caused by tuberculosis),Abscess of lung with pneumonia,Pneumonia,Respiratory,3,
+Pneumonia (except that caused by tuberculosis),"Bronchopneumonia, unspecified organism",Pneumonia,Respiratory,1,
+Pneumonia (except that caused by tuberculosis),Influenza due to other identified influenza virus with other specified pneumonia,Pneumonia,Respiratory,1,
+Pneumonia (except that caused by tuberculosis),Influenza due to unidentified influenza virus with unspecified type of pneumonia,Pneumonia,Respiratory,1,
+Pneumonia (except that caused by tuberculosis),Legionnaires' disease,Pneumonia,Respiratory,3,
+Pneumonia (except that caused by tuberculosis),"Lobar pneumonia, unspecified organism",Pneumonia,Respiratory,35,
+Pneumonia (except that caused by tuberculosis),"Other pneumonia, unspecified organism",Pneumonia,Respiratory,12,
+Pneumonia (except that caused by tuberculosis),Pneumonia due to Hemophilus influenzae,Pneumonia,Respiratory,3,
+Pneumonia (except that caused by tuberculosis),Pneumonia due to Klebsiella pneumoniae,Pneumonia,Respiratory,7,
+Pneumonia (except that caused by tuberculosis),Pneumonia due to Methicillin resistant Staphylococcus aureus,Pneumonia,Respiratory,4,
+Pneumonia (except that caused by tuberculosis),Pneumonia due to Methicillin susceptible Staphylococcus aureus,Pneumonia,Respiratory,4,
+Pneumonia (except that caused by tuberculosis),Pneumonia due to Mycoplasma pneumoniae,Pneumonia,Respiratory,1,
+Pneumonia (except that caused by tuberculosis),Pneumonia due to Pseudomonas,Pneumonia,Respiratory,7,
+Pneumonia (except that caused by tuberculosis),Pneumonia due to Streptococcus pneumoniae,Pneumonia,Respiratory,1,
+Pneumonia (except that caused by tuberculosis),Pneumonia due to other Gram-negative bacteria,Pneumonia,Respiratory,2,
+Pneumonia (except that caused by tuberculosis),Pneumonia due to other specified bacteria,Pneumonia,Respiratory,3,
+Pneumonia (except that caused by tuberculosis),Pneumonia due to other specified infectious organisms,Pneumonia,Respiratory,9,
+Pneumonia (except that caused by tuberculosis),Pneumonia due to other staphylococcus,Pneumonia,Respiratory,1,
+Pneumonia (except that caused by tuberculosis),Pneumonia in diseases classified elsewhere,Pneumonia,Respiratory,1,
+Pneumonia (except that caused by tuberculosis),"Pneumonia, unspecified organism",Pneumonia,Respiratory,266,
+Pneumonia (except that caused by tuberculosis),Pulmonary mycobacterial infection,Pneumonia,Respiratory,7,
+Pneumonia (except that caused by tuberculosis),Unspecified bacterial pneumonia,Pneumonia,Respiratory,13,
+Pneumonia (except that caused by tuberculosis),Ventilator associated pneumonia,Pneumonia,Respiratory,14,
+Respiratory System Procedures,NA,Respiratory Procedures,Respiratory,16,
+Respiratory failure; insufficiency; arrest,Acute and chronic respiratory failure with hypercapnia,Respiratory arrest/failure,Respiratory,3,
+Respiratory failure; insufficiency; arrest,Acute and chronic respiratory failure with hypoxia,Respiratory arrest/failure,Respiratory,19,
+Respiratory failure; insufficiency; arrest,"Acute and chronic respiratory failure, unspecified whether with hypoxia or hypercapnia",Respiratory arrest/failure,Respiratory,3,
+Respiratory failure; insufficiency; arrest,Acute postprocedural respiratory failure,Respiratory arrest/failure,Respiratory,9,
+Respiratory failure; insufficiency; arrest,Acute respiratory distress syndrome,Respiratory arrest/failure,Respiratory,74,
+Respiratory failure; insufficiency; arrest,Acute respiratory failure with hypercapnia,Respiratory arrest/failure,Respiratory,40,
+Respiratory failure; insufficiency; arrest,Acute respiratory failure with hypoxia,Respiratory arrest/failure,Respiratory,215,
+Respiratory failure; insufficiency; arrest,"Acute respiratory failure, unspecified whether with hypoxia or hypercapnia",Respiratory arrest/failure,Respiratory,74,
+Respiratory failure; insufficiency; arrest,Chronic respiratory failure with hypercapnia,Respiratory arrest/failure,Respiratory,3,
+Respiratory failure; insufficiency; arrest,Chronic respiratory failure with hypoxia,Respiratory arrest/failure,Respiratory,18,
+Respiratory failure; insufficiency; arrest,"Chronic respiratory failure, unspecified whether with hypoxia or hypercapnia",Respiratory arrest/failure,Respiratory,7,
+Respiratory failure; insufficiency; arrest,Respiratory arrest,Respiratory arrest/failure,Respiratory,1,
+Respiratory failure; insufficiency; arrest,"Respiratory failure, unspecified with hypercapnia",Respiratory arrest/failure,Respiratory,6,
+Respiratory failure; insufficiency; arrest,"Respiratory failure, unspecified with hypoxia",Respiratory arrest/failure,Respiratory,21,
+Respiratory failure; insufficiency; arrest,"Respiratory failure, unspecified, unspecified whether with hypoxia or hypercapnia",Respiratory arrest/failure,Respiratory,59,
+Respiratory signs and symptoms,Abnormal sputum,Respiratory s/s,Respiratory,1,Other
+Respiratory signs and symptoms,Acute respiratory distress,Respiratory s/s,Respiratory,5,Abnormal breathing
+Respiratory signs and symptoms,"Apnea, not elsewhere classified",Respiratory s/s,Respiratory,9,Apnea
+Respiratory signs and symptoms,Chest pain on breathing,Respiratory s/s,Respiratory,6,Painful breathing
+Respiratory signs and symptoms,Cough,Respiratory s/s,Respiratory,256,Cough
+Respiratory signs and symptoms,"Dyspnea, unspecified",Respiratory s/s,Respiratory,301,Dyspnea
+Respiratory signs and symptoms,Epistaxis,Respiratory s/s,Respiratory,21,Bleeding
+Respiratory signs and symptoms,Hemoptysis,Respiratory s/s,Respiratory,11,Bleeding
+Respiratory signs and symptoms,Hemorrhage from other sites in respiratory passages,Respiratory s/s,Respiratory,1,Bleeding
+Respiratory signs and symptoms,Hiccough,Respiratory s/s,Respiratory,1,Other
+Respiratory signs and symptoms,Hypoxemia,Respiratory s/s,Respiratory,53,Low O2
+Respiratory signs and symptoms,Intercostal pain,Respiratory s/s,Respiratory,14,Painful breathing
+Respiratory signs and symptoms,Mouth breathing,Respiratory s/s,Respiratory,2,Abnormal breathing
+Respiratory signs and symptoms,Nasal congestion,Respiratory s/s,Respiratory,148,Congestion
+Respiratory signs and symptoms,Orthopnea,Respiratory s/s,Respiratory,4,Dyspnea
+Respiratory signs and symptoms,Other abnormalities of breathing,Respiratory s/s,Respiratory,17,Abnormal breathing
+Respiratory signs and symptoms,Other forms of dyspnea,Respiratory s/s,Respiratory,102,Dyspnea
+Respiratory signs and symptoms,Pain in throat,Respiratory s/s,Respiratory,16,Painful breathing
+Respiratory signs and symptoms,Pleurodynia,Respiratory s/s,Respiratory,45,Painful breathing
+Respiratory signs and symptoms,Postnasal drip,Respiratory s/s,Respiratory,33,Congestion
+Respiratory signs and symptoms,Shortness of breath,Respiratory s/s,Respiratory,402,Dyspnea
+Respiratory signs and symptoms,Sneezing,Respiratory s/s,Respiratory,1,Other
+Respiratory signs and symptoms,Snoring,Respiratory s/s,Respiratory,75,Apnea
+Respiratory signs and symptoms,Stridor,Respiratory s/s,Respiratory,6,Abnormal breathing
+Respiratory signs and symptoms,"Tachypnea, not elsewhere classified",Respiratory s/s,Respiratory,5,Abnormal breathing
+Respiratory signs and symptoms,Unspecified abnormalities of breathing,Respiratory s/s,Respiratory,3,Abnormal breathing
+Respiratory signs and symptoms,Wheezing,Respiratory s/s,Respiratory,25,Wheezing
+"Diabetes mellitus, Type 2",Type 2 diabetes mellitus with other skin complications,Diabetic Complication,Skin,1,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of back limited to breakdown of skin,Non-pressure ulcer,Skin,1,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of back with fat layer exposed,Non-pressure ulcer,Skin,1,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of back with unspecified severity,Non-pressure ulcer,Skin,9,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of buttock limited to breakdown of skin,Non-pressure ulcer,Skin,1,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of left ankle limited to breakdown of skin,Non-pressure ulcer,Skin,1,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of left ankle with unspecified severity,Non-pressure ulcer,Skin,1,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of left calf with unspecified severity,Non-pressure ulcer,Skin,3,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of left heel and midfoot limited to breakdown of skin,Non-pressure ulcer,Skin,2,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of left heel and midfoot with fat layer exposed,Non-pressure ulcer,Skin,2,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of left heel and midfoot with unspecified severity,Non-pressure ulcer,Skin,2,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of left thigh with fat layer exposed,Non-pressure ulcer,Skin,1,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of left thigh with unspecified severity,Non-pressure ulcer,Skin,1,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of other part of left foot limited to breakdown of skin,Non-pressure ulcer,Skin,9,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of other part of left foot with fat layer exposed,Non-pressure ulcer,Skin,5,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of other part of left foot with necrosis of muscle,Non-pressure ulcer,Skin,2,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of other part of left foot with unspecified severity,Non-pressure ulcer,Skin,4,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of other part of left lower leg with fat layer exposed,Non-pressure ulcer,Skin,2,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of other part of right foot limited to breakdown of skin,Non-pressure ulcer,Skin,8,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of other part of right foot with fat layer exposed,Non-pressure ulcer,Skin,9,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of other part of right foot with necrosis of muscle,Non-pressure ulcer,Skin,1,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of other part of right foot with unspecified severity,Non-pressure ulcer,Skin,13,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of other part of right lower leg with unspecified severity,Non-pressure ulcer,Skin,2,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of other part of unspecified foot limited to breakdown of skin,Non-pressure ulcer,Skin,5,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of other part of unspecified foot with fat layer exposed,Non-pressure ulcer,Skin,3,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of other part of unspecified foot with unspecified severity,Non-pressure ulcer,Skin,6,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of right ankle with fat layer exposed,Non-pressure ulcer,Skin,2,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of right ankle with unspecified severity,Non-pressure ulcer,Skin,3,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of right calf limited to breakdown of skin,Non-pressure ulcer,Skin,2,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of right calf with fat layer exposed,Non-pressure ulcer,Skin,2,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of right heel and midfoot limited to breakdown of skin,Non-pressure ulcer,Skin,3,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of right heel and midfoot with unspecified severity,Non-pressure ulcer,Skin,5,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of right thigh with fat layer exposed,Non-pressure ulcer,Skin,1,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of skin of other sites limited to breakdown of skin,Non-pressure ulcer,Skin,5,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of skin of other sites with fat layer exposed,Non-pressure ulcer,Skin,4,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of skin of other sites with unspecified severity,Non-pressure ulcer,Skin,11,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of unspecified ankle with unspecified severity,Non-pressure ulcer,Skin,1,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of unspecified calf limited to breakdown of skin,Non-pressure ulcer,Skin,1,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of unspecified calf with fat layer exposed,Non-pressure ulcer,Skin,1,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of unspecified heel and midfoot with fat layer exposed,Non-pressure ulcer,Skin,2,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of unspecified heel and midfoot with unspecified severity,Non-pressure ulcer,Skin,4,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of unspecified part of left lower leg limited to breakdown of skin,Non-pressure ulcer,Skin,5,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of unspecified part of left lower leg with fat layer exposed,Non-pressure ulcer,Skin,1,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of unspecified part of left lower leg with unspecified severity,Non-pressure ulcer,Skin,11,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of unspecified part of right lower leg limited to breakdown of skin,Non-pressure ulcer,Skin,2,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of unspecified part of right lower leg with fat layer exposed,Non-pressure ulcer,Skin,2,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of unspecified part of right lower leg with necrosis of muscle,Non-pressure ulcer,Skin,1,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of unspecified part of right lower leg with unspecified severity,Non-pressure ulcer,Skin,4,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of unspecified part of unspecified lower leg with fat layer exposed,Non-pressure ulcer,Skin,2,
+Non-pressure ulcer of skin,Non-pressure chronic ulcer of unspecified part of unspecified lower leg with unspecified severity,Non-pressure ulcer,Skin,7,
+Other specified and unspecified skin disorders,Acanthosis nigricans,Skin disorder,Skin,9,
+Other specified and unspecified skin disorders,Acne keloid,Skin disorder,Skin,4,
+Other specified and unspecified skin disorders,Acquired keratosis [keratoderma] palmaris et plantaris,Skin disorder,Skin,8,
+Other specified and unspecified skin disorders,Actinic keratosis,Skin disorder,Skin,69,
+Other specified and unspecified skin disorders,"Alopecia areata, unspecified",Skin disorder,Skin,7,
+Other specified and unspecified skin disorders,"Androgenic alopecia, unspecified",Skin disorder,Skin,9,
+Other specified and unspecified skin disorders,"Atrophic disorder of skin, unspecified",Skin disorder,Skin,4,
+Other specified and unspecified skin disorders,Cafe au lait spots,Skin disorder,Skin,1,
+Other specified and unspecified skin disorders,Calcinosis cutis,Skin disorder,Skin,3,
+Other specified and unspecified skin disorders,Chloasma,Skin disorder,Skin,6,
+Other specified and unspecified skin disorders,"Cicatricial alopecia, unspecified",Skin disorder,Skin,3,
+Other specified and unspecified skin disorders,Corns and callosities,Skin disorder,Skin,10,
+Other specified and unspecified skin disorders,"Disorder of pigmentation, unspecified",Skin disorder,Skin,39,
+Other specified and unspecified skin disorders,"Disorder of the skin and subcutaneous tissue, unspecified",Skin disorder,Skin,246,
+Other specified and unspecified skin disorders,Dyshidrosis [pompholyx],Skin disorder,Skin,8,
+Other specified and unspecified skin disorders,"Eccrine sweat disorder, unspecified",Skin disorder,Skin,1,
+Other specified and unspecified skin disorders,Epidermal cyst,Skin disorder,Skin,34,
+Other specified and unspecified skin disorders,"Epidermal thickening, unspecified",Skin disorder,Skin,6,
+Other specified and unspecified skin disorders,"Follicular cyst of the skin and subcutaneous tissue, unspecified",Skin disorder,Skin,19,
+Other specified and unspecified skin disorders,"Follicular disorder, unspecified",Skin disorder,Skin,32,
+Other specified and unspecified skin disorders,Foreign body granuloma of the skin and subcutaneous tissue,Skin disorder,Skin,3,
+Other specified and unspecified skin disorders,Freckles,Skin disorder,Skin,2,
+Other specified and unspecified skin disorders,Granuloma faciale [eosinophilic granuloma of skin],Skin disorder,Skin,1,
+Other specified and unspecified skin disorders,"Granulomatous disorder of the skin and subcutaneous tissue, unspecified",Skin disorder,Skin,11,
+Other specified and unspecified skin disorders,Hirsutism,Skin disorder,Skin,21,
+Other specified and unspecified skin disorders,"Hypertrophic disorder of the skin, unspecified",Skin disorder,Skin,5,
+Other specified and unspecified skin disorders,Hypertrophic scar,Skin disorder,Skin,12,
+Other specified and unspecified skin disorders,Inflamed seborrheic keratosis,Skin disorder,Skin,17,
+Other specified and unspecified skin disorders,Ingrowing nail,Skin disorder,Skin,26,
+Other specified and unspecified skin disorders,Lichen sclerosus et atrophicus,Skin disorder,Skin,7,
+Other specified and unspecified skin disorders,Localized scleroderma [morphea],Skin disorder,Skin,3,
+Other specified and unspecified skin disorders,Miliaria rubra,Skin disorder,Skin,4,
+Other specified and unspecified skin disorders,"Nail disorder, unspecified",Skin disorder,Skin,10,
+Other specified and unspecified skin disorders,Nail dystrophy,Skin disorder,Skin,13,
+Other specified and unspecified skin disorders,"Nonscarring hair loss, unspecified",Skin disorder,Skin,173,
+Other specified and unspecified skin disorders,Onychogryphosis,Skin disorder,Skin,12,
+Other specified and unspecified skin disorders,Onycholysis,Skin disorder,Skin,3,
+Other specified and unspecified skin disorders,Other androgenic alopecia,Skin disorder,Skin,2,
+Other specified and unspecified skin disorders,Other atrophic disorders of skin,Skin disorder,Skin,1,
+Other specified and unspecified skin disorders,Other cicatricial alopecia,Skin disorder,Skin,2,
+Other specified and unspecified skin disorders,Other disorders of diminished melanin formation,Skin disorder,Skin,1,
+Other specified and unspecified skin disorders,Other disorders of skin and subcutaneous tissue in diseases classified elsewhere,Skin disorder,Skin,2,
+Other specified and unspecified skin disorders,Other eccrine sweat disorders,Skin disorder,Skin,1,
+Other specified and unspecified skin disorders,Other granulomatous disorders of the skin and subcutaneous tissue,Skin disorder,Skin,1,
+Other specified and unspecified skin disorders,Other hair color and hair shaft abnormalities,Skin disorder,Skin,3,
+Other specified and unspecified skin disorders,Other hypertrophic disorders of the skin,Skin disorder,Skin,28,
+Other specified and unspecified skin disorders,Other infiltrative disorders of the skin and subcutaneous tissue,Skin disorder,Skin,11,
+Other specified and unspecified skin disorders,Other melanin hyperpigmentation,Skin disorder,Skin,98,
+Other specified and unspecified skin disorders,Other nail disorders,Skin disorder,Skin,19,
+Other specified and unspecified skin disorders,Other seborrheic keratosis,Skin disorder,Skin,100,
+Other specified and unspecified skin disorders,Other specified disorders of pigmentation,Skin disorder,Skin,11,
+Other specified and unspecified skin disorders,Other specified disorders of the skin and subcutaneous tissue,Skin disorder,Skin,14,
+Other specified and unspecified skin disorders,Other specified epidermal thickening,Skin disorder,Skin,9,
+Other specified and unspecified skin disorders,Other specified nonscarring hair loss,Skin disorder,Skin,7,
+Other specified and unspecified skin disorders,Pigmented purpuric dermatosis,Skin disorder,Skin,2,
+Other specified and unspecified skin disorders,Pilar cyst,Skin disorder,Skin,2,
+Other specified and unspecified skin disorders,Postinflammatory hyperpigmentation,Skin disorder,Skin,10,
+Other specified and unspecified skin disorders,"Primary focal hyperhidrosis, axilla",Skin disorder,Skin,2,
+Other specified and unspecified skin disorders,"Primary focal hyperhidrosis, palms",Skin disorder,Skin,1,
+Other specified and unspecified skin disorders,"Primary focal hyperhidrosis, soles",Skin disorder,Skin,2,
+Other specified and unspecified skin disorders,Pseudofolliculitis barbae,Skin disorder,Skin,3,
+Other specified and unspecified skin disorders,Pyogenic granuloma,Skin disorder,Skin,3,
+Other specified and unspecified skin disorders,Scar conditions and fibrosis of skin,Skin disorder,Skin,41,
+Other specified and unspecified skin disorders,Sebaceous cyst,Skin disorder,Skin,25,
+Other specified and unspecified skin disorders,Striae atrophicae,Skin disorder,Skin,1,
+Other specified and unspecified skin disorders,Telogen effluvium,Skin disorder,Skin,13,
+Other specified and unspecified skin disorders,Vitiligo,Skin disorder,Skin,4,
+Other specified and unspecified skin disorders,Xerosis cutis,Skin disorder,Skin,62,
+Skin/Subcutaneous signs and symptoms,Anesthesia of skin,Skin s/s,Skin,174,Abnormal sensation
+Skin/Subcutaneous signs and symptoms,Changes in skin texture,Skin s/s,Skin,20,Other
+Skin/Subcutaneous signs and symptoms,Cyanosis,Skin s/s,Skin,3,Other
+Skin/Subcutaneous signs and symptoms,Flushing,Skin s/s,Skin,45,Flushing
+Skin/Subcutaneous signs and symptoms,Hyperesthesia,Skin s/s,Skin,1,Abnormal sensation
+Skin/Subcutaneous signs and symptoms,Hypoesthesia of skin,Skin s/s,Skin,2,Abnormal sensation
+Skin/Subcutaneous signs and symptoms,"Localized swelling, mass and lump, head",Skin s/s,Skin,37,Swelling/mass
+Skin/Subcutaneous signs and symptoms,"Localized swelling, mass and lump, left lower limb",Skin s/s,Skin,22,Swelling/mass
+Skin/Subcutaneous signs and symptoms,"Localized swelling, mass and lump, left upper limb",Skin s/s,Skin,18,Swelling/mass
+Skin/Subcutaneous signs and symptoms,"Localized swelling, mass and lump, lower limb, bilateral",Skin s/s,Skin,8,Swelling/mass
+Skin/Subcutaneous signs and symptoms,"Localized swelling, mass and lump, neck",Skin s/s,Skin,65,Swelling/mass
+Skin/Subcutaneous signs and symptoms,"Localized swelling, mass and lump, right lower limb",Skin s/s,Skin,19,Swelling/mass
+Skin/Subcutaneous signs and symptoms,"Localized swelling, mass and lump, right upper limb",Skin s/s,Skin,23,Swelling/mass
+Skin/Subcutaneous signs and symptoms,"Localized swelling, mass and lump, trunk",Skin s/s,Skin,32,Swelling/mass
+Skin/Subcutaneous signs and symptoms,"Localized swelling, mass and lump, unspecified",Skin s/s,Skin,11,Swelling/mass
+Skin/Subcutaneous signs and symptoms,"Localized swelling, mass and lump, unspecified lower limb",Skin s/s,Skin,3,Swelling/mass
+Skin/Subcutaneous signs and symptoms,"Localized swelling, mass and lump, unspecified upper limb",Skin s/s,Skin,2,Swelling/mass
+Skin/Subcutaneous signs and symptoms,"Localized swelling, mass and lump, upper limb, bilateral",Skin s/s,Skin,1,Swelling/mass
+Skin/Subcutaneous signs and symptoms,Other disturbances of skin sensation,Skin s/s,Skin,17,Abnormal sensation
+Skin/Subcutaneous signs and symptoms,Other skin changes,Skin s/s,Skin,43,Other
+Skin/Subcutaneous signs and symptoms,Pallor,Skin s/s,Skin,2,Other
+Skin/Subcutaneous signs and symptoms,Paresthesia of skin,Skin s/s,Skin,206,Abnormal sensation
+Skin/Subcutaneous signs and symptoms,Rash and other nonspecific skin eruption,Skin s/s,Skin,358,Rash
+Skin/Subcutaneous signs and symptoms,Spontaneous ecchymoses,Skin s/s,Skin,13,Other
+Skin/Subcutaneous signs and symptoms,Unspecified disturbances of skin sensation,Skin s/s,Skin,11,Abnormal sensation
+Skin/Subcutaneous signs and symptoms,Unspecified skin changes,Skin s/s,Skin,3,Other
