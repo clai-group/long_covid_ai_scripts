@@ -48,11 +48,13 @@ rm(df_infect)
 colnames(df_infect_covpts)[colnames(df_infect_covpts) == "start_date"] <- "cov_date"
 
 colnames(cases) <- tolower(colnames(cases))
-cases$patient_num <- as.integer(cases$patient_num) # NOT INTEGER
+#cases$patient_num <- as.integer(cases$patient_num) # NOT INTEGER
 colnames(cases)[colnames(cases) == "start_date"] <- "phenx_date"
 cases$phenx_date <- as.Date(cases$phenx_date, format="%Y-%m-%d")
 
 map <- merge(df_infect_covpts, cases, by = c("patient_num", "phenx"), all.x=TRUE)
+map$phenx_date <- as.Date(map$phenx_date, format="%Y-%m-%d")
+map$cov_date <- as.Date(map$cov_date, format="%Y-%m-%d")
 
 # 0 = [0,14], 1= (14, 30], 2=(30,60],3=(60,90], 4=(90,120], 5=(120,150]
 map_date <- map %>% filter(
@@ -65,7 +67,7 @@ rm(map)
 
 colnames(map_date) <- tolower(colnames(map_date))
 map_date <- map_date[, c("patient_num", "phenx","phenx_date","duration","durationbucket", "infection", 
-                         "concept_cd", "cov_date", "icd10_desc")]# 
+                        "cov_date", "icd10_desc")]# 
 ##add organ, modified CCSR category, and clinical problem
 colnames(ref_combo_organ) <- tolower(colnames(ref_combo_organ))
 ref_combo_organ <- ref_combo_organ[, -c("count")]
@@ -102,16 +104,16 @@ df <- longhaulers %>%
 na <- df[is.na(df$organ),]
 
 duration_count = df %>% group_by(duration, organ, combo) %>%
-  summarise(count = n())
+  dplyr::summarise(count = n())
 
 new_duration_all_count = df %>% group_by(organ) %>%
-  summarise(count_organ = n())
+  dplyr::summarise(count_organ = n())
 
 # df %>% group_by(Organ) %>%
 #   summarise(count_organ = n_distinct(patient_num))
 # the number in that duration / the number of cases in all durations within just that combo
 duration_combo_count = df %>% group_by(organ, combo) %>%
-  summarise(count_combo = n())
+  dplyr::summarise(count_combo = n())
 
 save(duration_count, file= paste0(outputDirectory,"/longhaulers_duration_organ_combo_count_",site, ".RData"))
 save(duration_all_count, file= paste0(outputDirectory,"/longhaulers_organ_count_",site, ".RData"))

@@ -33,7 +33,7 @@ require(tidyr)
 #devtools::install_github("hestiri/mlho")
 require(mlho)
 require(DT)
-pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,scales,readr,RcppParallel,
+pacman::p_load(data.table, devtools, backports, Hmisc, tidyr,dplyr,ggplot2,plyr,scales,readr,RcppParallel,RcppEigen,
                httr, DT, lubridate, tidyverse,reshape2,foreach,doParallel,caret,gbm,lubridate,praznik,epitools,tcltk)
 
 
