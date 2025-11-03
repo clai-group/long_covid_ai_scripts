@@ -74,7 +74,7 @@ if ((ms_rate) < 0.9){
 }
 
 # Mapping results ------------------------------------ 
-smr_df_ICD10 <- df_rmdup %>% group_by(DOMAIN) %>% dplyr::ummarise(nunique=n_distinct(ICD10), total = n())
+smr_df_ICD10 <- df_rmdup %>% group_by(DOMAIN) %>% dplyr::summarise(nunique=n_distinct(ICD10), total = n())
 smr_mapped <- df_mapped %>% group_by(DOMAIN) %>% dplyr::summarise(nunique=n_distinct(ICD10), total=n())
 
 result <-  cbind(smr_mapped, round(smr_mapped[-1]/smr_df_ICD10[-1]*100, digits = 3))
