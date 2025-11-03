@@ -376,7 +376,7 @@ gc()
 
 
 #load chunks and merge
-load(apdativeDbFilenName)
+#load(apdativeDbFilenName)
 
 for(i in seq(1:numOfChunks)){
   dbFileName = paste0(dbBaseFileName, i, ".RData")
