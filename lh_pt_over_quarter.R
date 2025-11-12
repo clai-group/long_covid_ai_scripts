@@ -69,3 +69,13 @@ pt_count <- cov_pt_counts %>%
   mutate(percentage = round((lh_pt_count / cov_pt_count) * 100, 3))
 
 write.csv(pt_count, file= paste0(outputDirectory,"/pt_counts_overquarter_",site, ".csv"), row.names = FALSE)
+
+df <- longhaulers_final %>% 
+  ungroup()%>%
+  select("organ", "combo","duration", "subcombo", "patient_num") %>%
+  distinct()
+
+subcombo <- df %>% group_by(organ, combo, subcombo) %>%
+  summarise(count = n())
+
+write.csv(subcombo, file= paste0(outputDirectory,"/subcombo_count_",site, ".csv"), row.names = FALSE)
