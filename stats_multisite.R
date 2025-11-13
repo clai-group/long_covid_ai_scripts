@@ -121,8 +121,7 @@ lapply(1:length(stat), function(i) write.csv(stat[[i]],
 # Output Longhaulers organ combo count ---------------
 df <- longhaulers_final %>% 
   ungroup()%>%
-  select("organ", "combo","duration", "subcombo", "patient_num") %>%
-  distinct()
+  select("organ", "combo","duration", "subcombo", "patient_num")
 
 duration_count = df %>% group_by(duration, organ, combo) %>%
   summarise(count = n())
@@ -133,9 +132,16 @@ duration_organ_count = df %>% group_by(organ) %>%
 duration_combo_count = df %>% group_by(organ, combo) %>%
   summarise(count_combo = n())
 
-save(duration_count, file= paste0(outputDirectory,"/longhaulers_duration_organ_combo_count_",site, ".RData"))
-save(duration_organ_count, file= paste0(outputDirectory,"/longhaulers_organ_count_",site, ".RData"))
-save(duration_combo_count, file= paste0(outputDirectory,"/longhaulers_organ_combo_count_",site, ".RData"))
+subcombo <- df %>% group_by(organ, combo, subcombo) %>%
+  summarise(count = n())
+
+# save(duration_count, file= paste0(outputDirectory,"/longhaulers_duration_organ_combo_count_",site, ".RData"))
+# save(duration_organ_count, file= paste0(outputDirectory,"/longhaulers_organ_count_",site, ".RData"))
+# save(duration_combo_count, file= paste0(outputDirectory,"/longhaulers_organ_combo_count_",site, ".RData"))
+write.csv(duration_count, file= paste0(outputDirectory,"/longhaulers_duration_organ_combo_count_",site, ".csv"), row.names = FALSE)
+write.csv(duration_organ_count, file= paste0(outputDirectory,"/longhaulers_organ_count_",site, ".csv"), row.names = FALSE)
+write.csv(duration_combo_count, file= paste0(outputDirectory,"/longhaulers_organ_combo_count_",site, ".csv"), row.names = FALSE)
+write.csv(subcombo, file= paste0(outputDirectory,"/longhaulers_subcombo_count_",site, ".csv"), row.names = FALSE)
 
 
 # Output Prevalence over quarters ---------------
@@ -168,7 +174,7 @@ lh_pt_counts <- all_quarters %>%
   left_join(
     longhaulers_final %>%
       crossing(all_quarters) %>%
-      filter(phenx_date <= quarter_end) %>%
+      filter(as.Date(cov_date)) <= quarter_end) %>%
       group_by(quarter_label) %>%
       summarise(
         lh_pt_count = n_distinct(patient_num),
@@ -183,4 +189,5 @@ pt_count <- cov_pt_counts %>%
   left_join(lh_pt_counts, by = "quarter_label") %>%
   mutate(percentage = round((lh_pt_count / cov_pt_count) * 100, 3))
 
-save(pt_count, file= paste0(outputDirectory,"/pt_counts_overquarter_",site, ".RData"))
+# save(pt_count, file= paste0(outputDirectory,"/pt_counts_overquarter_",site, ".RData"))
+write.csv(pt_count, file= paste0(outputDirectory,"/pt_counts_overquarter_",site, ".csv"), row.names = FALSE)
