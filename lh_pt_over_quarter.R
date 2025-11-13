@@ -72,8 +72,7 @@ write.csv(pt_count, file= paste0(outputDirectory,"/pt_counts_overquarter_",site,
 
 df <- longhaulers_final %>% 
   ungroup()%>%
-  select("organ", "combo","duration", "subcombo", "patient_num") %>%
-  distinct()
+  select("organ", "combo","duration", "subcombo", "patient_num")
 
 subcombo <- df %>% group_by(organ, combo, subcombo) %>%
   summarise(count = n())
