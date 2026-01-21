@@ -191,3 +191,15 @@ pt_count <- cov_pt_counts %>%
 
 # save(pt_count, file= paste0(outputDirectory,"/pt_counts_overquarter_",site, ".RData"))
 write.csv(pt_count, file= paste0(outputDirectory,"/pt_counts_overquarter_",site, ".csv"), row.names = FALSE)
+
+# Output chronic counts ---------------
+chronic_sizes <- longhaulers_final %>%
+  group_by(Chronic_Status) %>%
+  summarise(count_pt = n_distinct(patient_num), 
+            count_condition = n(),
+            .groups = "drop"  )%>%  
+  bind_rows(tibble(Chronic_Status = "Total_from_lh", 
+                     count_pt = n_distinct(longhaulers_final$patient_num),
+                     count_condition = nrow(longhaulers_final)))
+
+write.csv(chronic_sizes, file= paste0(outputDirectory,"/chronic_lh_ptcount_",site, ".csv"), row.names = FALSE)
