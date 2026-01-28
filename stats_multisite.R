@@ -1,6 +1,7 @@
 library(readr)
 library(dplyr)
 library(tidyr)
+library(stringr)
 library(lubridate)
 library(data.table)
 
@@ -13,13 +14,13 @@ choose_directory = function(caption = 'Select directory') {
 }
 
 # Input data ------
-site <- "" ## UCLA, UTH
+site <- "" ## UCLA, UTH, PITT
 cohort <- "longhaulers"
 longhaulers_file <- file.choose()  ## longhaulers_site.RData under output folder
 cov_pats_file <- file.choose() ## cov_pats.RData under output folder
 dems_file_path <- file.choose() ## dems_cases.csv under data/cases folder
-icds_map_file <- file.choose() ## icds_map_likelihood.csv
-ref_combo_organ_file <- file.choose() ## combo_update_202511.csv
+icds_map_file <- file.choose() ## icds_map_likelihood_202601.csv
+ref_combo_organ_file <- file.choose() ## combo_update_202601.csv
 outputDirectory <- choose_directory(caption = "select output data directory")
 
 # Load data ------
@@ -30,7 +31,7 @@ icds_map <- data.table::fread(icds_map_file)
 ref_combo_organ <-  data.table::fread(ref_combo_organ_file)
 
 
-if(site == "UTH"){
+if(site == "UTH" || site == "PITT"){
   #### For UTH
   map_lh <- longhaulers %>%
     rename(concept_cd_old= concept_cd) %>%
@@ -51,7 +52,7 @@ if(site == "UTH"){
 map_lh_filter <- map_lh[map_lh$Long_COVID_Likelihood_Speculative!='Unlikely',]
 
 organ_ln <- map_lh_filter %>%
-  select(-c(organ, combo, subcombo, `Unnamed: 0`)) %>%
+  select(-c(organ, combo, subcombo)) %>%
   left_join(ref_combo_organ, by = c("phenx", "icd10_desc"))
 
 longhaulers_final <- organ_ln[!is.na(organ_ln$organ), ]
@@ -123,13 +124,13 @@ df <- longhaulers_final %>%
   ungroup()%>%
   select("organ", "combo","duration", "subcombo", "patient_num")
 
-duration_count = df %>% group_by(duration, organ, combo) %>%
+duration_count <- df %>% group_by(duration, organ, combo) %>%
   summarise(count = n())
 
-duration_organ_count = df %>% group_by(organ) %>%
+duration_organ_count <- df %>% group_by(organ) %>%
   summarise(count_organ = n())
 
-duration_combo_count = df %>% group_by(organ, combo) %>%
+duration_combo_count <- df %>% group_by(organ, combo) %>%
   summarise(count_combo = n())
 
 subcombo <- df %>% group_by(organ, combo, subcombo) %>%
@@ -174,16 +175,16 @@ lh_pt_counts <- all_quarters %>%
   left_join(
     longhaulers_final %>%
       crossing(all_quarters) %>%
-      filter(as.Date(cov_date)) <= quarter_end) %>%
+      filter(as.Date(cov_date) <= quarter_end) %>%
       group_by(quarter_label) %>%
       summarise(
         lh_pt_count = n_distinct(patient_num),
         .groups = "drop"
       ),
-    by = "quarter_label"
-  ) %>%
+    by = "quarter_label") %>%
   mutate(lh_pt_count = replace_na(lh_pt_count, 0)) %>%
   select(quarter_label, lh_pt_count)
+
 
 pt_count <- cov_pt_counts %>%
   left_join(lh_pt_counts, by = "quarter_label") %>%
